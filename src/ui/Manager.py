@@ -1,5 +1,4 @@
 import customtkinter as ctk
-import tkinter as tk
 from ui.Home import Home
 from ui.Login import Login
 

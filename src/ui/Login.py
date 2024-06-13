@@ -4,6 +4,8 @@ class Login(ctk.CTkFrame):
     def __init__(self, root):
         super().__init__(root, fg_color="red")
 
+        self.root = root
+
         # self.home_btn = ctk.CTkButton(self, text="Home", command=lambda : root.showFrame("Home"))
         # self.home_btn.pack()
 
