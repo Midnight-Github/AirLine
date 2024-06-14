@@ -23,3 +23,9 @@ class Manager(ctk.CTk):
 
     def showFrame(self, frame):
         self.pages[frame].tkraise()
+
+    def reinitFrame(self, frame):
+        self.pages[frame].destroy()
+        f = self.page_class[frame](self)
+        f.grid(row=0, column=0, sticky="nesw")
+        self.pages[frame] = f
