@@ -51,13 +51,13 @@ class Login(login_template):
             next(reader)
             for username, password, pemission in reader:
                 if input_username == username and input_password == password:
-                    print("Login passed!")
+                    self.root.reinitFrame("Login")
+                    self.root.showFrame("Home")
                     return
-            print("Login failed!")
 
             self.username_entry.configure(border_color="red")
             self.password_entry.configure(border_color="red")
                     
     def backEvent(self):
         self.root.reinitFrame("Login")
-        self.root.showFrame("Home")
+        self.root.showFrame("FrontPage")
