@@ -2,6 +2,7 @@ import customtkinter as ctk
 import csv
 from os import path
 from template.Login import Login as login_template
+from var.Globals import user_data_manager
 
 class Login(login_template):
     def __init__(self, root):
@@ -49,8 +50,13 @@ class Login(login_template):
             reader = csv.reader(f)
 
             next(reader)
-            for username, password, pemission in reader:
+            for username, password, permission in reader:
                 if input_username == username and input_password == password:
+                    with open(path.dirname(__file__) + "\\..\\users\\user.toml", 'w') as f:
+                        user_data_manager.data["current"]["name"] = input_username
+                        user_data_manager.data["current"]["permission"] = permission
+                        user_data_manager.data["current"]["signin"] = True
+                        user_data_manager.push()
                     self.root.reinitFrame("Login")
                     self.root.showFrame("Home")
                     return
