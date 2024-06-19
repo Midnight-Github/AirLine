@@ -25,7 +25,7 @@ class Login(ctk.CTkFrame):
 
     def setBgSize(self):
         height = self.winfo_height()
-        width = self.winfo_width()*0.75
+        width = self.winfo_width()
         self.bg_img = ctk.CTkImage(dark_image=Image.open(self.bg_img_path), light_image=Image.open(self.bg_img_path), size=(width, height))
 
     def resizeBgImg(self, e):

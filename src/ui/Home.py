@@ -5,3 +5,5 @@ class Home(ctk.CTkFrame):
         super().__init__(root)
 
         self.root = root
+
+        
