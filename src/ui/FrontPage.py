@@ -28,4 +28,4 @@ class FrontPage(login_template):
         self.root.showFrame("Login")
 
     def signinAccount(self):
-        self.root.showFrame("Signin")
+        self.root.showFrame("SignUp")

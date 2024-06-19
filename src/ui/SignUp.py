@@ -1,7 +1,5 @@
 import customtkinter as ctk
-import tkinter as tk
 from os import path
-from PIL import Image
 from template.Login import Login as signup_template
 import csv
 
@@ -34,14 +32,15 @@ class SignUp(signup_template):
         self.back_btn.grid(row=4, column=0, padx=(30, 0), pady=15)
 
     def backEvent(self):    
-        self.root.showFrame("Home")
+        self.root.reinitFrame("SignUp")
+        self.root.showFrame("FrontPage")
 
     def SignUpEvent(self):
-        with open(path.dirname(__file__)+"\\..\\users\\accounts.csv",'r+')as accounts:
+        with open(path.dirname(__file__)+"\\..\\users\\accounts.csv",'r+', newline='')as accounts:
             reader=csv.reader(accounts)
             next(reader)
             if next(reader) == None:
-                for username,password in reader:
+                for username, password, permission in reader:
                     if self.username_entry.get()==username:
                         self.username_exist=ctk.CTkLabel(self.signup_frame, text="Username already exists", 
                                                         font=ctk.CTkFont(size=15))
@@ -53,7 +52,7 @@ class SignUp(signup_template):
                     writer.writerow([self.username_entry.get(),self.password_entry.get()])
                 elif self.password_entry.get() != self.confpassword_entry.get():
                     self.password_err=ctk.CTkLabel(self.signup_frame, text="Make sure the password is same", 
-                                                     font=ctk.CTkFont(size=15))
+                                                    font=ctk.CTkFont(size=15))
                     self.password_err.grid(row=5,column=0, columnspan=2)
             else:
                 self.username_entry.configure(border_width=1,border_color='red')
