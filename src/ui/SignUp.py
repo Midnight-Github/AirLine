@@ -3,7 +3,6 @@ from os import path
 from template.Login import Login as signup_template
 import csv
 
-
 class SignUp(signup_template):
     def __init__(self, root):
         super().__init__(root)
@@ -35,7 +34,7 @@ class SignUp(signup_template):
         self.root.reinitFrame("SignUp")
         self.root.showFrame("FrontPage")
 
-    def SignUpEvent(self):
+    def SignUpEvent(self): #cannot use None in username
         with open(path.dirname(__file__)+"\\..\\users\\accounts.csv",'r+', newline='')as accounts:
             reader=csv.reader(accounts)
             next(reader)
@@ -43,7 +42,7 @@ class SignUp(signup_template):
                 for username, password, permission in reader:
                     if self.username_entry.get()==username:
                         self.username_exist=ctk.CTkLabel(self.signup_frame, text="Username already exists", 
-                                                        font=ctk.CTkFont(size=15))
+                                                        font=ctk.CTkFont(size=15)) # dont stack labels, it will cause memory loss
                         self.username_exist.grid(row=5,column=0, columnspan=2)
                         return
             writer=csv.writer(accounts)

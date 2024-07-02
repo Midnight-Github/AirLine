@@ -55,7 +55,6 @@ class Login(login_template):
                     with open(path.dirname(__file__) + "\\..\\users\\user.toml", 'w') as f:
                         user_data_manager.data["current"]["name"] = input_username
                         user_data_manager.data["current"]["permission"] = permission
-                        user_data_manager.data["current"]["signin"] = True
                         user_data_manager.push()
                     self.root.reinitFrame("Login")
                     self.root.showFrame("Home")

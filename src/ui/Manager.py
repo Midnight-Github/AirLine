@@ -3,6 +3,8 @@ from ui.Home import Home
 from ui.Login import Login
 from ui.FrontPage import FrontPage
 from ui.SignUp import SignUp
+from ui.Flights import Flights
+from var.Globals import user_data_manager
 
 class Manager(ctk.CTk):
     def __init__(self):
@@ -13,7 +15,7 @@ class Manager(ctk.CTk):
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
 
-        self.page_class = {"Home": Home, "Login": Login, "FrontPage": FrontPage, "SignUp": SignUp}
+        self.page_class = {"Home": Home, "Login": Login, "FrontPage": FrontPage, "SignUp": SignUp, "Flights": Flights}
 
         self.pages = dict()
         for frame_name, Frame in self.page_class.items():
@@ -21,8 +23,11 @@ class Manager(ctk.CTk):
             frame.grid(row=0, column=0, sticky="nesw")
             self.pages[frame_name] = frame
 
-        self.showFrame("FrontPage")
-
+        if user_data_manager.data["current"]["name"] == False:
+            self.showFrame("FrontPage")
+        else:
+            self.showFrame("Home")
+            
     def showFrame(self, frame):
         self.pages[frame].tkraise()
 
