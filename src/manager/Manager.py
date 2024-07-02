@@ -1,10 +1,10 @@
 import customtkinter as ctk
-from ui.Home import Home
-from ui.Login import Login
-from ui.FrontPage import FrontPage
-from ui.SignUp import SignUp
-from ui.Flights import Flights
 from var.Globals import user_data_manager
+from authentication.Login import Login
+from authentication.FrontPage import FrontPage
+from authentication.SignUp import SignUp
+from home.Home import Home
+from home.Flights import Flights
 
 class Manager(ctk.CTk):
     def __init__(self):
@@ -15,7 +15,7 @@ class Manager(ctk.CTk):
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
 
-        self.page_class = {"Home": Home, "Login": Login, "FrontPage": FrontPage, "SignUp": SignUp, "Flights": Flights}
+        self.page_class = {"Login": Login, "FrontPage": FrontPage, "SignUp": SignUp, "Home": Home, "Flights": Flights}
 
         self.pages = dict()
         for frame_name, Frame in self.page_class.items():
@@ -36,3 +36,7 @@ class Manager(ctk.CTk):
         f = self.page_class[frame](self)
         f.grid(row=0, column=0, sticky="nesw")
         self.pages[frame] = f
+
+    def reinitFrameAll(self):
+        for i in self.page_class.keys():
+            self.reinitFrame(i)

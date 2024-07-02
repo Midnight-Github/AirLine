@@ -1,4 +1,4 @@
-from ui.Manager import Manager
+from manager.Manager import Manager
 
 if __name__ == "__main__":
     Manager().mainloop()
