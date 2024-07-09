@@ -53,7 +53,6 @@ class Login(login_template):
                     user_manager.data["current"]["name"] = input_username
                     user_manager.data["current"]["permission"] = permission
                     user_manager.push()
-                    self.root.reinitFrame("Login")
                     self.root.showFrame("Home")
                     return
 
