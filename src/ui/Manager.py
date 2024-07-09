@@ -1,10 +1,10 @@
 import customtkinter as ctk
-from var.Globals import user_data_manager
-from authentication.Login import Login
-from authentication.FrontPage import FrontPage
-from authentication.SignUp import SignUp
-from home.Home import Home
-from home.Flights import Flights
+from var.Globals import user_manager
+from ui.Login import Login
+from ui.FrontPage import FrontPage
+from ui.SignUp import SignUp
+from ui.Home import Home
+from ui.Flights import Flights
 
 class Manager(ctk.CTk):
     def __init__(self):
@@ -23,7 +23,7 @@ class Manager(ctk.CTk):
             frame.grid(row=0, column=0, sticky="nesw")
             self.pages[frame_name] = frame
 
-        if user_data_manager.data["current"]["name"] == False:
+        if user_manager.data["current"]["name"] == "None":
             self.showFrame("FrontPage")
         else:
             self.showFrame("Home")

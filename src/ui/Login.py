@@ -2,7 +2,7 @@ import customtkinter as ctk
 import csv
 from os import path
 from template.Login import Login as login_template
-from var.Globals import user_data_manager
+from var.Globals import user_manager
 
 class Login(login_template):
     def __init__(self, root):
@@ -20,10 +20,9 @@ class Login(login_template):
         self.login_label = ctk.CTkLabel(self.login_frame, text="Login", font=ctk.CTkFont(size=30, weight="bold"))
         self.login_label.grid(row=0, column=0, padx=30, pady=(0, 15), columnspan=2)
 
-        self.username_entry = ctk.CTkEntry(self.login_frame, width=200, placeholder_text="username")
+        self.username_entry = ctk.CTkEntry(self.login_frame, width=200, placeholder_text="username", border_color="grey")
         self.username_entry.grid(row=1, column=0, padx=30, pady=15, columnspan=2)
-
-        self.password_entry = ctk.CTkEntry(self.login_frame, width=200, show="*", placeholder_text="password")
+        self.password_entry = ctk.CTkEntry(self.login_frame, width=200, show="*", placeholder_text="password", border_color="grey")
         self.password_entry.grid(row=2, column=0, padx=30, pady=(0, 15), columnspan=2)
 
         self.login_btn = ctk.CTkButton(self.login_frame, text="Login", command=self.loginEvent, width=100)
@@ -32,11 +31,10 @@ class Login(login_template):
         self.back_btn.grid(row=3, column=0, padx=(30, 0), pady=15)
 
     def loginEvent(self):
+        self.resetFields()
+
         input_username = self.username_entry.get()
         input_password = self.password_entry.get()
-
-        self.username_entry.configure(border_color="gray")
-        self.password_entry.configure(border_color="gray")
 
         if not input_username:
             self.username_entry.configure(border_color="red")
@@ -52,16 +50,19 @@ class Login(login_template):
             next(reader)
             for username, password, permission in reader:
                 if input_username == username and input_password == password:
-                    with open(path.dirname(__file__) + "\\..\\users\\user.toml", 'w') as f:
-                        user_data_manager.data["current"]["name"] = input_username
-                        user_data_manager.data["current"]["permission"] = permission
-                        user_data_manager.push()
+                    user_manager.data["current"]["name"] = input_username
+                    user_manager.data["current"]["permission"] = permission
+                    user_manager.push()
                     self.root.reinitFrame("Login")
                     self.root.showFrame("Home")
                     return
 
-            self.username_entry.configure(border_color="red")
-            self.password_entry.configure(border_color="red")
+        self.username_entry.configure(border_color="red")
+        self.password_entry.configure(border_color="red")
+
+    def resetFields(self):
+        self.username_entry.configure(border_color="gray")
+        self.password_entry.configure(border_color="gray")
                     
     def backEvent(self):
         self.root.reinitFrame("Login")
