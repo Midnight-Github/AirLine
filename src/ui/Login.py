@@ -51,7 +51,7 @@ class Login(login_template):
             for username, password, permission in reader:
                 if input_username == username and input_password == password:
                     user_manager.data["current"]["name"] = input_username
-                    user_manager.data["current"]["permission"] = permission
+                    user_manager.data["current"]["permission"] = int(permission)
                     user_manager.push()
                     self.root.showFrame("Home")
                     return
