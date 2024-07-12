@@ -44,7 +44,7 @@ class Login(login_template):
             self.password_entry.configure(border_color="red")
             return
 
-        with open(path.dirname(__file__) + "//..//users//accounts.csv", mode="r") as f:
+        with open(path.dirname(__file__) + "//..//config//accounts.csv", mode="r") as f:
             reader = csv.reader(f)
 
             next(reader)

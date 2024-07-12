@@ -75,11 +75,11 @@ class SignUp(signup_template):
             self.admin_password.configure(border_color="red")
             return
 
-        if self.username_entry.get().lower() == "none":
-            self.error_text.set(f"Username '{self.username_entry.get()}' is not valid")
+        if self.username_entry.get() == "None":
+            self.error_text.set("Username 'None' is not valid")
             return
 
-        with open(path.dirname(__file__)+"\\..\\users\\accounts.csv",'r+', newline='') as accounts:
+        with open(path.dirname(__file__)+"\\..\\config\\accounts.csv",'r+', newline='') as accounts:
             reader=csv.reader(accounts)
             next(reader)
             for username, _, _ in reader:

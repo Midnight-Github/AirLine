@@ -1,7 +1,6 @@
 from reader.Toml import Toml
 
-#user_manager.data[<head>][<key>]
-user_manager = Toml("\\..\\users\\user.toml")
-
-#admin_manager.data[<head>][<key>]
-admin_manager = Toml("\\..\\users\\admin.toml")
+#<var>.data[<head>][<key>]
+user_manager = Toml("\\..\\config\\user.toml")
+admin_manager = Toml("\\..\\config\\admin.toml")
+database_manager = Toml("\\..\\config\\database.toml")
