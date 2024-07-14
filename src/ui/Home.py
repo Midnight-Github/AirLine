@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from var.Globals import user_manager
+from var.Globals import appdata
 
 class Home(ctk.CTkFrame):
     def __init__(self, root):
@@ -20,8 +20,8 @@ class Home(ctk.CTkFrame):
         self.signout_btn.grid(row=1, column=0)
 
     def signout(self):
-        user_manager.data["current"]["name"] = "None"
-        user_manager.push()
+        appdata.data["user"]["name"] = "None"
+        appdata.push()
 
         self.root.reinitFrameAll()
         self.root.showFrame("FrontPage")

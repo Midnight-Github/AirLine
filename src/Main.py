@@ -1,12 +1,14 @@
 from ui.Manager import Manager
 from mysql.connector import connect
-from var.Const import database_info, create_table_accounts, create_table_flights
+from var.Const import database_info, database_startup_script
+import logging
 
 def main():
     connectDatabase(database_info)
     Manager().mainloop()
 
 def createDatabase(db_info):
+    logging.basicConfig(level=logging.INFO)
     print("Creating database")
     try:
         db = connect(
@@ -22,8 +24,7 @@ def createDatabase(db_info):
     cursor = db.cursor()
     cursor.execute(f"CREATE DATABASE {database_info["name"]};")
     cursor.execute("USE Airline;")
-    cursor.execute(create_table_accounts)
-    cursor.execute(create_table_flights)
+    cursor.execute(database_startup_script)
     db.close()
 
 def connectDatabase(db_info):
@@ -37,6 +38,7 @@ def connectDatabase(db_info):
         )
         db.close()
         print("Connected")
+
     except Exception:
         print("Failed")
         createDatabase(db_info)

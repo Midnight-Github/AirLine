@@ -2,7 +2,7 @@ import customtkinter as ctk
 import csv
 from os import path
 from template.Login import Login as login_template
-from var.Globals import user_manager
+from var.Globals import appdata
 
 class Login(login_template):
     def __init__(self, root):
@@ -50,9 +50,9 @@ class Login(login_template):
             next(reader)
             for username, password, permission in reader:
                 if input_username == username and input_password == password:
-                    user_manager.data["current"]["name"] = input_username
-                    user_manager.data["current"]["permission"] = int(permission)
-                    user_manager.push()
+                    appdata.data["user"]["name"] = input_username
+                    appdata.data["user"]["permission"] = int(permission)
+                    appdata.push()
                     self.root.showFrame("Home")
                     return
 

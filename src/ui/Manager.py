@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from var.Globals import user_manager
+from var.Globals import appdata
 from ui.Login import Login
 from ui.FrontPage import FrontPage
 from ui.SignUp import SignUp
@@ -23,7 +23,7 @@ class Manager(ctk.CTk):
             frame.grid(row=0, column=0, sticky="nesw")
             self.frames[frame_name] = frame
 
-        if user_manager.data["current"]["name"] == "None":
+        if appdata.data["user"]["name"] == "None":
             self.showFrame("FrontPage")
         else:
             self.showFrame("Home")

@@ -3,7 +3,7 @@ import tkinter as tk
 from os import path
 from template.Login import Login as signup_template
 import csv
-from var.Globals import user_manager, admin_manager
+from var.Globals import appdata
 
 class SignUp(signup_template):
     def __init__(self, root):
@@ -89,7 +89,7 @@ class SignUp(signup_template):
 
             permission = 0
             if self.admin_check_box.get() == 1:
-                if self.admin_password.get() == admin_manager.data["info"]["password"]:
+                if self.admin_password.get() == appdata.data["admin"]["password"]:
                     permission = 1
                 else:
                     self.error_text.set("Incorrect admin password")
@@ -99,9 +99,9 @@ class SignUp(signup_template):
             writer = csv.writer(accounts)
             writer.writerow([self.username_entry.get(), self.password_entry.get(), permission])
 
-        user_manager.data["current"]["name"] = self.username_entry.get()
-        user_manager.data["current"]["permission"] = permission
-        user_manager.push()
+        appdata.data["user"]["name"] = self.username_entry.get()
+        appdata.data["user"]["permission"] = permission
+        appdata.push()
 
         self.root.showFrame("Home")
 
