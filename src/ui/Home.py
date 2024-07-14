@@ -1,5 +1,8 @@
 import customtkinter as ctk
 from var.Globals import appdata
+from utils.Logger import Logger
+
+logger = Logger(__name__).logger
 
 class Home(ctk.CTkFrame):
     def __init__(self, root):
@@ -20,6 +23,7 @@ class Home(ctk.CTkFrame):
         self.signout_btn.grid(row=1, column=0)
 
     def signout(self):
+        logger.info(f"User: {appdata.data["user"]["name"]} with permission: {appdata.data["user"]["permission"]} logged out")
         appdata.data["user"]["name"] = "None"
         appdata.push()
 

@@ -1,0 +1,32 @@
+[2024-07-15 00:05:51,843][__main__][INFO]: Welcome to AirLine!
+[2024-07-15 00:05:51,864][__main__][INFO]: Connected to database
+[2024-07-15 00:05:52,163][ui.Manager][INFO]: Showing frame FrontPage
+[2024-07-15 00:05:57,915][ui.Manager][INFO]: Showing frame Login
+[2024-07-15 00:06:03,897][ui.Login][WARNING]: User: user tried to login with password: 1 but failed
+[2024-07-15 00:06:12,294][ui.Login][WARNING]: User: user tried to login with password: 1 but failed
+[2024-07-15 00:06:13,240][ui.Login][WARNING]: User: user tried to login with password: 1 but failed
+[2024-07-15 00:06:15,812][ui.Login][WARNING]: User: user tried to login with password: 1 but failed
+[2024-07-15 00:06:18,203][ui.Manager][INFO]: Reinitialized Login
+[2024-07-15 00:06:18,203][ui.Manager][INFO]: Showing frame FrontPage
+[2024-07-15 00:06:19,716][ui.Manager][INFO]: Showing frame SignUp
+[2024-07-15 00:06:48,936][ui.SignUp][INFO]: user: admin1 with permission: 1 signed up
+[2024-07-15 00:06:48,936][ui.Manager][INFO]: Showing frame Home
+[2024-07-15 00:07:08,943][ui.Manager][INFO]: Showing frame Flights
+[2024-07-15 00:07:12,104][ui.Manager][INFO]: Showing frame Home
+[2024-07-15 00:07:20,492][ui.Home][INFO]: User: admin1 with permission: 1 logged out
+[2024-07-15 00:07:20,581][ui.Manager][INFO]: Reinitialized Login
+[2024-07-15 00:07:20,627][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-07-15 00:07:20,716][ui.Manager][INFO]: Reinitialized SignUp
+[2024-07-15 00:07:20,727][ui.Manager][INFO]: Reinitialized Home
+[2024-07-15 00:07:20,732][ui.Manager][INFO]: Reinitialized Flights
+[2024-07-15 00:07:20,733][ui.Manager][INFO]: Showing frame FrontPage
+[2024-07-15 00:07:27,720][ui.Manager][INFO]: Showing frame Login
+[2024-07-15 00:07:34,979][ui.Login][INFO]: user: admin with permission: 1 logged in
+[2024-07-15 00:07:34,979][ui.Manager][INFO]: Showing frame Home
+[2024-07-15 00:07:39,885][ui.Home][INFO]: User: admin with permission: 1 logged out
+[2024-07-15 00:07:39,971][ui.Manager][INFO]: Reinitialized Login
+[2024-07-15 00:07:40,038][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-07-15 00:07:40,106][ui.Manager][INFO]: Reinitialized SignUp
+[2024-07-15 00:07:40,128][ui.Manager][INFO]: Reinitialized Home
+[2024-07-15 00:07:40,129][ui.Manager][INFO]: Reinitialized Flights
+[2024-07-15 00:07:40,129][ui.Manager][INFO]: Showing frame FrontPage

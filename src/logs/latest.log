@@ -1,0 +1,3 @@
+[2024-07-15 00:09:33,965][__main__][INFO]: Welcome to AirLine!
+[2024-07-15 00:09:34,096][__main__][INFO]: Failed to connect to database
+[2024-07-15 00:09:34,111][__main__][CRITICAL]: Error while connecting to database! Make sure the host, user and password are correct

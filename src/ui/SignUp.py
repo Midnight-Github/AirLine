@@ -4,6 +4,9 @@ from os import path
 from template.Login import Login as signup_template
 import csv
 from var.Globals import appdata
+from utils.Logger import Logger
+
+logger = Logger(__name__).logger
 
 class SignUp(signup_template):
     def __init__(self, root):
@@ -57,17 +60,21 @@ class SignUp(signup_template):
     def SignUpEvent(self):
         self.resetFields()
 
-        if not self.username_entry.get():
+        username_entry = self.username_entry.get()
+        password_entry = self.password_entry.get()
+        confpassword_entry = self.confpassword_entry.get()
+
+        if not username_entry:
             self.username_entry.configure(border_color="red")
             return
-        if not self.password_entry.get():
+        if not password_entry:
             self.password_entry.configure(border_color="red")
             return
-        if not self.confpassword_entry.get():
+        if not confpassword_entry:
             self.confpassword_entry.configure(border_color="red")
             return
 
-        if self.password_entry.get() != self.confpassword_entry.get():
+        if password_entry != confpassword_entry:
             self.error_text.set("Make sure the password is same")
             return
 
@@ -75,15 +82,15 @@ class SignUp(signup_template):
             self.admin_password.configure(border_color="red")
             return
 
-        if self.username_entry.get() == "None":
+        if username_entry == "None":
             self.error_text.set("Username 'None' is not valid")
             return
 
-        with open(path.dirname(__file__)+"\\..\\config\\accounts.csv",'r+', newline='') as accounts:
+        with open(path.dirname(__file__)+"\\..\\data\\accounts.csv",'r+', newline='') as accounts:
             reader=csv.reader(accounts)
             next(reader)
             for username, _, _ in reader:
-                if self.username_entry.get() == username:
+                if username_entry == username:
                     self.error_text.set("Username already exists")
                     return
 
@@ -97,11 +104,12 @@ class SignUp(signup_template):
                     return
 
             writer = csv.writer(accounts)
-            writer.writerow([self.username_entry.get(), self.password_entry.get(), permission])
+            writer.writerow([username_entry, password_entry, permission])
 
-        appdata.data["user"]["name"] = self.username_entry.get()
+        appdata.data["user"]["name"] = username_entry
         appdata.data["user"]["permission"] = permission
         appdata.push()
+        logger.info(f"user: {username_entry} with permission: {permission} signed up")
 
         self.root.showFrame("Home")
 

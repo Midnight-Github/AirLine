@@ -1,0 +1,4 @@
+[2024-07-15 00:01:56,890][__main__][INFO]: Welcome to AirLine!
+[2024-07-15 00:01:56,973][__main__][INFO]: Connected to database
+[2024-07-15 00:01:57,301][ui.Manager][INFO]: Showing frame FrontPage
+[2024-07-15 00:02:14,769][ui.Manager][INFO]: Showing frame Login

@@ -16,7 +16,7 @@ FOREIGN KEY (Account_ID) REFERENCES Accounts(Account_ID)
 );
 '''.replace('\n', '')
 
-database_info = {
+database = {
     "host": config.data["database"]["host"],
     "user": config.data["database"]["user"],
     "name": "Airline",
