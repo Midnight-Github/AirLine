@@ -2,7 +2,7 @@ import customtkinter as ctk
 import csv
 from os import path
 from template.Login import Login as login_template
-from var.Globals import appdata
+from var.ConfigManager import appdata
 from utils.Logger import Logger
 
 logger = Logger(__name__).logger

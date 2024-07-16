@@ -1,3 +1,7 @@
-[2024-07-15 00:09:33,965][__main__][INFO]: Welcome to AirLine!
-[2024-07-15 00:09:34,096][__main__][INFO]: Failed to connect to database
-[2024-07-15 00:09:34,111][__main__][CRITICAL]: Error while connecting to database! Make sure the host, user and password are correct
+[2024-07-16 21:45:34,191][__main__][INFO]: Welcome to AirLine!
+[2024-07-16 21:45:34,191][reader.Mysql][INFO]: Connecting to database
+[2024-07-16 21:45:34,208][reader.Mysql][CRITICAL]: Failed!
+[2024-07-16 21:45:34,223][reader.Mysql][CRITICAL]: Database already exists in server!
+[2024-07-16 21:45:34,223][reader.Mysql][WARNING]: Dropping database
+[2024-07-16 21:45:34,225][reader.Mysql][INFO]: Creating Database
+[2024-07-16 21:45:34,588][ui.Manager][INFO]: Showing FrontPage

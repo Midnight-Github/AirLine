@@ -1,0 +1,24 @@
+[2024-07-16 21:45:13,043][__main__][INFO]: Welcome to AirLine!
+[2024-07-16 21:45:13,043][reader.Mysql][INFO]: Connecting to database
+[2024-07-16 21:45:13,061][reader.Mysql][CRITICAL]: Failed!
+[2024-07-16 21:45:13,061][reader.Mysql][CRITICAL]: Database already exists in server!
+[2024-07-16 21:45:13,061][reader.Mysql][ERROR]: 1146 (42S02): Table 'airline.accounts' doesn't exist
+Traceback (most recent call last):
+  File "C:\Users\Binoj\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 705, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Table 'airline.accounts' doesn't exist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "e:\Github\AirLine\src\reader\Mysql.py", line 34, in connect
+    cursor.execute("DESC accounts;")
+  File "C:\Users\Binoj\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 357, in execute
+    result = self._connection.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Binoj\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Binoj\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 713, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1146 (42S02): Table 'airline.accounts' doesn't exist

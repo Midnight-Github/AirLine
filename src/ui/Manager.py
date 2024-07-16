@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from var.Globals import appdata
+from var.ConfigManager import appdata
 from ui.Login import Login
 from ui.FrontPage import FrontPage
 from ui.SignUp import SignUp
@@ -33,7 +33,7 @@ class Manager(ctk.CTk):
             
     def showFrame(self, frame):            
         self.frames[frame].tkraise()
-        logger.info(f"Showing frame {frame}")
+        logger.info(f"Showing {frame}")
 
     def reinitFrame(self, frame):
         self.frames[frame].destroy()

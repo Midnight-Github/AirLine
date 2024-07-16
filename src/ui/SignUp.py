@@ -3,7 +3,8 @@ import tkinter as tk
 from os import path
 from template.Login import Login as signup_template
 import csv
-from var.Globals import appdata
+from var.ConfigManager import appdata
+from var.SqlManager import mysql
 from utils.Logger import Logger
 
 logger = Logger(__name__).logger
@@ -13,6 +14,7 @@ class SignUp(signup_template):
         super().__init__(root)
 
         self.root = root
+        self.mysql = mysql
 
         self.content_frame.grid_rowconfigure(0, weight=1)
 
@@ -60,56 +62,64 @@ class SignUp(signup_template):
     def SignUpEvent(self):
         self.resetFields()
 
-        username_entry = self.username_entry.get()
-        password_entry = self.password_entry.get()
-        confpassword_entry = self.confpassword_entry.get()
+        input_username = self.username_entry.get()
+        input_password = self.password_entry.get()
+        input_confpassword = self.confpassword_entry.get()
+        input_admin_password = self.admin_password.get()
 
-        if not username_entry:
+        if not input_username:
             self.username_entry.configure(border_color="red")
             return
-        if not password_entry:
+        if not input_password:
             self.password_entry.configure(border_color="red")
             return
-        if not confpassword_entry:
+        if not input_confpassword:
             self.confpassword_entry.configure(border_color="red")
             return
 
-        if password_entry != confpassword_entry:
+        if input_password != input_confpassword:
             self.error_text.set("Make sure the password is same")
             return
 
-        if self.admin_check_box.get() == 1 and not self.admin_password.get():
+        if self.admin_check_box.get() == 1 and not input_admin_password:
             self.admin_password.configure(border_color="red")
             return
 
-        if username_entry == "None":
-            self.error_text.set("Username 'None' is not valid")
+        if input_username == "None":
+            self.error_text.set(f"Username 'None' is not valid")
             return
 
-        with open(path.dirname(__file__)+"\\..\\data\\accounts.csv",'r+', newline='') as accounts:
-            reader=csv.reader(accounts)
-            next(reader)
-            for username, _, _ in reader:
-                if username_entry == username:
-                    self.error_text.set("Username already exists")
-                    return
+        permission = 0
+        if self.admin_check_box.get() == 1:
+            if input_admin_password == appdata.data["admin"]["password"]:
+                permission = 1
+            else:
+                self.error_text.set("Incorrect admin password")
+                self.admin_password.configure(border_color="red")
+                return
 
-            permission = 0
-            if self.admin_check_box.get() == 1:
-                if self.admin_password.get() == appdata.data["admin"]["password"]:
-                    permission = 1
-                else:
-                    self.error_text.set("Incorrect admin password")
-                    self.admin_password.configure(border_color="red")
-                    return
+        sql_cmd = "INSERT INTO Accounts(Name, Password, Permission) VALUES(%s, %s, %s)"
+        sql_args = (input_username, input_password, permission)
 
-            writer = csv.writer(accounts)
-            writer.writerow([username_entry, password_entry, permission])
+        db_feedback = self.mysql.execute(sql_cmd, sql_args)
+        if db_feedback != True:
+            print(db_feedback.msg)
+            return
 
-        appdata.data["user"]["name"] = username_entry
+        # with open(path.dirname(__file__)+"\\..\\users\\accounts.csv",'r+', newline='') as accounts:
+        #     reader=csv.reader(accounts)
+        #     next(reader)
+        #     for username, _, _ in reader:
+        #         if input_username == username:
+        #             self.error_text.set("Username already exists")
+        #             return
+
+            # writer = csv.writer(accounts)
+            # writer.writerow((input_username, input_password, permission))
+
+        appdata.data["user"]["name"] = input_username
         appdata.data["user"]["permission"] = permission
         appdata.push()
-        logger.info(f"user: {username_entry} with permission: {permission} signed up")
 
         self.root.showFrame("Home")
 

@@ -1,4 +1,6 @@
 [database]
 "host" = "localhost"
 "user" = "root"
-"password" = "Mysql123"
+"password" = "Mysql1234"
+"name" = "airline"
+"force_create" = true
