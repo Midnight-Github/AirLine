@@ -3,7 +3,7 @@ import csv
 from os import path
 from template.Login import Login as login_template
 from var.ConfigManager import appdata
-from utils.Logger import Logger
+from reader.Logger import Logger
 
 logger = Logger(__name__).logger
 
@@ -47,22 +47,24 @@ class Login(login_template):
             self.password_entry.configure(border_color="red")
             return
 
-        with open(path.dirname(__file__) + "//..//data//accounts.csv", mode="r") as f:
-            reader = csv.reader(f)
+        
 
-            next(reader)
-            for username, password, permission in reader:
-                if input_username == username and input_password == password:
-                    appdata.data["user"]["name"] = input_username
-                    appdata.data["user"]["permission"] = int(permission)
-                    appdata.push()
-                    logger.info(f"user: {input_username} with permission: {permission} logged in")
-                    self.root.showFrame("Home")
-                    return
+        # with open(path.dirname(__file__) + "//..//data//accounts.csv", mode="r") as f:
+        #     reader = csv.reader(f)
+
+        #     next(reader)
+        #     for username, password, permission in reader:
+        #         if input_username == username and input_password == password:
+        #             appdata.data["user"]["name"] = input_username
+        #             appdata.data["user"]["permission"] = int(permission)
+        #             appdata.push()
+        #             logger.info(f"{input_username} with permission {permission} logged in")
+        #             self.root.showFrame("Home")
+        #             return
 
         self.username_entry.configure(border_color="red")
         self.password_entry.configure(border_color="red")
-        logger.warning(f"User: {input_username} tried to login with password: {input_password} but failed")
+        logger.warning(f"{input_username} tried to login but failed")
 
     def resetFields(self):
         self.username_entry.configure(border_color="gray")

@@ -5,7 +5,8 @@ from template.Login import Login as signup_template
 import csv
 from var.ConfigManager import appdata
 from var.SqlManager import mysql
-from utils.Logger import Logger
+from reader.Logger import Logger
+from errors.Database import DatabaseInsertError
 
 logger = Logger(__name__).logger
 
@@ -79,6 +80,8 @@ class SignUp(signup_template):
 
         if input_password != input_confpassword:
             self.error_text.set("Make sure the password is same")
+            self.confpassword_entry.configure(border_color="red")
+            self.password_entry.configure(border_color="red")
             return
 
         if self.admin_check_box.get() == 1 and not input_admin_password:
@@ -86,6 +89,7 @@ class SignUp(signup_template):
             return
 
         if input_username == "None":
+            self.username_entry.configure(border_color="red")
             self.error_text.set(f"Username 'None' is not valid")
             return
 
@@ -98,28 +102,26 @@ class SignUp(signup_template):
                 self.admin_password.configure(border_color="red")
                 return
 
-        sql_cmd = "INSERT INTO Accounts(Name, Password, Permission) VALUES(%s, %s, %s)"
+        sql_cmd = "INSERT INTO Accounts VALUES(%s, %s, %s)"
         sql_args = (input_username, input_password, permission)
 
         db_feedback = self.mysql.execute(sql_cmd, sql_args)
-        if db_feedback != True:
-            print(db_feedback.msg)
+        if db_feedback is True:
+            pass
+        elif db_feedback.msg == f"Duplicate entry '{input_username}' for key 'accounts.PRIMARY'":
+            self.error_text.set("Username already exists!")
+            self.username_entry.configure(border_color="red")
+            logger.warning("Failed to create account as the username already exists")
             return
-
-        # with open(path.dirname(__file__)+"\\..\\users\\accounts.csv",'r+', newline='') as accounts:
-        #     reader=csv.reader(accounts)
-        #     next(reader)
-        #     for username, _, _ in reader:
-        #         if input_username == username:
-        #             self.error_text.set("Username already exists")
-        #             return
-
-            # writer = csv.writer(accounts)
-            # writer.writerow((input_username, input_password, permission))
+        else:
+            logger.critical("Unknown error while inserting user account to database")
+            logger.exception(db_feedback.msg)
+            raise DatabaseInsertError(db_feedback.msg)
 
         appdata.data["user"]["name"] = input_username
         appdata.data["user"]["permission"] = permission
         appdata.push()
+        logger.info(f"{input_username} signed up with permission {permission}")
 
         self.root.showFrame("Home")
 

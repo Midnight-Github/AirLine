@@ -1,6 +1,6 @@
 [user]
 name = "None"
-permission = 1
+permission = 0
 
 [admin]
 password = "admin123"

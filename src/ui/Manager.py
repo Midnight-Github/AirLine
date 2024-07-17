@@ -5,7 +5,7 @@ from ui.FrontPage import FrontPage
 from ui.SignUp import SignUp
 from ui.Home import Home
 from ui.Flights import Flights
-from utils.Logger import Logger
+from reader.Logger import Logger
 
 logger = Logger(__name__).logger
 

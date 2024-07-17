@@ -1,6 +1,6 @@
 import customtkinter as ctk
 from var.ConfigManager import appdata
-from utils.Logger import Logger
+from reader.Logger import Logger
 
 logger = Logger(__name__).logger
 
@@ -22,10 +22,16 @@ class Home(ctk.CTkFrame):
         self.signout_btn = ctk.CTkButton(self.btn_frame, text="Sign out", command=self.signout)
         self.signout_btn.grid(row=1, column=0)
 
+        self.del_account_btn = ctk.CTkButton(self.btn_frame, text="Delete account", command=self.delAccount)
+        self.signout_btn.grid(row=2, column=0)
+
     def signout(self):
-        logger.info(f"User: {appdata.data["user"]["name"]} with permission: {appdata.data["user"]["permission"]} logged out")
+        logger.info(f"{appdata.data["user"]["name"]} with permission {appdata.data["user"]["permission"]} logged out")
         appdata.data["user"]["name"] = "None"
         appdata.push()
 
         self.root.reinitFrameAll()
         self.root.showFrame("FrontPage")
+
+    def delAccount(self):
+        pass

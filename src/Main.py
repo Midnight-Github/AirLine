@@ -1,6 +1,6 @@
 from ui.Manager import Manager
 from var.SqlManager import mysql
-from utils.Logger import Logger
+from reader.Logger import Logger
 import os
 
 logger = Logger(__name__).logger
@@ -14,8 +14,7 @@ def main():
     Manager().mainloop()
 
 def connectDatabase():
-    mysql.connect()
-    if mysql.database == None:
+    if mysql.connect() == False:
         mysql.create()
 
 if __name__ == "__main__":
