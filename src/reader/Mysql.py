@@ -66,7 +66,7 @@ class Mysql():
             if not is_accounts_valid or not is_flights_valid:
                 raise DatabaseNotUnique("Tables discription are not valid")
 
-        except Exception as e:
+        except DatabaseNotUnique as e:
             logger.critical("Failed!")
             logger.critical("Database already exists in server!")
             
@@ -128,9 +128,9 @@ class Mysql():
             else:
                 cursor.execute(cmd, cmd_args)
             self.database.commit()
-            return True
+            return (True, cursor.fetchall())
         except mysql.connector.Error as e:
-            return e
+            return (False, e)
         except Exception as e:
             logger.critical("Error while executing commands")
             logger.exception(e)

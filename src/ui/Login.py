@@ -3,6 +3,7 @@ import csv
 from os import path
 from template.Login import Login as login_template
 from var.ConfigManager import appdata
+from var.SqlManager import mysql
 from reader.Logger import Logger
 
 logger = Logger(__name__).logger
@@ -12,6 +13,7 @@ class Login(login_template):
         super().__init__(root)
 
         self.root = root
+        self.mysql = mysql
 
         self.content_frame.grid_rowconfigure(0, weight=1)
 
@@ -47,20 +49,21 @@ class Login(login_template):
             self.password_entry.configure(border_color="red")
             return
 
-        
+        sql_cmd = "SELECT Name, Password, Permission FROM Accounts WHERE Name = %s AND Password = %s"
+        sql_args = (input_username, input_password)
 
-        # with open(path.dirname(__file__) + "//..//data//accounts.csv", mode="r") as f:
-        #     reader = csv.reader(f)
-
-        #     next(reader)
-        #     for username, password, permission in reader:
-        #         if input_username == username and input_password == password:
-        #             appdata.data["user"]["name"] = input_username
-        #             appdata.data["user"]["permission"] = int(permission)
-        #             appdata.push()
-        #             logger.info(f"{input_username} with permission {permission} logged in")
-        #             self.root.showFrame("Home")
-        #             return
+        success, result = self.mysql.execute(sql_cmd, sql_args, buffered=True)
+        if success:
+            if result:
+                appdata.data["user"]["name"] = input_username
+                appdata.data["user"]["permission"] = result[0][2] #pyright: ignore
+                appdata.push()
+                logger.info(f"{input_username} with permission {result[0][2]} logged in") #pyright: ignore
+                self.root.showFrame("Home")
+                return
+        else:
+            logger.error("Failed to verify user")
+            logger.exception(result)
 
         self.username_entry.configure(border_color="red")
         self.password_entry.configure(border_color="red")

@@ -105,18 +105,18 @@ class SignUp(signup_template):
         sql_cmd = "INSERT INTO Accounts VALUES(%s, %s, %s)"
         sql_args = (input_username, input_password, permission)
 
-        db_feedback = self.mysql.execute(sql_cmd, sql_args)
-        if db_feedback is True:
+        success, result = self.mysql.execute(sql_cmd, sql_args)
+        if success is True:
             pass
-        elif db_feedback.msg == f"Duplicate entry '{input_username}' for key 'accounts.PRIMARY'":
+        elif result.msg == f"Duplicate entry '{input_username}' for key 'accounts.PRIMARY'": #pyright: ignore
             self.error_text.set("Username already exists!")
             self.username_entry.configure(border_color="red")
             logger.warning("Failed to create account as the username already exists")
             return
         else:
             logger.critical("Unknown error while inserting user account to database")
-            logger.exception(db_feedback.msg)
-            raise DatabaseInsertError(db_feedback.msg)
+            logger.exception(result.msg) #pyright: ignore
+            raise DatabaseInsertError(result.msg) #pyright: ignore
 
         appdata.data["user"]["name"] = input_username
         appdata.data["user"]["permission"] = permission

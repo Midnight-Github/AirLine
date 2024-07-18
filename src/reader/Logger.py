@@ -7,6 +7,7 @@ logging.basicConfig(level=logging.INFO, format="[%(asctime)s][%(name)s][%(leveln
 
 def saveLog():
     limit = 3
+    limit += 1
     with open(logs_path + "\\latest.log", 'r') as f:
         data = f.read()
     
