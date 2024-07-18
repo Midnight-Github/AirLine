@@ -1,0 +1,35 @@
+[2024-07-18 16:42:37,384][__main__][INFO]: Welcome to AirLine!
+[2024-07-18 16:42:37,385][reader.Mysql][INFO]: Connecting to database
+[2024-07-18 16:42:37,402][reader.Mysql][INFO]: Connected!
+[2024-07-18 16:42:37,702][ui.Manager][INFO]: Showing FrontPage
+[2024-07-18 16:42:40,467][ui.Manager][INFO]: Showing Login
+[2024-07-18 16:42:43,910][ui.Login][INFO]: k with permission 0 logged in
+[2024-07-18 16:42:43,910][ui.Manager][INFO]: Showing Home
+[2024-07-18 16:42:52,332][ui.Home][INFO]: k with permission 0 logged out
+[2024-07-18 16:42:52,437][ui.Manager][INFO]: Reinitialized Login
+[2024-07-18 16:42:52,482][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-07-18 16:42:52,573][ui.Manager][INFO]: Reinitialized SignUp
+[2024-07-18 16:42:52,586][ui.Manager][INFO]: Reinitialized Home
+[2024-07-18 16:42:52,591][ui.Manager][INFO]: Reinitialized Flights
+[2024-07-18 16:42:52,591][ui.Manager][INFO]: Showing FrontPage
+[2024-07-18 16:42:54,610][ui.Manager][INFO]: Showing Login
+[2024-07-18 16:42:59,928][ui.Login][INFO]: k with permission 0 logged in
+[2024-07-18 16:42:59,928][ui.Manager][INFO]: Showing Home
+[2024-07-18 16:43:01,930][ui.Home][INFO]: k with permission 0 deleted account
+[2024-07-18 16:43:02,018][ui.Manager][INFO]: Reinitialized Login
+[2024-07-18 16:43:02,075][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-07-18 16:43:02,156][ui.Manager][INFO]: Reinitialized SignUp
+[2024-07-18 16:43:02,170][ui.Manager][INFO]: Reinitialized Home
+[2024-07-18 16:43:02,175][ui.Manager][INFO]: Reinitialized Flights
+[2024-07-18 16:43:02,175][ui.Manager][INFO]: Showing FrontPage
+[2024-07-18 16:43:06,987][ui.Manager][INFO]: Showing Login
+[2024-07-18 16:43:10,816][ui.Login][WARNING]: k tried to login but failed
+[2024-07-18 16:43:11,849][ui.Login][WARNING]: k tried to login but failed
+[2024-07-18 16:43:21,129][ui.Login][WARNING]: kiwi tried to login but failed
+[2024-07-18 16:43:24,253][ui.Login][WARNING]: kiwi tried to login but failed
+[2024-07-18 16:43:28,065][ui.Login][WARNING]: kiwi tried to login but failed
+[2024-07-18 16:43:28,765][ui.Login][WARNING]: kiwi tried to login but failed
+[2024-07-18 16:43:30,236][ui.Login][WARNING]: kiwi tried to login but failed
+[2024-07-18 16:43:30,711][ui.Login][WARNING]: kiwi tried to login but failed
+[2024-07-18 16:44:15,266][ui.Manager][INFO]: Reinitialized Login
+[2024-07-18 16:44:15,266][ui.Manager][INFO]: Showing FrontPage
