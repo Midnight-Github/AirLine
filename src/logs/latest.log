@@ -1,11 +1,23 @@
-[2024-07-22 10:08:49,853][__main__][INFO]: Welcome to AirLine!
-[2024-07-22 10:08:49,853][reader.Mysql][INFO]: Connecting to database
-[2024-07-22 10:08:49,885][reader.Mysql][INFO]: Connected!
-[2024-07-22 10:08:50,249][ui.Manager][INFO]: Showing FrontPage
-[2024-07-22 10:08:52,315][ui.Manager][INFO]: Showing Login
-[2024-07-22 10:08:56,663][ui.Login][WARNING]: kevin tried to login but failed
-[2024-07-22 10:09:00,261][ui.Login][INFO]: User: kevin logged in
-[2024-07-22 10:09:00,261][ui.Manager][INFO]: Showing Home
-[2024-07-22 10:09:01,347][ui.Manager][INFO]: Showing Flights
-[2024-07-22 10:09:02,851][ui.Manager][INFO]: Showing Home
-[2024-07-22 10:09:03,493][ui.Manager][INFO]: Showing Flights
+[2024-07-22 22:45:30,116][__main__][INFO]: Welcome to AirLine!
+[2024-07-22 22:45:30,117][reader.Mysql][INFO]: Connecting to database
+[2024-07-22 22:45:30,773][reader.Mysql][INFO]: Connected!
+[2024-07-22 22:45:31,123][ui.Manager][INFO]: Showing Home
+[2024-07-22 22:45:35,110][ui.Home][INFO]: User: kevin logged out
+[2024-07-22 22:45:35,200][ui.Manager][INFO]: Reinitialized Login
+[2024-07-22 22:45:35,259][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-07-22 22:45:35,337][ui.Manager][INFO]: Reinitialized SignUp
+[2024-07-22 22:45:35,351][ui.Manager][INFO]: Reinitialized Home
+[2024-07-22 22:45:35,360][ui.Manager][INFO]: Reinitialized Flights
+[2024-07-22 22:45:35,360][ui.Manager][INFO]: Showing FrontPage
+[2024-07-22 22:45:43,297][ui.Manager][INFO]: Showing Login
+[2024-07-22 22:45:44,525][ui.Manager][INFO]: Reinitialized Login
+[2024-07-22 22:45:44,525][ui.Manager][INFO]: Showing FrontPage
+[2024-07-22 22:45:49,043][ui.Manager][INFO]: Showing Login
+[2024-07-22 22:45:57,764][ui.Login][WARNING]: kevin tried to login but failed
+[2024-07-22 22:46:01,665][ui.Manager][INFO]: Reinitialized Login
+[2024-07-22 22:46:01,665][ui.Manager][INFO]: Showing FrontPage
+[2024-07-22 22:46:03,140][ui.Manager][INFO]: Showing SignUp
+[2024-07-22 22:46:09,072][ui.SignUp][INFO]: User: k signed up
+[2024-07-22 22:46:09,074][ui.Manager][INFO]: Showing Home
+[2024-07-22 22:46:10,663][ui.Manager][INFO]: Showing Flights
+[2024-07-22 22:46:17,956][ui.Manager][INFO]: Showing Home

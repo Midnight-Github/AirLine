@@ -1,0 +1,28 @@
+[2024-07-22 22:44:44,831][__main__][INFO]: Welcome to AirLine!
+[2024-07-22 22:44:44,831][reader.Mysql][INFO]: Connecting to database
+[2024-07-22 22:44:44,865][reader.Mysql][WARNING]: Failed!
+[2024-07-22 22:44:44,865][reader.Mysql][INFO]: Creating Database
+[2024-07-22 22:44:44,879][reader.Mysql][CRITICAL]: Failed!
+[2024-07-22 22:44:44,879][reader.Mysql][CRITICAL]: Make sure host, user and password are correct!
+[2024-07-22 22:44:44,879][reader.Mysql][ERROR]: 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+Traceback (most recent call last):
+  File "C:\Users\Binoj\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 334, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'root'@'localhost' (using password: YES)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "e:\Github\AirLine\src\reader\Mysql.py", line 91, in create
+    db = mysql.connector.connect(
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Binoj\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Binoj\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 151, in __init__
+    self.connect(**kwargs)
+  File "C:\Users\Binoj\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\abstracts.py", line 1399, in connect
+    self._open_connection()
+  File "C:\Users\Binoj\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 339, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
