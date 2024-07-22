@@ -18,5 +18,8 @@ def connectDatabase():
         mysql.create()
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        logger.exception("Unknown error occured!", e)
     

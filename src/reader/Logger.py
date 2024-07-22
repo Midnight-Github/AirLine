@@ -14,7 +14,7 @@ def saveLog():
     with open(logs_path + "\\latest.log", 'w') as f:
         f.write('')
 
-    new_file_name = f"{datetime.now().strftime("%d-%m-%y %H-%M-%S")}.log"
+    new_file_name = f"{datetime.now().strftime("%y-%m-%d--%H-%M-%S")}.log"
     with open(logs_path + '\\' + new_file_name, 'w') as f:
         f.write(data)
 
