@@ -1,7 +1,7 @@
 import customtkinter as ctk
 import tkinter as tk
 from tkinter import ttk
-from tkinter.messagebox import showinfo
+from var.ConfigManager import appdata
 
 class Flights(ctk.CTkFrame):
     def __init__(self, root):
@@ -11,13 +11,13 @@ class Flights(ctk.CTkFrame):
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0,weight=1)
 
-        self.style=ttk.Style(self)
+        self.style = ttk.Style(self)
         self.style.theme_use("clam")
         self.style.configure("Treeview.Heading", background='#000000', foreground='white', relief='flat', rowheight=50)
         self.style.configure("Treeview", background='#333333', foreground='white', fieldbackground='#333333', rowheight=45)
         self.style.map('Treeview', background=[('selected','#D3D3D3')])
 
-        self.flights_frame=ctk.CTkFrame(self,fg_color='transparent')
+        self.flights_frame = ctk.CTkFrame(self,fg_color='transparent')
         self.flights_frame.grid(row=0,column=0,sticky='nesw')
         self.flights_frame.grid_rowconfigure(0, weight=1)
         self.flights_frame.grid_columnconfigure(0,weight=1)
@@ -62,9 +62,11 @@ class Flights(ctk.CTkFrame):
         self.tree.configure(yscrollcommand=self.scrollbar.set)
         self.scrollbar.grid(row=0, column=1, sticky='ns')
 
-        self.btn_frame=ctk.CTkFrame(self,fg_color='transparent')
+        self.btn_frame = ctk.CTkFrame(self,fg_color='transparent')
         self.btn_frame.grid(row=1,column=0,sticky='se')
         self.back_btn = ctk.CTkButton(self.btn_frame, text="back", command=lambda : self.root.showFrame("Home"))
         self.back_btn.grid(row=0, column=1)
-        self.add_btn = ctk.CTkButton(self.btn_frame, text="Add a Flight")
-        self.add_btn.grid(row=0, column=0)
+
+        if appdata.data["user"]["permission"] > 0:
+            self.add_btn = ctk.CTkButton(self.btn_frame, text="Add a Flight")
+            self.add_btn.grid(row=0, column=0)

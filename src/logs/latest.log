@@ -1,5 +1,25 @@
-[2024-07-23 19:24:45,887][__main__][INFO]: Welcome to AirLine!
-[2024-07-23 19:24:45,888][reader.Mysql][INFO]: Connecting to database
-[2024-07-23 19:24:46,248][reader.Mysql][INFO]: Connected!
-[2024-07-23 19:24:46,580][ui.Manager][INFO]: Showing Home
-[2024-07-23 19:24:48,020][ui.Manager][INFO]: Showing Flights
+[2024-07-23 22:11:11,558][__main__][INFO]: Welcome to AirLine!
+[2024-07-23 22:11:11,558][reader.Mysql][INFO]: Connecting to database
+[2024-07-23 22:11:11,592][reader.Mysql][INFO]: Connected!
+[2024-07-23 22:11:11,917][ui.Manager][INFO]: Showing FrontPage
+[2024-07-23 22:11:13,180][ui.Manager][INFO]: Showing Login
+[2024-07-23 22:11:17,895][ui.Login][INFO]: Admin: admin logged in
+[2024-07-23 22:11:17,912][ui.Manager][INFO]: Reinitialized Flights
+[2024-07-23 22:11:17,914][ui.Manager][INFO]: Showing Home
+[2024-07-23 22:11:18,919][ui.Manager][INFO]: Showing Flights
+[2024-07-23 22:11:22,480][ui.Manager][INFO]: Showing Home
+[2024-07-23 22:11:23,668][ui.Home][INFO]: Admin: admin logged out
+[2024-07-23 22:11:23,752][ui.Manager][INFO]: Reinitialized Login
+[2024-07-23 22:11:23,810][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-07-23 22:11:23,886][ui.Manager][INFO]: Reinitialized SignUp
+[2024-07-23 22:11:23,899][ui.Manager][INFO]: Reinitialized Home
+[2024-07-23 22:11:23,916][ui.Manager][INFO]: Reinitialized Flights
+[2024-07-23 22:11:23,916][ui.Manager][INFO]: Showing FrontPage
+[2024-07-23 22:11:25,656][ui.Manager][INFO]: Showing Login
+[2024-07-23 22:11:32,132][ui.Login][INFO]: User: kevin1 logged in
+[2024-07-23 22:11:32,146][ui.Manager][INFO]: Reinitialized Flights
+[2024-07-23 22:11:32,147][ui.Manager][INFO]: Showing Home
+[2024-07-23 22:11:33,203][ui.Manager][INFO]: Showing Flights
+[2024-07-23 22:11:50,459][ui.Manager][INFO]: Showing Home
+[2024-07-23 22:11:53,409][ui.Manager][INFO]: Showing Flights
+[2024-07-23 22:11:54,661][ui.Manager][INFO]: Showing Home
