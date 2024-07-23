@@ -58,9 +58,9 @@ class Flights(ctk.CTkFrame):
         self.tree.grid_rowconfigure(0, weight=1)
         self.tree.grid_columnconfigure(0,weight=1)
 
-        scrollbar = ttk.Scrollbar(self.flights_frame, orient=tk.VERTICAL, command=self.tree.yview)
-        self.tree.configure(yscrollcommand=scrollbar.set)
-        scrollbar.grid(row=0, column=1, sticky='ns')
+        self.scrollbar = ttk.Scrollbar(self.flights_frame, orient=tk.VERTICAL, command=self.tree.yview)
+        self.tree.configure(yscrollcommand=self.scrollbar.set)
+        self.scrollbar.grid(row=0, column=1, sticky='ns')
 
         self.btn_frame=ctk.CTkFrame(self,fg_color='transparent')
         self.btn_frame.grid(row=1,column=0,sticky='se')
