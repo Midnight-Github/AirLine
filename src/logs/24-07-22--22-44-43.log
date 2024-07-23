@@ -1,0 +1,11 @@
+[2024-07-22 10:08:49,853][__main__][INFO]: Welcome to AirLine!
+[2024-07-22 10:08:49,853][reader.Mysql][INFO]: Connecting to database
+[2024-07-22 10:08:49,885][reader.Mysql][INFO]: Connected!
+[2024-07-22 10:08:50,249][ui.Manager][INFO]: Showing FrontPage
+[2024-07-22 10:08:52,315][ui.Manager][INFO]: Showing Login
+[2024-07-22 10:08:56,663][ui.Login][WARNING]: kevin tried to login but failed
+[2024-07-22 10:09:00,261][ui.Login][INFO]: User: kevin logged in
+[2024-07-22 10:09:00,261][ui.Manager][INFO]: Showing Home
+[2024-07-22 10:09:01,347][ui.Manager][INFO]: Showing Flights
+[2024-07-22 10:09:02,851][ui.Manager][INFO]: Showing Home
+[2024-07-22 10:09:03,493][ui.Manager][INFO]: Showing Flights

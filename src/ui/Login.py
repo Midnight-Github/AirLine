@@ -5,6 +5,7 @@ from template.Login import Login as login_template
 from var.ConfigManager import appdata
 from var.SqlManager import mysql
 from reader.Logger import Logger
+from var.Globals import get_user_position
 
 logger = Logger(__name__).logger
 
@@ -58,7 +59,7 @@ class Login(login_template):
                 appdata.data["user"]["name"] = input_username
                 appdata.data["user"]["permission"] = result[0][2] #pyright: ignore
                 appdata.push()
-                logger.info(f"{input_username} with permission {result[0][2]} logged in") #pyright: ignore
+                logger.info(f"{get_user_position[result[0][2]]}: {input_username} logged in") #pyright: ignore
                 self.root.showFrame("Home")
                 return
         else:

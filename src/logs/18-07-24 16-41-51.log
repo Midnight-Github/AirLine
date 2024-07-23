@@ -1,7 +1,0 @@
-[2024-07-18 16:40:58,430][__main__][INFO]: Welcome to AirLine!
-[2024-07-18 16:40:58,430][reader.Mysql][INFO]: Connecting to database
-[2024-07-18 16:40:58,463][reader.Mysql][INFO]: Connected!
-[2024-07-18 16:40:58,836][ui.Manager][INFO]: Showing Home
-[2024-07-18 16:41:03,786][ui.Home][ERROR]: Failed to delete kiwi's account
-[2024-07-18 16:41:03,786][ui.Home][ERROR]: Could not process parameters: str(kiwi), it must be of type list, tuple or dict
-NoneType: None

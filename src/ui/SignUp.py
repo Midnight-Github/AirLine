@@ -7,6 +7,7 @@ from var.ConfigManager import appdata
 from var.SqlManager import mysql
 from reader.Logger import Logger
 from errors.Database import DatabaseInsertError
+from var.Globals import get_user_position
 
 logger = Logger(__name__).logger
 
@@ -121,7 +122,7 @@ class SignUp(signup_template):
         appdata.data["user"]["name"] = input_username
         appdata.data["user"]["permission"] = permission
         appdata.push()
-        logger.info(f"{input_username} signed up with permission {permission}")
+        logger.info(f"{get_user_position[permission]}: {input_username} signed up")
 
         self.root.showFrame("Home")
 

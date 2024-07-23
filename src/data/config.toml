@@ -3,4 +3,4 @@
 "user" = "root"
 "password" = "Mysql1234"
 "name" = "airline"
-"force_create" = false
+"force_create" = true

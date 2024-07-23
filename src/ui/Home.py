@@ -2,6 +2,7 @@ import customtkinter as ctk
 from var.ConfigManager import appdata
 from reader.Logger import Logger
 from var.SqlManager import mysql
+from var.Globals import get_user_position
 
 logger = Logger(__name__).logger
 
@@ -28,7 +29,7 @@ class Home(ctk.CTkFrame):
         self.del_account_btn.grid(row=2, column=0)
 
     def signout(self):
-        logger.info(f"{appdata.data["user"]["name"]} with permission {appdata.data["user"]["permission"]} logged out")
+        logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} logged out")
         appdata.data["user"]["name"] = "None"
         appdata.push()
 
@@ -40,11 +41,11 @@ class Home(ctk.CTkFrame):
         sql_args = (appdata.data["user"]["name"],)
         success, result = self.mysql.execute(sql_cmd, sql_args)
         if success:
-            logger.info(f"{appdata.data["user"]["name"]} with permission {appdata.data["user"]["permission"]} deleted account")
+            logger.info(f"Deleted {get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
             appdata.data["user"]["name"] = "None"
             appdata.push()
             self.root.reinitFrameAll()
             self.root.showFrame("FrontPage")
         else:
-            logger.error(f"Failed to delete {appdata.data["user"]["name"]}'s account")
+            logger.error(f"Failed to delete {get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
             logger.exception(result)

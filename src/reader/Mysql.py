@@ -29,6 +29,16 @@ class Mysql():
         FOREIGN KEY (Name) REFERENCES Accounts(Name)
         );
         ''')
+        self.accounts_table_structure = [
+            ('Name', 'varchar(255)', 'NO', 'PRI', None, ''), 
+            ('Password', 'varchar(255)', 'NO', '', None, ''), 
+            ('Permission', 'int', 'NO', '', None, '')
+        ]
+        self.flights_table_structure = [
+            ('Booking_ID', 'int', 'NO', 'PRI', None, ''),
+            ('Name', 'varchar(255)', 'NO', 'MUL', None, ''), 
+        ]
+
         self.database = None
 
     def connect(self):
@@ -52,16 +62,8 @@ class Mysql():
             cursor.execute("DESC flights;")
             flights_info = cursor.fetchall()
 
-            is_accounts_valid = accounts_info == [
-                ('Name', 'varchar(255)', 'NO', 'PRI', None, ''), 
-                ('Password', 'varchar(255)', 'NO', '', None, ''), 
-                ('Permission', 'int', 'NO', '', None, '')
-            ]
-
-            is_flights_valid = flights_info == [
-                ('Booking_ID', 'int', 'NO', 'PRI', None, ''),
-                ('Name', 'varchar(255)', 'NO', 'MUL', None, ''), 
-            ]
+            is_accounts_valid = accounts_info == self.accounts_table_structure
+            is_flights_valid = flights_info == self.flights_table_structure
 
             if not is_accounts_valid or not is_flights_valid:
                 raise DatabaseNotUnique("Tables discription are not valid")
