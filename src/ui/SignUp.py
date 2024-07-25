@@ -124,7 +124,7 @@ class SignUp(signup_template):
         appdata.push()
         logger.info(f"{get_user_position[permission]}: {input_username} signed up")
 
-        self.root.reinitFrame("Flights")
+        self.root.reinitFrameAll()
         self.root.showFrame("Home")
 
     def resetFields(self):

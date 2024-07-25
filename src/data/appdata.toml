@@ -1,6 +1,6 @@
 [user]
-name = "kevin1"
-permission = 0
+name = "admin"
+permission = 1
 
 [admin]
 password = "admin123"

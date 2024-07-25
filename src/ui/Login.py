@@ -60,7 +60,7 @@ class Login(login_template):
                 appdata.data["user"]["permission"] = result[0][2] #pyright: ignore
                 appdata.push()
                 logger.info(f"{get_user_position[result[0][2]]}: {input_username} logged in") #pyright: ignore
-                self.root.reinitFrame("Flights")
+                self.root.reinitFrameAll()
                 self.root.showFrame("Home")
                 return
         else:

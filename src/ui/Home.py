@@ -34,7 +34,6 @@ class Home(ctk.CTkFrame):
         appdata.data["user"]["permission"] = -1
         appdata.push()
 
-        self.root.reinitFrameAll()
         self.root.showFrame("FrontPage")
 
     def delAccount(self):
@@ -46,7 +45,6 @@ class Home(ctk.CTkFrame):
             appdata.data["user"]["name"] = "None"
             appdata.data["user"]["permission"] = -1
             appdata.push()
-            self.root.reinitFrameAll()
             self.root.showFrame("FrontPage")
         else:
             logger.error(f"Failed to delete {get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
