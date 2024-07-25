@@ -2,6 +2,9 @@ import customtkinter as ctk
 import tkinter as tk
 from tkinter import ttk
 from var.ConfigManager import appdata
+from reader.Logger import Logger
+
+logger = Logger(__name__).logger
 
 class Flights(ctk.CTkFrame):
     def __init__(self, root):
@@ -68,5 +71,8 @@ class Flights(ctk.CTkFrame):
         self.back_btn.grid(row=0, column=1)
 
         if appdata.data["user"]["permission"] > 0:
-            self.add_btn = ctk.CTkButton(self.btn_frame, text="Add a Flight")
+            self.add_btn = ctk.CTkButton(self.btn_frame, text="Add a Flight", command=self.addFlight)
             self.add_btn.grid(row=0, column=0)
+
+    def addFlight(self):
+        logger.info("Adding flights is work in progress!")

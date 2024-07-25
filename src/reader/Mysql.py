@@ -18,15 +18,26 @@ class Mysql():
         CREATE DATABASE {self.name};
         USE {self.name};
         CREATE TABLE Accounts(
-        Name VARCHAR(255) PRIMARY KEY NOT NULL,
+        Name VARCHAR(255) PRIMARY KEY,
         Password VARCHAR(255) NOT NULL,
         Permission INT NOT NULL,
         CHECK (Permission = 0 OR Permission = 1)
         );
         CREATE TABLE Flights(
-        Booking_ID INT PRIMARY KEY,
+        Flight_ID INT PRIMARY KEY AUTO_INCREMENT,
+        Airline VARCHAR(255) NOT NULL,
+        Pod VARCHAR(255) NOT NULL,
+        Destination VARCHAR(255) NOT NULL,
+        Class VARCHAR(255) NOT NULL,
+        Time VARCHAR(255) NOT NULL,
+        Price INT NOT NULL
+        );
+        CREATE TABLE Passengers(
+        Booking_ID INT PRIMARY KEY AUTO_INCREMENT,
         Name VARCHAR(255) NOT NULL,
-        FOREIGN KEY (Name) REFERENCES Accounts(Name)
+        Flight_ID INT NOT NULL,
+        FOREIGN KEY(Name) REFERENCES Accounts(Name),
+        FOREIGN KEY(Flight_ID) REFERENCES Flights(Flight_ID)
         );
         ''')
         self.accounts_table_structure = [
@@ -35,8 +46,18 @@ class Mysql():
             ('Permission', 'int', 'NO', '', None, '')
         ]
         self.flights_table_structure = [
-            ('Booking_ID', 'int', 'NO', 'PRI', None, ''),
+            ('Flight_ID', 'int', 'NO', 'PRI', None, 'auto_increment'), 
+            ('Airline', 'varchar(255)', 'NO', '', None, ''), 
+            ('Pod', 'varchar(255)', 'NO', '', None, ''), 
+            ('Destination', 'varchar(255)', 'NO', '', None, ''), 
+            ('Class', 'varchar(255)', 'NO', '', None, ''), 
+            ('Time', 'varchar(255)', 'NO', '', None, ''), 
+            ('Price', 'int', 'NO', '', None, '')
+        ]
+        self.passengers_table_structure = [
+            ('Booking_ID', 'int', 'NO', 'PRI', None, 'auto_increment'), 
             ('Name', 'varchar(255)', 'NO', 'MUL', None, ''), 
+            ('Flight_ID', 'int', 'NO', 'MUL', None, '')
         ]
 
         self.database = None
@@ -61,23 +82,26 @@ class Mysql():
             accounts_info = cursor.fetchall()
             cursor.execute("DESC flights;")
             flights_info = cursor.fetchall()
+            cursor.execute("DESC passengers;")
+            passengets_info = cursor.fetchall()
 
             is_accounts_valid = accounts_info == self.accounts_table_structure
             is_flights_valid = flights_info == self.flights_table_structure
+            is_passengets_valid = passengets_info == self.passengers_table_structure
 
-            if not is_accounts_valid or not is_flights_valid:
+            if not is_accounts_valid or not is_flights_valid or not is_passengets_valid:
                 raise DatabaseNotUnique("Tables discription are not valid")
 
         except DatabaseNotUnique as e:
             logger.critical("Failed!")
-            logger.critical("Database already exists in server!")
+            logger.critical("Database tables are not valid!")
             
             if self.force_create:
                 logger.warning("Dropping database")
                 cursor.execute(f"DROP DATABASE {self.name};")
                 return self.create()
             logger.exception(e)
-            raise DatabaseNotUnique("required tables not found in database")
+            raise DatabaseNotUnique("Tables discription are not valid")
         finally:
             cursor.close()
 
