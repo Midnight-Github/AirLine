@@ -31,9 +31,9 @@ class Home(ctk.CTkFrame):
     def signout(self):
         logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} logged out")
         appdata.data["user"]["name"] = "None"
+        appdata.data["user"]["permission"] = -1
         appdata.push()
 
-        self.root.reinitFrameAll()
         self.root.showFrame("FrontPage")
 
     def delAccount(self):
@@ -43,8 +43,8 @@ class Home(ctk.CTkFrame):
         if success:
             logger.info(f"Deleted {get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
             appdata.data["user"]["name"] = "None"
+            appdata.data["user"]["permission"] = -1
             appdata.push()
-            self.root.reinitFrameAll()
             self.root.showFrame("FrontPage")
         else:
             logger.error(f"Failed to delete {get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
