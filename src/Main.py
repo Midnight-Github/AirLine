@@ -15,7 +15,7 @@ def main():
     Manager().mainloop()
 
 def connectDatabase():
-    if mysql.connect() == False:
+    if mysql.connect() is False:
         appdata.data["user"]["name"] = None
         appdata.data["user"]["permission"] = -1
         mysql.create()
