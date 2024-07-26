@@ -1,5 +1,0 @@
-[2024-07-25 20:09:29,399][__main__][INFO]: Welcome to AirLine!
-[2024-07-25 20:09:29,399][reader.Mysql][INFO]: Connecting to database
-[2024-07-25 20:09:29,433][reader.Mysql][WARNING]: Failed!
-[2024-07-25 20:09:29,434][reader.Mysql][INFO]: Creating Database
-[2024-07-25 20:09:30,039][ui.Manager][INFO]: Showing Home

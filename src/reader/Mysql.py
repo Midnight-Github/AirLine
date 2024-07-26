@@ -92,7 +92,7 @@ class Mysql():
             if not is_accounts_valid or not is_flights_valid or not is_passengets_valid:
                 raise DatabaseNotUnique("Tables discription are not valid")
 
-        except DatabaseNotUnique as e:
+        except Exception as e:
             logger.critical("Failed!")
             logger.critical("Database tables are not valid!")
             

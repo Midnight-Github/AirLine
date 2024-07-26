@@ -1,5 +1,6 @@
 from ui.Manager import Manager
 from var.SqlManager import mysql
+from var.ConfigManager import appdata
 from reader.Logger import Logger
 import os
 
@@ -15,6 +16,8 @@ def main():
 
 def connectDatabase():
     if mysql.connect() == False:
+        appdata.data["user"]["name"] = None
+        appdata.data["user"]["permission"] = -1
         mysql.create()
 
 if __name__ == "__main__":
