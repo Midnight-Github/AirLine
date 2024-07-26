@@ -57,7 +57,7 @@ class Flights(ctk.CTkFrame):
         self.tree.tag_configure('oddrow', background='#333333')
         self.tree.tag_configure('evenrow', background='#1c1c1c')
 
-        for count, flight in enumerate(self.flights):
+        for count, flight in enumerate(self.flights): # pyright: ignore
             if count % 2 == 0:
                 self.tree.insert('', tk.END, values=flight, tags=('oddrow',))
             else: 
