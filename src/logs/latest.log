@@ -1,5 +1,25 @@
-[2024-07-26 18:08:18,768][__main__][INFO]: Welcome to AirLine!
-[2024-07-26 18:08:18,768][reader.Mysql][INFO]: Connecting to database
-[2024-07-26 18:08:18,997][reader.Mysql][INFO]: Connected!
-[2024-07-26 18:08:19,308][ui.Flights][INFO]: Successfuly extracted data from flights
-[2024-07-26 18:08:19,315][ui.Manager][INFO]: Showing Home
+[2024-07-29 20:53:33,690][__main__][INFO]: Welcome to AirLine!
+[2024-07-29 20:53:33,690][reader.Mysql][INFO]: Connecting to database
+[2024-07-29 20:53:33,714][reader.Mysql][INFO]: Connected!
+[2024-07-29 20:53:34,031][ui.Flights][INFO]: Successfuly extracted data from flights
+[2024-07-29 20:53:34,038][ui.Manager][INFO]: Showing FrontPage
+[2024-07-29 20:53:35,280][ui.Manager][INFO]: Showing Login
+[2024-07-29 20:53:39,082][ui.Login][INFO]: User: kevin logged in
+[2024-07-29 20:53:39,149][ui.Manager][INFO]: Reinitialized Login
+[2024-07-29 20:53:39,206][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-07-29 20:53:39,280][ui.Manager][INFO]: Reinitialized SignUp
+[2024-07-29 20:53:39,292][ui.Manager][INFO]: Reinitialized Home
+[2024-07-29 20:53:39,306][ui.Flights][INFO]: Successfuly extracted data from flights
+[2024-07-29 20:53:39,316][ui.Manager][INFO]: Reinitialized Flights
+[2024-07-29 20:53:39,316][ui.Manager][INFO]: Showing Home
+[2024-07-29 20:53:42,678][ui.Manager][INFO]: Showing Flights
+[2024-07-29 20:53:44,050][ui.Flights][INFO]: Refreshing Flights!
+[2024-07-29 20:53:44,051][ui.Flights][INFO]: Successfuly extracted data from flights
+[2024-07-29 20:53:44,873][ui.Flights][INFO]: Refreshing Flights!
+[2024-07-29 20:53:44,875][ui.Flights][INFO]: Successfuly extracted data from flights
+[2024-07-29 20:53:46,266][ui.Flights][INFO]: Refreshing Flights!
+[2024-07-29 20:53:46,268][ui.Flights][INFO]: Successfuly extracted data from flights
+[2024-07-29 20:53:47,896][ui.Manager][INFO]: Showing Home
+[2024-07-29 20:53:49,602][ui.Home][INFO]: User: kevin logged out
+[2024-07-29 20:53:49,620][ui.Manager][INFO]: Showing FrontPage
+[2024-07-29 20:53:51,707][__main__][INFO]: Program terminated!

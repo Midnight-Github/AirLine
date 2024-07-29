@@ -1,0 +1,6 @@
+[2024-07-29 20:52:40,222][__main__][INFO]: Welcome to AirLine!
+[2024-07-29 20:52:40,224][reader.Mysql][INFO]: Connecting to database
+[2024-07-29 20:52:41,026][reader.Mysql][INFO]: Connected!
+[2024-07-29 20:52:42,104][ui.Flights][INFO]: Successfuly extracted data from flights
+[2024-07-29 20:52:42,117][ui.Manager][INFO]: Showing FrontPage
+[2024-07-29 20:52:43,198][ui.Manager][INFO]: Showing Login

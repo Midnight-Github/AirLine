@@ -4,6 +4,7 @@ from tkinter import ttk
 from var.ConfigManager import appdata
 from reader.Logger import Logger
 from var.SqlManager import mysql
+from ui.AddFlight import AddFlight
 
 logger = Logger(__name__).logger
 
@@ -43,12 +44,7 @@ class Flights(ctk.CTkFrame):
         self.tree.heading('price', text='Price')
         self.tree.column('price',anchor='center', width=50)
         
-        success, result = mysql.execute("SELECT * FROM FLIGHTS;", buffered=True)
-        if success is True:
-            logger.info("Successfuly extracted data from flights")
-        else:
-            logger.exception("Failed to extract data from Flights table!", result)
-        self.flights = self.formatFlights(result)
+        self.extractFlights()
 
         # ('Indigo','Delhi','Mumbai','Economy', '17:00 - 19:30' ,'5000INR')
         # ('Indigo','Bangalore','Mumbai','Economy', '18:00 - 20:00', '5500INR')
@@ -56,12 +52,6 @@ class Flights(ctk.CTkFrame):
         
         self.tree.tag_configure('oddrow', background='#333333')
         self.tree.tag_configure('evenrow', background='#1c1c1c')
-
-        for count, flight in enumerate(self.flights): # pyright: ignore
-            if count % 2 == 0:
-                self.tree.insert('', tk.END, values=flight, tags=('oddrow',))
-            else: 
-                self.tree.insert('', tk.END, values=flight, tags=('evenrow',))
         
         self.tree.bind('<<TreeviewSelect>>', self.getSelectedFlight)
         self.tree.grid(row=0, column=0, sticky='nsew')
@@ -72,14 +62,19 @@ class Flights(ctk.CTkFrame):
         self.tree.configure(yscrollcommand=self.scrollbar.set)
         self.scrollbar.grid(row=0, column=1, sticky='ns')
 
-        self.btn_frame = ctk.CTkFrame(self,fg_color='transparent')
+        self.btn_frame = ctk.CTkFrame(self, fg_color='transparent')
         self.btn_frame.grid(row=1,column=0,sticky='se')
-        self.back_btn = ctk.CTkButton(self.btn_frame, text="back", command=lambda : self.root.showFrame("Home"))
-        self.back_btn.grid(row=0, column=1)
+        self.back_btn = ctk.CTkButton(self.btn_frame, text="Back", command=lambda : self.root.showFrame("Home"))
+        self.back_btn.grid(row=0, column=2)
+        self.refresh_btn = ctk.CTkButton(self.btn_frame, text="Refresh", command=self.refresh)
+        self.refresh_btn.grid(row=0,column=3,sticky='se')
 
         if appdata.data["user"]["permission"] > 0:
-            self.add_btn = ctk.CTkButton(self.btn_frame, text="Add a Flight", command=self.addFlight)
+            self.add_btn = ctk.CTkButton(self.btn_frame, text="Add Flight", command=self.addFlight)
             self.add_btn.grid(row=0, column=0)
+
+            self.delete_btn = ctk.CTkButton(self.btn_frame, text="Delete Flight", command=self.deleteFlight)
+            self.delete_btn.grid(row=0, column=1)
 
     def formatFlights(self, table):
         for i, row in enumerate(table):
@@ -94,5 +89,25 @@ class Flights(ctk.CTkFrame):
         logger.info("Deleting flights is work in progress!")
 
     def getSelectedFlight(self, e):
-        # get this working!
+        print(self.tree.identify_row(e.y))
         pass
+
+    def refresh(self):
+        logger.info("Refreshing Flights!")
+        self.extractFlights()
+
+    def extractFlights(self):
+        result = mysql.execute("SELECT * FROM FLIGHTS;", buffered=True)
+        if result[0] is False:
+            logger.error("Failed to extract data from Flights table!")
+            logger.error(result[1])
+            return
+
+        logger.info("Successfuly extracted data from flights")
+        self.flights = self.formatFlights(result[1])
+        # delete all rows here
+        for count, flight in enumerate(self.flights):
+            if count % 2 == 0:
+                self.tree.insert('', tk.END, values=flight, tags=('oddrow',)) 
+            else: 
+                self.tree.insert('', tk.END, values=flight, tags=('evenrow',))

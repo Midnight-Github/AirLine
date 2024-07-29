@@ -24,5 +24,7 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        logger.exception("Unknown error occured!", e)
+        logger.exception(e)
+    finally:
+        logger.info("Program terminated!")
     

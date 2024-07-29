@@ -1,0 +1,10 @@
+[2024-07-29 20:49:36,585][__main__][INFO]: Welcome to AirLine!
+[2024-07-29 20:49:36,586][reader.Mysql][INFO]: Connecting to database
+[2024-07-29 20:49:36,617][reader.Mysql][INFO]: Connected!
+[2024-07-29 20:49:36,946][ui.Flights][INFO]: Successfuly extracted data from flights
+[2024-07-29 20:49:36,956][ui.Manager][INFO]: Showing Home
+[2024-07-29 20:49:39,385][ui.Home][INFO]: User: test logged out
+[2024-07-29 20:49:39,404][ui.Manager][INFO]: Showing FrontPage
+[2024-07-29 20:49:40,135][ui.Manager][INFO]: Showing Login
+[2024-07-29 20:49:46,129][ui.Manager][INFO]: Reinitialized Login
+[2024-07-29 20:49:46,130][ui.Manager][INFO]: Showing FrontPage

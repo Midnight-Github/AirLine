@@ -1,9 +1,0 @@
-[2024-07-26 18:07:57,731][__main__][INFO]: Welcome to AirLine!
-[2024-07-26 18:07:57,731][reader.Mysql][INFO]: Connecting to database
-[2024-07-26 18:07:58,338][reader.Mysql][INFO]: Connected!
-[2024-07-26 18:07:59,375][ui.Flights][INFO]: Successfuly extracted data from flights
-[2024-07-26 18:07:59,384][ui.Manager][INFO]: Showing Home
-[2024-07-26 18:08:03,236][ui.Manager][INFO]: Showing Flights
-[2024-07-26 18:08:06,580][ui.Flights][INFO]: Adding flights is work in progress!
-[2024-07-26 18:08:08,793][ui.Manager][INFO]: Showing Home
-[2024-07-26 18:08:11,402][ui.Manager][INFO]: Showing Flights

@@ -1,7 +1,6 @@
 import mysql.connector
 from var.ConfigManager import config
 from reader.Logger import Logger
-from errors.Database import DatabaseNotUnique, DatabaseInvalid, DatabaseExecutionError
 from inspect import cleandoc
 
 logger = Logger(__name__).logger
@@ -71,7 +70,7 @@ class Mysql():
                 password=self.password,
                 database=self.name
             )
-        except Exception as e:
+        except Exception:
             logger.warning("Failed!")
             self.database = None
             return False
@@ -90,7 +89,7 @@ class Mysql():
             is_passengets_valid = passengets_info == self.passengers_table_structure
 
             if not is_accounts_valid or not is_flights_valid or not is_passengets_valid:
-                raise DatabaseNotUnique("Tables discription are not valid")
+                raise Exception("Database tables are not valid!")
 
         except Exception as e:
             logger.critical("Failed!")
@@ -100,8 +99,7 @@ class Mysql():
                 logger.warning("Dropping database")
                 cursor.execute(f"DROP DATABASE {self.name};")
                 return self.create()
-            logger.exception(e)
-            raise DatabaseNotUnique("Tables discription are not valid")
+            raise e
         finally:
             cursor.close()
 
@@ -120,8 +118,7 @@ class Mysql():
         except Exception as e:
             logger.critical("Failed!")
             logger.critical("Make sure host, user and password are correct!")
-            logger.exception(e)
-            raise DatabaseInvalid(e)
+            raise e
 
         try:
             cursor = db.cursor()
@@ -131,8 +128,7 @@ class Mysql():
         except Exception as e:
             logger.critical("Failed!")
             logger.critical("Error while execution sql startup script")
-            logger.exception(e)
-            raise DatabaseExecutionError(e)
+            raise e
 
         db = mysql.connector.connect(
             host=self.host,
@@ -145,8 +141,8 @@ class Mysql():
 
     def execute(self, cmd, cmd_args=None, *cursor_args, **cursor_kwargs):
         if self.database == None:
-            logger.critical("Error while executing commands to a disconnected database")
-            raise DatabaseExecutionError("cannot to execute commands to a disconnected database")
+            logger.critical("Tried to execute commands to a disconnected database")
+            raise Exception("Cannot to execute commands to a disconnected database")
         cursor = self.database.cursor(*cursor_args, **cursor_kwargs)
         try:
             if cmd_args == None:
@@ -159,7 +155,6 @@ class Mysql():
             return (False, e)
         except Exception as e:
             logger.critical("Error while executing commands")
-            logger.exception(e)
-            raise DatabaseExecutionError(e)
+            raise e
         finally:
             cursor.close()

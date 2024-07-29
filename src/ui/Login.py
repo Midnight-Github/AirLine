@@ -53,19 +53,19 @@ class Login(login_template):
         sql_cmd = "SELECT Name, Password, Permission FROM Accounts WHERE Name = %s AND Password = %s"
         sql_args = (input_username, input_password)
 
-        success, result = self.mysql.execute(sql_cmd, sql_args, buffered=True)
-        if success:
-            if result:
-                appdata.data["user"]["name"] = input_username
-                appdata.data["user"]["permission"] = result[0][2] #pyright: ignore
-                appdata.push()
-                logger.info(f"{get_user_position[result[0][2]]}: {input_username} logged in") #pyright: ignore
-                self.root.reinitFrameAll()
-                self.root.showFrame("Home")
-                return
-        else:
-            logger.error("Failed to verify user")
-            logger.exception(result)
+        result = self.mysql.execute(sql_cmd, sql_args, buffered=True)
+        if result[0] is False:
+            logger.error("Failed to login!")
+            logger.error(result[1])
+            return
+        if result[1]:
+            appdata.data["user"]["name"] = input_username
+            appdata.data["user"]["permission"] = result[1][0][2] #pyright: ignore
+            appdata.push()
+            logger.info(f"{get_user_position[result[1][0][2]]}: {input_username} logged in") #pyright: ignore
+            self.root.reinitFrameAll()
+            self.root.showFrame("Home")
+            return
 
         self.username_entry.configure(border_color="red")
         self.password_entry.configure(border_color="red")
