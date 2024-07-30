@@ -62,6 +62,16 @@ class Flights(ctk.CTkFrame):
         self.tree.configure(yscrollcommand=self.scrollbar.set)
         self.scrollbar.grid(row=0, column=1, sticky='ns')
 
+        def select():
+            selected=tree.selection()
+            for items in selected:
+                details=tree.item(items)
+                print(details)
+                
+        def delete():
+            selected= tree.selection()[0]
+            tree.delete(selected)
+
         self.btn_frame = ctk.CTkFrame(self,fg_color='transparent')
         self.btn_frame.grid(row=1,column=0,sticky='se')
         self.back_btn = ctk.CTkButton(self.btn_frame, text="back", command=lambda : self.root.showFrame("Home"))
