@@ -13,7 +13,7 @@ class Login(ctk.CTkFrame):
 
         self.bind("<Configure>", self.resizeBgImg)
 
-        self.bg_img_path = path.dirname(__file__) + "\\..\\assets\\login_bg_img.png"
+        self.bg_img_path = path.dirname(__file__) + "\\..\\data\\assets\\login_bg_img.png"
 
         self.setBgSize()
 

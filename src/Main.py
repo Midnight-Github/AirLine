@@ -1,5 +1,6 @@
 from ui.Manager import Manager
 from var.SqlManager import mysql
+from var.ConfigManager import appdata
 from reader.Logger import Logger
 import os
 
@@ -14,12 +15,16 @@ def main():
     Manager().mainloop()
 
 def connectDatabase():
-    if mysql.connect() == False:
+    if mysql.connect() is False:
+        appdata.data["user"]["name"] = None
+        appdata.data["user"]["permission"] = -1
         mysql.create()
 
 if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        logger.exception("Unknown error occured!", e)
+        logger.exception(e)
+    finally:
+        logger.info("Program terminated!")
     

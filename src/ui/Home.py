@@ -39,13 +39,13 @@ class Home(ctk.CTkFrame):
     def delAccount(self):
         sql_cmd = "DELETE FROM Accounts WHERE Name = %s"
         sql_args = (appdata.data["user"]["name"],)
-        success, result = self.mysql.execute(sql_cmd, sql_args)
-        if success:
-            logger.info(f"Deleted {get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
-            appdata.data["user"]["name"] = "None"
-            appdata.data["user"]["permission"] = -1
-            appdata.push()
-            self.root.showFrame("FrontPage")
-        else:
+        result = self.mysql.execute(sql_cmd, sql_args)
+        if result[0] is False:
             logger.error(f"Failed to delete {get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
-            logger.exception(result)
+            logger.error(result[1])
+            return
+        logger.info(f"Deleted {get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
+        appdata.data["user"]["name"] = "None"
+        appdata.data["user"]["permission"] = -1
+        appdata.push()
+        self.root.showFrame("FrontPage")
