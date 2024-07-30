@@ -12,7 +12,7 @@ class AddFlight(ctk.CTkToplevel):
 
         self.airline_entry = ctk.CTkEntry(self, width=200, placeholder_text="Airline", border_color="grey")
         self.airline_entry.grid(row=0, column=0, padx=30, pady=(30, 15))
-        self.pod_entry = ctk.CTkEntry(self, width=200, placeholder_text="Pod", border_color="grey")
+        self.pod_entry = ctk.CTkEntry(self, width=200, placeholder_text="Place of departure", border_color="grey")
         self.pod_entry.grid(row=1, column=0, padx=30, pady=15)
         self.destination_entry = ctk.CTkEntry(self, width=200, placeholder_text="Destination", border_color="grey")
         self.destination_entry.grid(row=2, column=0, padx=30, pady=15)

@@ -1,7 +1,7 @@
-[2024-07-30 16:15:13,671][__main__][INFO]: Welcome to AirLine!
-[2024-07-30 16:15:13,672][reader.Mysql][INFO]: Connecting to database
-[2024-07-30 16:15:14,042][reader.Mysql][INFO]: Connected!
-[2024-07-30 16:15:14,407][ui.Flights][INFO]: Extracted data from flights
-[2024-07-30 16:15:14,419][ui.Manager][INFO]: Showing Home
-[2024-07-30 16:15:15,505][ui.Manager][INFO]: Showing Flights
-[2024-07-30 16:15:44,044][__main__][INFO]: Program terminated!
+[2024-07-30 22:20:32,163][__main__][INFO]: Welcome to AirLine!
+[2024-07-30 22:20:32,163][reader.Mysql][INFO]: Connecting to database
+[2024-07-30 22:20:32,219][reader.Mysql][INFO]: Connected!
+[2024-07-30 22:20:32,530][ui.Flights][INFO]: Extracted data from flights
+[2024-07-30 22:20:32,540][ui.Manager][INFO]: Showing Home
+[2024-07-30 22:20:33,764][ui.Manager][INFO]: Showing Flights
+[2024-07-30 22:22:02,643][__main__][INFO]: Program terminated!

@@ -37,7 +37,7 @@ class Home(ctk.CTkFrame):
         self.root.showFrame("FrontPage")
 
     def delAccount(self):
-        sql_cmd = "DELETE FROM Accounts WHERE Name = %s"
+        sql_cmd = "DELETE FROM Accounts WHERE Name = %s;"
         sql_args = (appdata.data["user"]["name"],)
         result = self.mysql.execute(sql_cmd, sql_args)
         if result[0] is False:

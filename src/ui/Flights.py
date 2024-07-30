@@ -53,7 +53,7 @@ class Flights(ctk.CTkFrame):
         self.tree.tag_configure('oddrow', background='#333333')
         self.tree.tag_configure('evenrow', background='#1c1c1c')
         
-        self.tree.bind('<<TreeviewSelect>>', self.getSelectedFlight)
+        self.tree.bind('<<TreeviewSelect>>')
         self.tree.grid(row=0, column=0, sticky='nsew')
         self.tree.grid_rowconfigure(0, weight=1)
         self.tree.grid_columnconfigure(0,weight=1)
@@ -92,16 +92,25 @@ class Flights(ctk.CTkFrame):
 
     def addFlight(self):
         if not self.isAddFlightFormAlive():
-            self.add_flight_form = AddFlight(self.insertFlight)
+            self.add_flight_form = AddFlight(self.insertRowFlights)
         
         self.add_flight_form.after(100, self.add_flight_form.lift) #pyright: ignore # work around to fix bug: toplevel hiding behind root
 
     def deleteFlight(self):
-        logger.info("Deleting flights is work in progress!")
+        selected = self.getSelectedFlight()
+        if selected is None:
+            return
+        if self.deleteRowFlights(selected[0]) is False:
+            return
+        selected = self.tree.selection()[0]
+        self.tree.delete(selected)
 
-    def getSelectedFlight(self, e):
-        print(self.tree.identify_row(e.y))
-        pass
+    def getSelectedFlight(self):
+        selected = self.tree.selection()
+        if not selected:
+            return None
+        details = self.tree.item(selected[0])
+        return details["values"]
 
     def refresh(self):
         logger.info("Refreshing Flights!")
@@ -116,20 +125,22 @@ class Flights(ctk.CTkFrame):
 
         logger.info("Extracted data from flights")
         self.flights = self.formatFlights(result[1])
+
         # delete all rows here
+
         for count, flight in enumerate(self.flights):
             if count % 2 == 0:
                 self.tree.insert('', tk.END, values=flight, tags=('oddrow',)) # pyright: ignore
             else: 
                 self.tree.insert('', tk.END, values=flight, tags=('evenrow',)) # pyright: ignore
 
-    def insertFlight(self, sql_args):
+    def insertRowFlights(self, sql_args):
         sql_cmd = "INSERT INTO Flights (Airline, Pod, Destination, Class, Time, Price) VALUES (%s, %s, %s, %s, %s, %s);"
         result = mysql.execute(sql_cmd, sql_args)
         if result[0] is False:
             logger.error("Failed to insert data to Flights!")
             logger.error(result[1])
-            return
+            return False
 
         logger.info(f"Inserted {sql_args} to Flights")
         if self.isAddFlightFormAlive():
@@ -137,13 +148,15 @@ class Flights(ctk.CTkFrame):
             self.add_flight_form.update() # pyright: ignore
 
         self.extractFlights()
+        return True
 
-    def select(self):
-        selected = self.tree.selection()
-        for items in selected:
-            details = self.tree.item(items)
-            print(details)
-            
-    def delete(self):
-        selected = self.tree.selection()[0]
-        self.tree.delete(selected)
+    def deleteRowFlights(self, flight_id):
+        sql_cmd = "DELETE FROM Flights WHERE Flight_ID = %s;"
+        result = mysql.execute(sql_cmd, (flight_id,))
+        if result[0] is False:
+            logger.error("Failed to delete data from Flights!")
+            logger.error(result[1])
+            return False
+
+        logger.info(f"Deleted flight with id {flight_id} from Flights")
+        return True
