@@ -70,11 +70,16 @@ class Flights(ctk.CTkFrame):
         self.refresh_btn.grid(row=0,column=3,sticky='se')
 
         if appdata.data["user"]["permission"] > 0:
-            self.add_btn = ctk.CTkButton(self.btn_frame, text="Add Flight", command=self.addFlight)
-            self.add_btn.grid(row=0, column=0)
+            self.adminFeatures()
 
-            self.delete_btn = ctk.CTkButton(self.btn_frame, text="Delete Flight", command=self.deleteFlight)
-            self.delete_btn.grid(row=0, column=1)
+    def adminFeatures(self):
+        self.add_flight_form = None
+
+        self.add_btn = ctk.CTkButton(self.btn_frame, text="Add Flight", command=self.addFlight)
+        self.add_btn.grid(row=0, column=0)
+
+        self.delete_btn = ctk.CTkButton(self.btn_frame, text="Delete Flight", command=self.deleteFlight)
+        self.delete_btn.grid(row=0, column=1)
 
     def formatFlights(self, table):
         for i, row in enumerate(table):
@@ -82,8 +87,14 @@ class Flights(ctk.CTkFrame):
             table[i] = row
         return table
 
+    def isAddFlightFormAlive(self):
+        return not (self.add_flight_form is None or not self.add_flight_form.winfo_exists())
+
     def addFlight(self):
-        logger.info("Adding flights is work in progress!")
+        if not self.isAddFlightFormAlive():
+            self.add_flight_form = AddFlight(self.insertFlight)
+        
+        self.add_flight_form.after(100, self.add_flight_form.lift) #pyright: ignore # work around to fix bug: toplevel hiding behind root
 
     def deleteFlight(self):
         logger.info("Deleting flights is work in progress!")
@@ -97,17 +108,32 @@ class Flights(ctk.CTkFrame):
         self.extractFlights()
 
     def extractFlights(self):
-        result = mysql.execute("SELECT * FROM FLIGHTS;", buffered=True)
+        result = mysql.execute("SELECT * FROM Flights;", buffered=True)
         if result[0] is False:
-            logger.error("Failed to extract data from Flights table!")
+            logger.error("Failed to extract data from Flights!")
             logger.error(result[1])
             return
 
-        logger.info("Successfuly extracted data from flights")
+        logger.info("Extracted data from flights")
         self.flights = self.formatFlights(result[1])
         # delete all rows here
         for count, flight in enumerate(self.flights):
             if count % 2 == 0:
-                self.tree.insert('', tk.END, values=flight, tags=('oddrow',)) 
+                self.tree.insert('', tk.END, values=flight, tags=('oddrow',)) # pyright: ignore
             else: 
-                self.tree.insert('', tk.END, values=flight, tags=('evenrow',))
+                self.tree.insert('', tk.END, values=flight, tags=('evenrow',)) # pyright: ignore
+
+    def insertFlight(self, sql_args):
+        sql_cmd = "INSERT INTO Flights (Airline, Pod, Destination, Class, Time, Price) VALUES (%s, %s, %s, %s, %s, %s);"
+        result = mysql.execute(sql_cmd, sql_args)
+        if result[0] is False:
+            logger.error("Failed to insert data to Flights!")
+            logger.error(result[1])
+            return
+
+        logger.info(f"Inserted {sql_args} to Flights")
+        if self.isAddFlightFormAlive():
+            self.add_flight_form.destroy() # pyright: ignore
+            self.add_flight_form.update() # pyright: ignore
+
+        self.extractFlights()
