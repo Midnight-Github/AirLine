@@ -55,7 +55,7 @@ class Mysql():
         ]
         self.passengers_table_structure = [
             ('Booking_ID', 'int', 'NO', 'PRI', None, 'auto_increment'), 
-            ('Name', 'varchar(255)', 'NO', 'MUL', None, ''), 
+            ('Name', 'varchar(255)', 'NO', 'MUL', None, ''),
             ('Flight_ID', 'int', 'NO', 'MUL', None, '')
         ]
 

@@ -1,0 +1,61 @@
+[2024-08-02 10:11:23,561][__main__][INFO]: Welcome to AirLine!
+[2024-08-02 10:11:23,562][reader.Mysql][INFO]: Connecting to database
+[2024-08-02 10:11:23,604][reader.Mysql][INFO]: Connected!
+[2024-08-02 10:11:23,723][template.BgFrame][INFO]: 1, 1
+[2024-08-02 10:11:23,822][template.BgFrame][INFO]: 1, 1
+[2024-08-02 10:11:23,887][template.BgFrame][INFO]: 1, 1
+[2024-08-02 10:11:24,060][template.BgFrame][INFO]: 1, 1
+[2024-08-02 10:11:24,123][ui.Flights][INFO]: Extracted data from flights
+[2024-08-02 10:11:24,150][ui.Manager][INFO]: Showing Home
+[2024-08-02 10:11:24,197][template.BgFrame][INFO]: 250.0, 210.0
+[2024-08-02 10:11:24,214][template.BgFrame][INFO]: 500, 700
+[2024-08-02 10:11:24,305][template.BgFrame][INFO]: 500, 700
+[2024-08-02 10:11:24,372][template.BgFrame][INFO]: 500, 700
+[2024-08-02 10:11:26,818][template.BgFrame][INFO]: 418.5, 480.0
+[2024-08-02 10:11:26,857][template.BgFrame][INFO]: 837, 1600
+[2024-08-02 10:11:26,987][template.BgFrame][INFO]: 837, 1600
+[2024-08-02 10:11:27,105][template.BgFrame][INFO]: 837, 1600
+[2024-08-02 10:11:30,220][template.BgFrame][INFO]: 250.0, 210.0
+[2024-08-02 10:11:30,247][template.BgFrame][INFO]: 500, 700
+[2024-08-02 10:11:30,323][template.BgFrame][INFO]: 500, 700
+[2024-08-02 10:11:30,415][template.BgFrame][INFO]: 500, 700
+[2024-08-02 10:11:46,942][ui.Home][INFO]: Admin: admin logged out
+[2024-08-02 10:11:46,992][ui.Manager][INFO]: Showing FrontPage
+[2024-08-02 10:11:47,714][ui.Manager][INFO]: Showing Login
+[2024-08-02 10:11:53,243][ui.Login][INFO]: User: kevin logged in
+[2024-08-02 10:11:53,283][template.BgFrame][INFO]: 1, 1
+[2024-08-02 10:11:53,340][ui.Manager][INFO]: Reinitialized Login
+[2024-08-02 10:11:53,364][template.BgFrame][INFO]: 1, 1
+[2024-08-02 10:11:53,423][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-08-02 10:11:53,423][template.BgFrame][INFO]: 1, 1
+[2024-08-02 10:11:53,517][ui.Manager][INFO]: Reinitialized SignUp
+[2024-08-02 10:11:53,527][template.BgFrame][INFO]: 1, 1
+[2024-08-02 10:11:53,548][ui.Manager][INFO]: Reinitialized Home
+[2024-08-02 10:11:53,568][ui.Flights][INFO]: Extracted data from flights
+[2024-08-02 10:11:53,583][ui.Manager][INFO]: Reinitialized Flights
+[2024-08-02 10:11:53,583][ui.Manager][INFO]: Showing Home
+[2024-08-02 10:11:53,616][template.BgFrame][INFO]: 250.0, 210.0
+[2024-08-02 10:11:53,635][template.BgFrame][INFO]: 500, 700
+[2024-08-02 10:11:53,712][template.BgFrame][INFO]: 500, 700
+[2024-08-02 10:11:53,773][template.BgFrame][INFO]: 500, 700
+[2024-08-02 10:12:00,482][ui.Manager][INFO]: Showing Flights
+[2024-08-02 10:12:01,635][ui.Manager][INFO]: Showing Home
+[2024-08-02 10:12:03,364][template.BgFrame][INFO]: 418.5, 480.0
+[2024-08-02 10:12:03,424][template.BgFrame][INFO]: 837, 1600
+[2024-08-02 10:12:03,555][template.BgFrame][INFO]: 837, 1600
+[2024-08-02 10:12:03,671][template.BgFrame][INFO]: 837, 1600
+[2024-08-02 10:12:07,553][template.BgFrame][INFO]: 250.0, 210.0
+[2024-08-02 10:12:07,590][template.BgFrame][INFO]: 500, 700
+[2024-08-02 10:12:07,673][template.BgFrame][INFO]: 500, 700
+[2024-08-02 10:12:07,742][template.BgFrame][INFO]: 500, 700
+[2024-08-02 10:12:18,138][template.BgFrame][INFO]: 418.5, 480.0
+[2024-08-02 10:12:18,181][template.BgFrame][INFO]: 837, 1600
+[2024-08-02 10:12:18,321][template.BgFrame][INFO]: 837, 1600
+[2024-08-02 10:12:18,438][template.BgFrame][INFO]: 837, 1600
+[2024-08-02 10:12:21,913][template.BgFrame][INFO]: 250.0, 210.0
+[2024-08-02 10:12:21,929][template.BgFrame][INFO]: 500, 700
+[2024-08-02 10:12:22,022][template.BgFrame][INFO]: 500, 700
+[2024-08-02 10:12:22,091][template.BgFrame][INFO]: 500, 700
+[2024-08-02 10:12:29,316][ui.Home][INFO]: User: kevin logged out
+[2024-08-02 10:12:29,372][ui.Manager][INFO]: Showing FrontPage
+[2024-08-02 10:12:35,202][__main__][INFO]: Program terminated!

@@ -11,7 +11,7 @@ def main():
     logger.info("Welcome to AirLine!")
 
     connectDatabase()
-            
+
     Manager().mainloop()
 
 def connectDatabase():

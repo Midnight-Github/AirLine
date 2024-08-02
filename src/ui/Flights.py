@@ -126,13 +126,17 @@ class Flights(ctk.CTkFrame):
         logger.info("Extracted data from flights")
         self.flights = self.formatFlights(result[1])
 
-        # delete all rows here
+        self.deleteAllRows()
 
         for count, flight in enumerate(self.flights):
             if count % 2 == 0:
                 self.tree.insert('', tk.END, values=flight, tags=('oddrow',)) # pyright: ignore
             else: 
                 self.tree.insert('', tk.END, values=flight, tags=('evenrow',)) # pyright: ignore
+
+    def deleteAllRows(self):
+        for row in self.tree.get_children():
+            self.tree.delete(row)
 
     def insertRowFlights(self, sql_args):
         sql_cmd = "INSERT INTO Flights (Airline, Pod, Destination, Class, Time, Price) VALUES (%s, %s, %s, %s, %s, %s);"

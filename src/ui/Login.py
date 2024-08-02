@@ -1,7 +1,7 @@
 import customtkinter as ctk
 import csv
 from os import path
-from template.Login import Login as login_template
+from template.BgFrame import BgFrame
 from var.ConfigManager import appdata
 from var.SqlManager import mysql
 from reader.Logger import Logger
@@ -9,12 +9,14 @@ from var.Globals import get_user_position
 
 logger = Logger(__name__).logger
 
-class Login(login_template):
+class Login(BgFrame):
     def __init__(self, root):
-        super().__init__(root)
+        super().__init__(root, "login_bg.png", 1, 1)
 
-        self.root = root
         self.mysql = mysql
+
+        self.content_frame = ctk.CTkFrame(self.bg_image_label, fg_color="transparent")
+        self.content_frame.grid(row=0, column=0, sticky="ns")
 
         self.content_frame.grid_rowconfigure(0, weight=1)
 
