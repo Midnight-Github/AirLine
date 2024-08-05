@@ -1,15 +1,12 @@
-[2024-08-02 10:14:40,487][__main__][INFO]: Welcome to AirLine!
-[2024-08-02 10:14:40,487][reader.Mysql][INFO]: Connecting to database
-[2024-08-02 10:14:40,544][reader.Mysql][INFO]: Connected!
-[2024-08-02 10:14:40,937][ui.Flights][INFO]: Extracted data from flights
-[2024-08-02 10:14:40,950][ui.Manager][INFO]: Showing FrontPage
-[2024-08-02 10:14:42,390][ui.Manager][INFO]: Showing Login
-[2024-08-02 10:14:47,036][ui.Login][INFO]: Admin: admin logged in
-[2024-08-02 10:14:47,154][ui.Manager][INFO]: Reinitialized Login
-[2024-08-02 10:14:47,224][ui.Manager][INFO]: Reinitialized FrontPage
-[2024-08-02 10:14:47,305][ui.Manager][INFO]: Reinitialized SignUp
-[2024-08-02 10:14:47,344][ui.Manager][INFO]: Reinitialized Home
-[2024-08-02 10:14:47,354][ui.Flights][INFO]: Extracted data from flights
-[2024-08-02 10:14:47,374][ui.Manager][INFO]: Reinitialized Flights
-[2024-08-02 10:14:47,374][ui.Manager][INFO]: Showing Home
-[2024-08-02 10:15:21,728][__main__][INFO]: Program terminated!
+[2024-08-05 17:16:46,650][__main__][INFO]: Welcome to AirLine!
+[2024-08-05 17:16:46,650][reader.Mysql][INFO]: Connecting to database
+[2024-08-05 17:16:46,680][reader.Mysql][INFO]: Connected!
+[2024-08-05 17:16:47,045][ui.Flights][INFO]: Extracted data from flights
+[2024-08-05 17:16:47,051][ui.Manager][INFO]: Showing FrontPage
+[2024-08-05 17:16:48,230][ui.Manager][INFO]: Showing Login
+[2024-08-05 17:16:49,610][ui.Manager][INFO]: Reinitialized Login
+[2024-08-05 17:16:49,610][ui.Manager][INFO]: Showing FrontPage
+[2024-08-05 17:16:50,511][ui.Manager][INFO]: Showing SignUp
+[2024-08-05 17:16:51,980][ui.Manager][INFO]: Reinitialized SignUp
+[2024-08-05 17:16:51,980][ui.Manager][INFO]: Showing FrontPage
+[2024-08-05 17:16:56,615][__main__][INFO]: Program terminated!

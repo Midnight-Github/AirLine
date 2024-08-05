@@ -1,0 +1,33 @@
+[2024-08-05 17:14:01,094][__main__][INFO]: Welcome to AirLine!
+[2024-08-05 17:14:01,094][reader.Mysql][INFO]: Connecting to database
+[2024-08-05 17:14:01,115][reader.Mysql][WARNING]: Failed!
+[2024-08-05 17:14:01,131][reader.Mysql][INFO]: Creating Database
+[2024-08-05 17:14:01,525][ui.Flights][INFO]: Extracted data from flights
+[2024-08-05 17:14:01,530][ui.Manager][INFO]: Showing FrontPage
+[2024-08-05 17:14:20,346][ui.Manager][INFO]: Showing Login
+[2024-08-05 17:14:25,920][ui.Login][WARNING]: temp tried to login but failed
+[2024-08-05 17:14:26,946][ui.Manager][INFO]: Reinitialized Login
+[2024-08-05 17:14:26,946][ui.Manager][INFO]: Showing FrontPage
+[2024-08-05 17:14:28,111][ui.Manager][INFO]: Showing SignUp
+[2024-08-05 17:14:38,510][ui.SignUp][INFO]: Admin: a signed up
+[2024-08-05 17:14:38,586][ui.Manager][INFO]: Reinitialized Login
+[2024-08-05 17:14:38,647][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-08-05 17:14:38,753][ui.Manager][INFO]: Reinitialized SignUp
+[2024-08-05 17:14:38,776][ui.Manager][INFO]: Reinitialized Home
+[2024-08-05 17:14:38,788][ui.Flights][INFO]: Extracted data from flights
+[2024-08-05 17:14:38,799][ui.Manager][INFO]: Reinitialized Flights
+[2024-08-05 17:14:38,800][ui.Manager][INFO]: Showing Home
+[2024-08-05 17:14:45,480][ui.Manager][INFO]: Showing Flights
+[2024-08-05 17:14:47,351][ui.Manager][INFO]: Showing Home
+[2024-08-05 17:14:50,140][ui.Home][INFO]: Admin: a logged out
+[2024-08-05 17:14:50,151][ui.Manager][INFO]: Showing FrontPage
+[2024-08-05 17:14:53,047][ui.Manager][INFO]: Showing Login
+[2024-08-05 17:14:57,060][ui.Login][INFO]: Admin: a logged in
+[2024-08-05 17:14:57,130][ui.Manager][INFO]: Reinitialized Login
+[2024-08-05 17:14:57,206][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-08-05 17:14:57,291][ui.Manager][INFO]: Reinitialized SignUp
+[2024-08-05 17:14:57,318][ui.Manager][INFO]: Reinitialized Home
+[2024-08-05 17:14:57,330][ui.Flights][INFO]: Extracted data from flights
+[2024-08-05 17:14:57,344][ui.Manager][INFO]: Reinitialized Flights
+[2024-08-05 17:14:57,345][ui.Manager][INFO]: Showing Home
+[2024-08-05 17:15:00,513][__main__][INFO]: Program terminated!

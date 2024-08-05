@@ -16,8 +16,9 @@ def main():
 
 def connectDatabase():
     if mysql.connect() is False:
-        appdata.data["user"]["name"] = None
+        appdata.data["user"]["name"] = "None"
         appdata.data["user"]["permission"] = -1
+        appdata.push()
         mysql.create()
 
 if __name__ == "__main__":

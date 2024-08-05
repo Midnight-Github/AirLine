@@ -13,13 +13,8 @@ class Home(BgFrame):
 
         self.mysql = mysql
 
-        self.grid_rowconfigure(1, weight=1)
-
         self.content_frame = ctk.CTkFrame(self, fg_color="transparent")
         self.content_frame.grid(row=1, column=0, sticky='n')
-
-        self.grid_rowconfigure(0, weight=1)
-        self.grid_columnconfigure(0, weight=1)
 
         self.welcome_label = ctk.CTkLabel(self.content_frame, text=f"Welcome back {appdata.data["user"]["name"]}!", font=ctk.CTkFont(family="times new roman", size=30), fg_color="transparent")
         self.welcome_label.grid(row=0, column=0)

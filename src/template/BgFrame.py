@@ -11,6 +11,9 @@ class BgFrame(ctk.CTkFrame):
         self.height_factor = height_factor
         self.width_factor = width_factor
 
+        self.grid_rowconfigure(0, weight=1)
+        self.grid_columnconfigure(0, weight=1)
+
         self.bind("<Configure>", self.resizeBgImg)
 
         self.bg_img_path = path.dirname(__file__) + f"\\..\\data\\assets\\{img_name}"
@@ -28,7 +31,8 @@ class BgFrame(ctk.CTkFrame):
             height *= self.height_factor
             width *= self.width_factor
 
-        self.bg_img = ctk.CTkImage(dark_image=Image.open(self.bg_img_path), light_image=Image.open(self.bg_img_path), size=(width, height))
+        img = Image.open(self.bg_img_path)
+        self.bg_img = ctk.CTkImage(dark_image=img, light_image=img, size=(width, height))
 
     def resizeBgImg(self, e):
         self.setBgSize()

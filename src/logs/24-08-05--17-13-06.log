@@ -1,0 +1,6 @@
+[2024-08-05 17:12:45,835][__main__][INFO]: Welcome to AirLine!
+[2024-08-05 17:12:45,835][reader.Mysql][INFO]: Connecting to database
+[2024-08-05 17:12:45,862][reader.Mysql][INFO]: Connected!
+[2024-08-05 17:12:46,206][ui.Flights][INFO]: Extracted data from flights
+[2024-08-05 17:12:46,218][ui.Manager][INFO]: Showing Home
+[2024-08-05 17:13:03,447][__main__][INFO]: Program terminated!
