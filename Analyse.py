@@ -6,8 +6,8 @@ def getLine(path:str) -> Iterator[str]:
     with open(path, 'r', encoding='utf-8') as f:
         yield from f
 
-def totalLines(func:Callable) -> Callable:
-    lines = dict.fromkeys(range(0, 128), 0)
+def totalLines(func:Callable, max_depth=128) -> Callable:
+    lines = dict.fromkeys(range(0, max_depth), 0)
     def wrapper(*args, **kwargs):
         sub_total_lines, indent = func(*args, **kwargs)
         lines[indent] += sub_total_lines

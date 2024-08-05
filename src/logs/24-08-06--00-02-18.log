@@ -1,0 +1,20 @@
+[2024-08-06 00:01:47,170][__main__][INFO]: Welcome to AirLine!
+[2024-08-06 00:01:47,171][reader.Mysql][INFO]: Connecting to database
+[2024-08-06 00:01:47,197][reader.Mysql][INFO]: Connected!
+[2024-08-06 00:01:47,571][ui.Flights][INFO]: Extracted data from flights
+[2024-08-06 00:01:47,598][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 00:01:47,598][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 00:01:47,604][ui.Manager][INFO]: Showing Home
+[2024-08-06 00:01:49,016][ui.Manager][INFO]: Showing Flights
+[2024-08-06 00:01:52,766][ui.Manager][INFO]: Showing Home
+[2024-08-06 00:01:53,727][ui.Manager][INFO]: Showing Cart
+[2024-08-06 00:01:55,627][ui.Cart][INFO]: Admin: kevin unbooked flight with id 4
+[2024-08-06 00:01:57,641][ui.Cart][INFO]: Admin: kevin unbooked flight with id 3
+[2024-08-06 00:01:59,677][ui.Cart][INFO]: Admin: kevin unbooked flight with id 2
+[2024-08-06 00:02:00,593][ui.Manager][INFO]: Showing Home
+[2024-08-06 00:02:01,446][ui.Manager][INFO]: Showing Flights
+[2024-08-06 00:02:04,277][ui.Flights][INFO]: Admin: kevin booked Flight with id: 4
+[2024-08-06 00:02:04,287][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 00:02:04,287][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 00:02:04,287][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-06 00:02:09,079][__main__][INFO]: Program terminated!

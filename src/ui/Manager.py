@@ -5,6 +5,7 @@ from ui.FrontPage import FrontPage
 from ui.SignUp import SignUp
 from ui.Home import Home
 from ui.Flights import Flights
+from ui.Cart import Cart
 from reader.Logger import Logger
 
 logger = Logger(__name__).logger
@@ -19,7 +20,7 @@ class Manager(ctk.CTk):
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
 
-        self.frame_class = {"Login": Login, "FrontPage": FrontPage, "SignUp": SignUp, "Home": Home, "Flights": Flights}
+        self.frame_class = {"Login": Login, "FrontPage": FrontPage, "SignUp": SignUp, "Home": Home, "Flights": Flights, "Cart": Cart}
 
         self.frames = dict()
         for frame_name, Frame in self.frame_class.items():

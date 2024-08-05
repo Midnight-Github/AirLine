@@ -18,17 +18,19 @@ class AddFlight(ctk.CTkToplevel):
         self.destination_entry.grid(row=2, column=0, padx=30, pady=15)
         self.class_entry = ctk.CTkEntry(self, width=200, placeholder_text="Class", border_color="grey")
         self.class_entry.grid(row=3, column=0, padx=30, pady=15)
+        self.date_entry = ctk.CTkEntry(self, width=200, placeholder_text="Date: DD-MM-YYYY", border_color="grey")
+        self.date_entry.grid(row=4, column=0, padx=30, pady=15)
         self.time_entry = ctk.CTkEntry(self, width=200, placeholder_text="Time", border_color="grey")
-        self.time_entry.grid(row=4, column=0, padx=30, pady=15)
+        self.time_entry.grid(row=5, column=0, padx=30, pady=15)
         self.price_entry = ctk.CTkEntry(self, width=200, placeholder_text="Price", border_color="grey")
-        self.price_entry.grid(row=5, column=0, padx=30, pady=15)
+        self.price_entry.grid(row=6, column=0, padx=30, pady=15)
 
         self.error_text = tk.StringVar()
         self.error_label = ctk.CTkLabel(self, textvariable=self.error_text, font=ctk.CTkFont(size=15))
-        self.error_label.grid(row=6, column=0)
+        self.error_label.grid(row=7, column=0)
 
         self.submit_btn = ctk.CTkButton(self, text="Submit", command=self.submit)
-        self.submit_btn.grid(row=7, column=0, padx=30, pady=15, sticky="e")
+        self.submit_btn.grid(row=8, column=0, padx=30, pady=15, sticky="e")
         
     def submit(self):
         details = (
@@ -36,6 +38,7 @@ class AddFlight(ctk.CTkToplevel):
             self.pod_entry.get(),
             self.destination_entry.get(),
             self.class_entry.get(),
+            self.date_entry.get(),
             self.time_entry.get(),
             self.price_entry.get()
         )
@@ -52,7 +55,7 @@ class AddFlight(ctk.CTkToplevel):
                 return False
 
         try:
-            int(target[-1])
+            int(target[6])
         except ValueError:
             self.error_text.set("Price should be a number")
             return False

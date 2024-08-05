@@ -1,0 +1,22 @@
+[2024-08-06 00:00:01,587][__main__][INFO]: Welcome to AirLine!
+[2024-08-06 00:00:01,587][reader.Mysql][INFO]: Connecting to database
+[2024-08-06 00:00:01,624][reader.Mysql][INFO]: Connected!
+[2024-08-06 00:00:02,077][ui.Flights][INFO]: Extracted data from flights
+[2024-08-06 00:00:02,107][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 00:00:02,109][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 00:00:02,110][ui.Manager][INFO]: Showing Home
+[2024-08-06 00:00:03,345][ui.Manager][INFO]: Showing Flights
+[2024-08-06 00:00:04,907][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 00:00:04,907][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 00:00:04,907][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-06 00:00:04,907][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-06 00:00:04,907][ui.Flights][INFO]: Extracted data from flights
+[2024-08-06 00:00:09,387][ui.Manager][INFO]: Showing Home
+[2024-08-06 00:00:10,946][ui.Manager][INFO]: Showing Flights
+[2024-08-06 00:00:11,967][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 00:00:11,977][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 00:00:11,977][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-06 00:00:11,977][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-06 00:00:11,977][ui.Flights][INFO]: Extracted data from flights
+[2024-08-06 00:00:14,697][ui.Manager][INFO]: Showing Home
+[2024-08-06 00:00:15,965][__main__][INFO]: Program terminated!
