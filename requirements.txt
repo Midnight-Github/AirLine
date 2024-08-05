@@ -2,3 +2,4 @@ toml
 customtkinter
 mysql.connector
 pillow
+ctkmessagebox

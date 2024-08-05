@@ -26,7 +26,7 @@ class Flights(ctk.CTkFrame):
         
         self.header = ctk.CTkLabel(self, text="Available Flights", font=ctk.CTkFont(size=30, weight="bold"))
         self.header.grid(row=0, column=0, sticky='new')
-       
+
         self.columns = ('id', 'airline', 'pod', 'dest', 'class', 'date', 'time', 'price')
         self.tree = ttk.Treeview(self, columns=self.columns, show='headings')
         self.tree.heading('id', text='ID')
@@ -73,7 +73,7 @@ class Flights(ctk.CTkFrame):
         self.refresh_btn.grid(row=0,column=3, padx=5)
         self.back_btn = ctk.CTkButton(self.btn_frame, text="Back", command=lambda : self.root.showFrame("Home"))
         self.back_btn.grid(row=0, column=4, padx=5)
-           
+
         if appdata.data["user"]["permission"] > 0:
             self.adminFeatures()
 
@@ -104,6 +104,7 @@ class Flights(ctk.CTkFrame):
     def deleteFlight(self):
         selected = self.getSelectedFlight()
         if selected is None:
+            ctkmsgbox(title="Flights", message="No flight selected!")
             return
         if self.deleteRowFlights(selected[0]) is False:
             return
@@ -111,8 +112,8 @@ class Flights(ctk.CTkFrame):
         self.tree.delete(selected)
         
     def deleteAllRows(self):
-            for row in self.tree.get_children():
-                self.tree.delete(row)
+        for row in self.tree.get_children():
+            self.tree.delete(row)
 
     def getSelectedFlight(self):
         selected = self.tree.selection()
@@ -135,7 +136,7 @@ class Flights(ctk.CTkFrame):
         logger.info("Extracted data from flights")
         self.flights = self.formatFlights(result[1])
 
-        # delete all rows here
+        self.deleteAllRows()
 
         for count, flight in enumerate(self.flights):
             if count % 2 == 0:
@@ -151,7 +152,7 @@ class Flights(ctk.CTkFrame):
             logger.error(result[1])
             return False
 
-        logger.info(f"Inserted {sql_args} to Flights")
+        logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} inserted {sql_args} to Flights")
         if self.isAddFlightFormAlive():
             self.add_flight_form.destroy() # pyright: ignore
             self.add_flight_form.update() # pyright: ignore
@@ -160,19 +161,37 @@ class Flights(ctk.CTkFrame):
         return True
 
     def deleteRowFlights(self, flight_id):
-        sql_cmd = "DELETE FROM Flights WHERE Flight_ID = %s;"
-        result = mysql.execute(sql_cmd, (flight_id,))
-        if result[0] is False:
+        sql_cmd_del_passengers = "DELETE FROM Passengers WHERE Flight_ID = %s"
+        sql_cmd_del_flights = "DELETE FROM Flights WHERE Flight_ID = %s;"
+        sql_args = (flight_id,)
+
+        result_passengers = mysql.execute(sql_cmd_del_passengers, sql_args)
+        result_flights = mysql.execute(sql_cmd_del_flights, sql_args)
+
+        if result_passengers[0] is False:
+            logger.error("Failed to delete data from Passengers!")
+            logger.error(result_passengers[1])
+            return False
+        
+        if result_flights[0] is False:
             logger.error("Failed to delete data from Flights!")
-            logger.error(result[1])
+            logger.error(result_flights[1])
             return False
 
-        logger.info(f"Deleted flight with id {flight_id} from Flights")
+        logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} deleted flight with id {flight_id}")
+        self.root.reinitFrame("Cart")
+        self.root.showFrame("Flights")
         return True
     
     def BookFlight(self):
-        flight_id = self.getSelectedFlight()[0]
+        flight_id = self.getSelectedFlight()
+        if flight_id is None:
+            ctkmsgbox(title="Flights", message="No flight selected!")
+            return
+
+        flight_id = flight_id[0]
         result = mysql.execute(f"INSERT INTO Passengers VALUES(\"{appdata.data["user"]["name"]}\",{flight_id});")
+        
         if result[0] is False:
             ctkmsgbox(title="Flights", message="You have already booked this flight")
             logger.error("Failed to insert data to Passengers!")
@@ -180,5 +199,7 @@ class Flights(ctk.CTkFrame):
             return
         
         ctkmsgbox(message="Successfully booked flight",icon="check")
-        logger.info(f"Booked Flight with flight id: {flight_id} for {get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}")
-        self.flights = self.formatFlights(result[1])
+        logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} booked Flight with id: {flight_id}")
+        self.root.reinitFrame("Cart")
+        self.root.showFrame("Flights")
+        return

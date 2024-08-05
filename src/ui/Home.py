@@ -25,11 +25,14 @@ class Home(BgFrame):
         self.flights_btn = ctk.CTkButton(self.btn_frame, text="Flights", command=lambda : self.root.showFrame("Flights"))
         self.flights_btn.grid(row=0, column=0, pady=(0, 10))
 
+        self.cart_btn = ctk.CTkButton(self.btn_frame, text="My flights", command=lambda : self.root.showFrame("Cart"))
+        self.cart_btn.grid(row=1, column=0, pady=(0, 10))
+
         self.signout_btn = ctk.CTkButton(self.btn_frame, text="Sign out", command=self.signout)
-        self.signout_btn.grid(row=1, column=0, pady=(0, 10))
+        self.signout_btn.grid(row=2, column=0, pady=(0, 10))
 
         self.del_account_btn = ctk.CTkButton(self.btn_frame, text="Delete account", command=self.delAccount)
-        self.del_account_btn.grid(row=2, column=0)
+        self.del_account_btn.grid(row=3, column=0)
 
     def signout(self):
         logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} logged out")
@@ -40,15 +43,25 @@ class Home(BgFrame):
         self.root.showFrame("FrontPage")
 
     def delAccount(self):
-        sql_cmd = "DELETE FROM Accounts WHERE Name = %s;"
+        sql_cmd_del_passengers = "DELETE FROM Passengers WHERE Name = %s;"
+        sql_cmd_del_accounts = "DELETE FROM Accounts WHERE Name = %s"
         sql_args = (appdata.data["user"]["name"],)
-        result = self.mysql.execute(sql_cmd, sql_args)
-        if result[0] is False:
+        result_passengers = self.mysql.execute(sql_cmd_del_passengers, sql_args)
+        result_accounts = self.mysql.execute(sql_cmd_del_accounts, sql_args)
+
+        if result_passengers[0] is False:
             logger.error(f"Failed to delete {get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
-            logger.error(result[1])
+            logger.error(result_passengers[1])
             return
+
+        if result_accounts[0] is False:
+            logger.error(f"Failed to delete {get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
+            logger.error(result_accounts[1])
+            return
+
         logger.info(f"Deleted {get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
         appdata.data["user"]["name"] = "None"
         appdata.data["user"]["permission"] = -1
         appdata.push()
+
         self.root.showFrame("FrontPage")

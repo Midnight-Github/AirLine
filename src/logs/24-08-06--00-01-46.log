@@ -1,0 +1,17 @@
+[2024-08-06 00:01:05,721][__main__][INFO]: Welcome to AirLine!
+[2024-08-06 00:01:05,721][reader.Mysql][INFO]: Connecting to database
+[2024-08-06 00:01:05,855][reader.Mysql][INFO]: Connected!
+[2024-08-06 00:01:06,207][ui.Flights][INFO]: Extracted data from flights
+[2024-08-06 00:01:06,236][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 00:01:06,237][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 00:01:06,238][ui.Manager][INFO]: Showing Home
+[2024-08-06 00:01:07,639][ui.Manager][INFO]: Showing Flights
+[2024-08-06 00:01:10,277][ui.Flights][ERROR]: Failed to insert data to Passengers!
+[2024-08-06 00:01:10,277][ui.Flights][ERROR]: 1062 (23000): Duplicate entry 'kevin-4' for key 'passengers.PRIMARY'
+[2024-08-06 00:01:15,632][ui.Flights][ERROR]: Failed to insert data to Passengers!
+[2024-08-06 00:01:15,632][ui.Flights][ERROR]: 1062 (23000): Duplicate entry 'kevin-3' for key 'passengers.PRIMARY'
+[2024-08-06 00:01:18,673][ui.Flights][INFO]: Admin: kevin booked Flight with id: 2
+[2024-08-06 00:01:18,687][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 00:01:18,687][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 00:01:18,687][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-06 00:01:29,934][__main__][INFO]: Program terminated!

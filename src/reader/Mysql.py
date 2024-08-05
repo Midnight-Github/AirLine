@@ -28,17 +28,11 @@ class Mysql():
         Pod VARCHAR(255) NOT NULL,
         Destination VARCHAR(255) NOT NULL,
         Class VARCHAR(255) NOT NULL,
-        Date DATE NOT NULL,
+        Date VARCHAR(255) NOT NULL,
         Time VARCHAR(255) NOT NULL,
         Price INT NOT NULL
         );
         CREATE TABLE Passengers(
-        Name VARCHAR(255) NOT NULL,
-        Flight_ID INT NOT NULL,
-        PRIMARY KEY (Name, Flight_ID),
-        FOREIGN KEY(Name) REFERENCES Accounts(Name),
-        FOREIGN KEY(Flight_ID) REFERENCES Flights(Flight_ID)
-        );
         Name VARCHAR(255) NOT NULL,
         Flight_ID INT NOT NULL,
         PRIMARY KEY (Name, Flight_ID),
@@ -57,7 +51,7 @@ class Mysql():
             ('Pod', 'varchar(255)', 'NO', '', None, ''), 
             ('Destination', 'varchar(255)', 'NO', '', None, ''), 
             ('Class', 'varchar(255)', 'NO', '', None, ''),
-            ('Date', 'date', 'NO', '', None, ''), 
+            ('Date', 'varchar(255)', 'NO', '', None, ''),
             ('Time', 'varchar(255)', 'NO', '', None, ''), 
             ('Price', 'int', 'NO', '', None, '')
         ]

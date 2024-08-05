@@ -1,6 +1,4 @@
 import customtkinter as ctk
-import csv
-from os import path
 from template.BgFrame import BgFrame
 from var.ConfigManager import appdata
 from var.SqlManager import mysql
@@ -60,6 +58,7 @@ class Login(BgFrame):
             logger.error("Failed to login!")
             logger.error(result[1])
             return
+
         if result[1]:
             appdata.data["user"]["name"] = input_username
             appdata.data["user"]["permission"] = result[1][0][2] #pyright: ignore
