@@ -1,7 +1,0 @@
-[2024-08-05 17:13:06,182][__main__][INFO]: Welcome to AirLine!
-[2024-08-05 17:13:06,182][reader.Mysql][INFO]: Connecting to database
-[2024-08-05 17:13:06,208][reader.Mysql][WARNING]: Failed!
-[2024-08-05 17:13:06,219][reader.Mysql][INFO]: Creating Database
-[2024-08-05 17:13:06,592][ui.Flights][INFO]: Extracted data from flights
-[2024-08-05 17:13:06,600][ui.Manager][INFO]: Showing Home
-[2024-08-05 17:13:52,275][__main__][INFO]: Program terminated!
