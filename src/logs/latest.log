@@ -1,30 +1,121 @@
-[2024-08-06 00:02:19,097][__main__][INFO]: Welcome to AirLine!
-[2024-08-06 00:02:19,097][reader.Mysql][INFO]: Connecting to database
-[2024-08-06 00:02:19,467][reader.Mysql][INFO]: Connected!
-[2024-08-06 00:02:19,836][ui.Flights][INFO]: Extracted data from flights
-[2024-08-06 00:02:19,872][ui.Cart][INFO]: Refreshing Cart!
-[2024-08-06 00:02:19,875][ui.Cart][INFO]: Extracted data from passengers
-[2024-08-06 00:02:19,877][ui.Manager][INFO]: Showing Home
-[2024-08-06 00:02:21,187][ui.Manager][INFO]: Showing Cart
-[2024-08-06 00:02:23,517][ui.Cart][INFO]: Admin: kevin unbooked flight with id 4
-[2024-08-06 00:02:24,430][ui.Manager][INFO]: Showing Home
-[2024-08-06 00:02:25,525][ui.Manager][INFO]: Showing Flights
-[2024-08-06 00:02:28,017][ui.Flights][INFO]: Admin: kevin booked Flight with id: 4
-[2024-08-06 00:02:28,029][ui.Cart][INFO]: Refreshing Cart!
-[2024-08-06 00:02:28,034][ui.Cart][INFO]: Extracted data from passengers
-[2024-08-06 00:02:28,034][ui.Manager][INFO]: Reinitialized Cart
-[2024-08-06 00:02:28,034][ui.Manager][INFO]: Showing Flights
-[2024-08-06 00:02:40,536][ui.Manager][INFO]: Showing Home
-[2024-08-06 00:02:42,097][ui.Manager][INFO]: Showing Cart
-[2024-08-06 00:02:45,187][ui.Cart][INFO]: Refreshing Cart!
-[2024-08-06 00:02:45,187][ui.Cart][INFO]: Extracted data from passengers
-[2024-08-06 00:02:45,355][ui.Cart][INFO]: Refreshing Cart!
-[2024-08-06 00:02:45,357][ui.Cart][INFO]: Extracted data from passengers
-[2024-08-06 00:02:45,517][ui.Cart][INFO]: Refreshing Cart!
-[2024-08-06 00:02:45,517][ui.Cart][INFO]: Extracted data from passengers
-[2024-08-06 00:02:46,216][ui.Manager][INFO]: Showing Home
-[2024-08-06 00:02:49,677][ui.Manager][INFO]: Showing Cart
-[2024-08-06 00:02:54,936][ui.Manager][INFO]: Showing Home
-[2024-08-06 00:02:56,807][ui.Home][INFO]: Admin: kevin logged out
-[2024-08-06 00:02:56,838][ui.Manager][INFO]: Showing FrontPage
-[2024-08-06 00:02:59,351][__main__][INFO]: Program terminated!
+[2024-08-06 17:13:27,299][__main__][INFO]: Welcome to AirLine!
+[2024-08-06 17:13:27,299][reader.Mysql][INFO]: Connecting to database
+[2024-08-06 17:13:27,331][reader.Mysql][INFO]: Connected!
+[2024-08-06 17:13:27,659][ui.Flights][INFO]: Extracted data from flights
+[2024-08-06 17:13:27,681][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 17:13:27,681][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 17:13:27,681][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:13:29,483][ui.Manager][INFO]: Showing Cart
+[2024-08-06 17:13:30,492][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 17:13:30,501][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 17:13:30,931][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 17:13:30,931][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 17:13:32,744][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:13:33,762][ui.Home][INFO]: Admin: kevin logged out
+[2024-08-06 17:13:33,781][ui.Manager][INFO]: Showing FrontPage
+[2024-08-06 17:13:34,893][ui.Manager][INFO]: Showing Login
+[2024-08-06 17:13:39,591][ui.Login][INFO]: User: test logged in
+[2024-08-06 17:13:39,661][ui.Manager][INFO]: Reinitialized Login
+[2024-08-06 17:13:39,721][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-08-06 17:13:39,798][ui.Manager][INFO]: Reinitialized SignUp
+[2024-08-06 17:13:39,823][ui.Manager][INFO]: Reinitialized Home
+[2024-08-06 17:13:39,831][ui.Flights][INFO]: Extracted data from flights
+[2024-08-06 17:13:39,843][ui.Manager][INFO]: Reinitialized Flights
+[2024-08-06 17:13:39,861][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 17:13:39,861][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 17:13:39,861][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-06 17:13:39,861][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:13:41,311][ui.Manager][INFO]: Showing Cart
+[2024-08-06 17:13:42,841][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 17:13:42,851][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 17:13:42,996][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 17:13:42,997][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 17:13:43,141][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 17:13:43,141][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 17:13:48,261][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:13:49,431][ui.Home][INFO]: User: test logged out
+[2024-08-06 17:13:49,462][ui.Manager][INFO]: Showing FrontPage
+[2024-08-06 17:13:50,281][ui.Manager][INFO]: Showing Login
+[2024-08-06 17:13:55,131][ui.Login][INFO]: User: user logged in
+[2024-08-06 17:13:55,201][ui.Manager][INFO]: Reinitialized Login
+[2024-08-06 17:13:55,262][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-08-06 17:13:55,336][ui.Manager][INFO]: Reinitialized SignUp
+[2024-08-06 17:13:55,366][ui.Manager][INFO]: Reinitialized Home
+[2024-08-06 17:13:55,372][ui.Flights][INFO]: Extracted data from flights
+[2024-08-06 17:13:55,386][ui.Manager][INFO]: Reinitialized Flights
+[2024-08-06 17:13:55,403][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 17:13:55,406][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 17:13:55,406][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-06 17:13:55,407][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:13:56,561][ui.Manager][INFO]: Showing Cart
+[2024-08-06 17:13:58,021][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:13:59,231][ui.Home][INFO]: User: user logged out
+[2024-08-06 17:13:59,256][ui.Manager][INFO]: Showing FrontPage
+[2024-08-06 17:14:00,629][ui.Manager][INFO]: Showing Login
+[2024-08-06 17:14:05,941][ui.Login][INFO]: Admin: kevin logged in
+[2024-08-06 17:14:06,006][ui.Manager][INFO]: Reinitialized Login
+[2024-08-06 17:14:06,066][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-08-06 17:14:06,146][ui.Manager][INFO]: Reinitialized SignUp
+[2024-08-06 17:14:06,174][ui.Manager][INFO]: Reinitialized Home
+[2024-08-06 17:14:06,181][ui.Flights][INFO]: Extracted data from flights
+[2024-08-06 17:14:06,201][ui.Manager][INFO]: Reinitialized Flights
+[2024-08-06 17:14:06,226][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 17:14:06,229][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 17:14:06,229][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-06 17:14:06,229][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:14:15,021][ui.Manager][INFO]: Showing Cart
+[2024-08-06 17:14:16,161][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:14:17,161][ui.Manager][INFO]: Showing Flights
+[2024-08-06 17:14:21,611][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:14:23,199][ui.Manager][INFO]: Showing Cart
+[2024-08-06 17:14:24,774][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:14:25,722][ui.Manager][INFO]: Showing Cart
+[2024-08-06 17:14:29,551][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:14:30,721][ui.Manager][INFO]: Showing Flights
+[2024-08-06 17:14:35,901][ui.Flights][INFO]: Admin: kevin deleted flight with id 4
+[2024-08-06 17:14:35,928][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 17:14:35,948][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 17:14:35,949][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-06 17:14:35,949][ui.Manager][INFO]: Showing Flights
+[2024-08-06 17:14:55,071][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:14:56,801][ui.Manager][INFO]: Showing Cart
+[2024-08-06 17:14:58,325][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 17:14:58,325][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 17:14:59,094][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:15:00,205][ui.Home][INFO]: Admin: kevin logged out
+[2024-08-06 17:15:00,222][ui.Manager][INFO]: Showing FrontPage
+[2024-08-06 17:15:01,271][ui.Manager][INFO]: Showing Login
+[2024-08-06 17:15:08,544][ui.Login][INFO]: User: test logged in
+[2024-08-06 17:15:08,611][ui.Manager][INFO]: Reinitialized Login
+[2024-08-06 17:15:08,671][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-08-06 17:15:08,746][ui.Manager][INFO]: Reinitialized SignUp
+[2024-08-06 17:15:08,777][ui.Manager][INFO]: Reinitialized Home
+[2024-08-06 17:15:08,785][ui.Flights][INFO]: Extracted data from flights
+[2024-08-06 17:15:08,795][ui.Manager][INFO]: Reinitialized Flights
+[2024-08-06 17:15:08,813][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 17:15:08,813][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 17:15:08,813][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-06 17:15:08,817][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:15:10,021][ui.Manager][INFO]: Showing Cart
+[2024-08-06 17:15:12,731][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:15:14,339][ui.Home][INFO]: User: test logged out
+[2024-08-06 17:15:14,365][ui.Manager][INFO]: Showing FrontPage
+[2024-08-06 17:15:15,483][ui.Manager][INFO]: Showing Login
+[2024-08-06 17:15:20,401][ui.Login][INFO]: User: user logged in
+[2024-08-06 17:15:20,464][ui.Manager][INFO]: Reinitialized Login
+[2024-08-06 17:15:20,521][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-08-06 17:15:20,611][ui.Manager][INFO]: Reinitialized SignUp
+[2024-08-06 17:15:20,637][ui.Manager][INFO]: Reinitialized Home
+[2024-08-06 17:15:20,645][ui.Flights][INFO]: Extracted data from flights
+[2024-08-06 17:15:20,651][ui.Manager][INFO]: Reinitialized Flights
+[2024-08-06 17:15:20,673][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 17:15:20,673][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 17:15:20,673][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-06 17:15:20,673][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:15:22,051][ui.Manager][INFO]: Showing Flights
+[2024-08-06 17:15:23,771][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-06 17:15:23,771][ui.Flights][INFO]: Extracted data from flights
+[2024-08-06 17:15:27,571][ui.Manager][INFO]: Showing Home
+[2024-08-06 17:15:33,321][ui.Home][INFO]: Deleted User: user's account
+[2024-08-06 17:15:33,378][ui.Manager][INFO]: Showing FrontPage
+[2024-08-06 17:15:55,567][__main__][INFO]: Program terminated!

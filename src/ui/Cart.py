@@ -70,8 +70,12 @@ class Cart(ctk.CTkFrame):
     
     def refresh(self):
         logger.info("Refreshing Cart!")
+
+        sql_cmd = "SELECT * FROM Flights NATURAL JOIN Passengers WHERE Name = %s;"
+        sql_args = (appdata.data["user"]["name"],)
         
-        result = mysql.execute("SELECT * FROM Flights NATURAL JOIN Passengers;", buffered=True)
+        result = mysql.execute(sql_cmd, sql_args, buffered=True)
+
         if result[0] is False:
             logger.error("Failed to extract data from Passengers")
             logger.error(result[1])
