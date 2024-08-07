@@ -1,0 +1,12 @@
+[2024-08-06 23:15:34,295][__main__][INFO]: Welcome to AirLine!
+[2024-08-06 23:15:34,295][reader.Mysql][INFO]: Connecting to database
+[2024-08-06 23:15:34,314][reader.Mysql][WARNING]: Failed!
+[2024-08-06 23:15:34,335][reader.Mysql][INFO]: Creating Database
+[2024-08-06 23:15:34,729][ui.Flights][INFO]: Extracted data from flights
+[2024-08-06 23:15:34,750][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-06 23:15:34,752][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-06 23:15:34,752][ui.Manager][INFO]: Showing FrontPage
+[2024-08-06 23:15:41,962][ui.Manager][INFO]: Showing Login
+[2024-08-06 23:15:44,372][ui.Manager][INFO]: Reinitialized Login
+[2024-08-06 23:15:44,372][ui.Manager][INFO]: Showing FrontPage
+[2024-08-06 23:15:55,422][__main__][INFO]: Program terminated!
