@@ -28,8 +28,9 @@ class Mysql():
         Pod VARCHAR(255) NOT NULL,
         Destination VARCHAR(255) NOT NULL,
         Class VARCHAR(255) NOT NULL,
-        Date VARCHAR(255) NOT NULL,
-        Time VARCHAR(255) NOT NULL,
+        Date DATE NOT NULL,
+        Time_h INT NOT NULL,
+        Time_m INT NOT NULL,
         Price INT NOT NULL
         );
         CREATE TABLE Passengers(
@@ -51,8 +52,9 @@ class Mysql():
             ('Pod', 'varchar(255)', 'NO', '', None, ''), 
             ('Destination', 'varchar(255)', 'NO', '', None, ''), 
             ('Class', 'varchar(255)', 'NO', '', None, ''),
-            ('Date', 'varchar(255)', 'NO', '', None, ''),
-            ('Time', 'varchar(255)', 'NO', '', None, ''), 
+            ('Date', 'date', 'NO', '', None, ''),
+            ('Time_h', 'int', 'NO', '', None, ''),
+            ('Time_m', 'int', 'NO', '', None, ''),
             ('Price', 'int', 'NO', '', None, '')
         ]
         self.passengers_table_structure = [

@@ -7,6 +7,7 @@ from var.SqlManager import mysql
 from ui.AddFlight import AddFlight
 from var.Globals import get_user_position
 from CTkMessagebox import CTkMessagebox as ctkmsgbox
+from datetime import datetime
 
 logger = Logger(__name__).logger
 
@@ -127,7 +128,12 @@ class Flights(ctk.CTkFrame):
         self.extractFlights()
 
     def extractFlights(self):
-        result = mysql.execute("SELECT * FROM Flights;", buffered=True)
+        date, time = str(datetime.now()).split()
+        HH, MM, SS = time.split(':')
+
+        sql_cmd = f"SELECT * FROM Flights WHERE (Date > DATE('{date}') OR (Date = DATE('{date}') AND (60*Time_h + Time_m) >= {60*HH + MM}));"
+        result = mysql.execute(sql_cmd, buffered=True)
+
         if result[0] is False:
             logger.error("Failed to extract data from Flights!")
             logger.error(result[1])
@@ -145,7 +151,7 @@ class Flights(ctk.CTkFrame):
                 self.tree.insert('', tk.END, values=flight, tags=('evenrow',)) # pyright: ignore
 
     def insertRowFlights(self, sql_args):
-        sql_cmd = "INSERT INTO Flights (Airline, Pod, Destination, Class, Date, Time, Price) VALUES (%s, %s, %s, %s, %s, %s, %s);"
+        sql_cmd = "INSERT INTO Flights (Airline, Pod, Destination, Class, Date, Time_h, Time_m, Price) VALUES (%s, %s, %s, %s, %s, %s, %s, %s);"
         result = mysql.execute(sql_cmd, sql_args)
         if result[0] is False:
             logger.error("Failed to insert data to Flights!")

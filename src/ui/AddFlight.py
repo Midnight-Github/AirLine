@@ -22,7 +22,7 @@ class AddFlight(ctk.CTkToplevel):
         self.fields["destination"].grid(row=2, column=0, padx=30, pady=15)
         self.fields["class"] = ctk.CTkEntry(self, width=200, placeholder_text="Class", border_color="grey")
         self.fields["class"].grid(row=3, column=0, padx=30, pady=15)
-        self.fields["date"] = ctk.CTkEntry(self, width=200, placeholder_text="Date: DD-MM-YYYY", border_color="grey")
+        self.fields["date"] = ctk.CTkEntry(self, width=200, placeholder_text="Date: YYYY-MM-DD", border_color="grey")
         self.fields["date"].grid(row=4, column=0, padx=30, pady=15)
         self.fields["time"] = ctk.CTkEntry(self, width=200, placeholder_text="Time: hh:mm", border_color="grey")
         self.fields["time"].grid(row=5, column=0, padx=30, pady=15)
@@ -53,7 +53,11 @@ class AddFlight(ctk.CTkToplevel):
         if self.verification(details) is False:
             return
 
-        self.submit_command(tuple(details.values()))
+        time_h, time_m = details["time"].split(':')
+        details.update({"time_h": time_h, "time_m": time_m})
+        details.pop("time")
+
+        self.submit_command(details)
 
     def verification(self, target):
         for i, v in target.items():
@@ -63,7 +67,7 @@ class AddFlight(ctk.CTkToplevel):
                 return False
 
         try:
-            bool(datetime.strptime(target["date"], "%d-%m-%Y"))
+            bool(datetime.strptime(target["date"], "%Y-%m-%d"))
         except ValueError:
             self.fields["date"].configure(border_color="red")
             self.error_text.set("Invalid date")

@@ -1,14 +1,35 @@
-[2024-08-06 23:21:46,460][__main__][INFO]: Welcome to AirLine!
-[2024-08-06 23:21:46,461][reader.Mysql][INFO]: Connecting to database
-[2024-08-06 23:21:46,481][reader.Mysql][INFO]: Connected!
-[2024-08-06 23:21:46,866][ui.Flights][INFO]: Extracted data from flights
-[2024-08-06 23:21:46,901][ui.Cart][INFO]: Refreshing Cart!
-[2024-08-06 23:21:46,903][ui.Cart][INFO]: Extracted data from passengers
-[2024-08-06 23:21:46,905][ui.Manager][INFO]: Showing Home
-[2024-08-06 23:21:49,542][ui.Manager][INFO]: Showing Flights
-[2024-08-06 23:22:10,842][ui.Flights][INFO]: Admin: kevin inserted ('1', '1', '1', '1', '01-01-2006', '12:00', '1234') to Flights
-[2024-08-06 23:22:10,858][ui.Flights][INFO]: Extracted data from flights
-[2024-08-06 23:22:53,272][ui.Manager][INFO]: Showing Home
-[2024-08-06 23:23:04,581][ui.Home][INFO]: Admin: kevin logged out
-[2024-08-06 23:23:04,607][ui.Manager][INFO]: Showing FrontPage
-[2024-08-06 23:23:06,493][__main__][INFO]: Program terminated!
+[2024-08-07 21:32:53,361][__main__][INFO]: Welcome to AirLine!
+[2024-08-07 21:32:53,371][reader.Mysql][INFO]: Connecting to database
+[2024-08-07 21:32:53,400][reader.Mysql][INFO]: Connected!
+[2024-08-07 21:32:53,732][ui.Flights][INFO]: Extracted data from flights
+[2024-08-07 21:32:53,761][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-07 21:32:53,761][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-07 21:32:53,761][ui.Manager][INFO]: Showing Home
+[2024-08-07 21:32:55,081][ui.Manager][INFO]: Showing Flights
+[2024-08-07 21:33:12,991][ui.Flights][INFO]: Admin: kevin inserted ('test1', 'a', 'b', '1', '2006-01-01', '12345', '10', '00') to Flights
+[2024-08-07 21:33:13,015][ui.Flights][INFO]: Extracted data from flights
+[2024-08-07 21:33:16,281][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-07 21:33:16,281][ui.Flights][INFO]: Extracted data from flights
+[2024-08-07 21:33:17,041][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-07 21:33:17,041][ui.Flights][INFO]: Extracted data from flights
+[2024-08-07 21:34:02,885][ui.Flights][INFO]: Admin: kevin inserted ('test2', 'b', 'c', '1', '2222-01-21', '1234', '11', '12') to Flights
+[2024-08-07 21:34:02,901][ui.Flights][INFO]: Extracted data from flights
+[2024-08-07 21:34:04,031][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-07 21:34:04,031][ui.Flights][INFO]: Extracted data from flights
+[2024-08-07 21:34:05,058][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-07 21:34:05,061][ui.Flights][INFO]: Extracted data from flights
+[2024-08-07 21:35:07,051][ui.Flights][INFO]: Admin: kevin inserted ('test3', 'c', 'a', '3', '2024-08-07', '12345', '21', '36') to Flights
+[2024-08-07 21:35:07,069][ui.Flights][INFO]: Extracted data from flights
+[2024-08-07 21:35:08,703][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-07 21:35:08,703][ui.Flights][INFO]: Extracted data from flights
+[2024-08-07 21:35:09,453][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-07 21:35:09,453][ui.Flights][INFO]: Extracted data from flights
+[2024-08-07 21:35:09,896][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-07 21:35:09,896][ui.Flights][INFO]: Extracted data from flights
+[2024-08-07 21:39:22,120][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-07 21:39:22,131][ui.Flights][INFO]: Extracted data from flights
+[2024-08-07 21:39:22,871][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-07 21:39:22,871][ui.Flights][INFO]: Extracted data from flights
+[2024-08-07 21:39:23,371][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-07 21:39:23,371][ui.Flights][INFO]: Extracted data from flights
+[2024-08-07 21:40:21,419][__main__][INFO]: Program terminated!

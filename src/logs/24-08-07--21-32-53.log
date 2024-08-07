@@ -1,0 +1,11 @@
+[2024-08-07 21:30:29,712][__main__][INFO]: Welcome to AirLine!
+[2024-08-07 21:30:29,712][reader.Mysql][INFO]: Connecting to database
+[2024-08-07 21:30:29,733][reader.Mysql][INFO]: Connected!
+[2024-08-07 21:30:30,061][ui.Flights][INFO]: Extracted data from flights
+[2024-08-07 21:30:30,087][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-07 21:30:30,087][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-07 21:30:30,090][ui.Manager][INFO]: Showing Home
+[2024-08-07 21:30:31,358][ui.Manager][INFO]: Showing Flights
+[2024-08-07 21:30:49,941][ui.Flights][ERROR]: Failed to insert data to Flights!
+[2024-08-07 21:30:49,941][ui.Flights][ERROR]: Not all parameters were used in the SQL statement
+[2024-08-07 21:32:51,641][__main__][INFO]: Program terminated!

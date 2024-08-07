@@ -6,6 +6,7 @@ from reader.Logger import Logger
 from var.SqlManager import mysql
 from var.Globals import get_user_position
 from CTkMessagebox import CTkMessagebox as ctkmsgbox
+from datetime import datetime
 
 logger = Logger(__name__).logger
 
@@ -70,11 +71,11 @@ class Cart(ctk.CTkFrame):
     
     def refresh(self):
         logger.info("Refreshing Cart!")
+        date, time = str(datetime.now()).split()
+        HH, MM, SS = time.split(':')
 
-        sql_cmd = "SELECT * FROM Flights NATURAL JOIN Passengers WHERE Name = %s;"
-        sql_args = (appdata.data["user"]["name"],)
-        
-        result = mysql.execute(sql_cmd, sql_args, buffered=True)
+        sql_cmd = f"SELECT * FROM Flights NATURAL JOIN Passengers WHERE Name = '{appdata.data["user"]["name"]}' AND (Date > DATE('{date}') OR (Date = DATE('{date}') AND (60*Time_h + Time_m) >= {60*HH + MM}))"
+        result = mysql.execute(sql_cmd, buffered=True)
 
         if result[0] is False:
             logger.error("Failed to extract data from Passengers")
