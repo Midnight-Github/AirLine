@@ -1,14 +1,48 @@
-[2024-08-06 23:21:46,460][__main__][INFO]: Welcome to AirLine!
-[2024-08-06 23:21:46,461][reader.Mysql][INFO]: Connecting to database
-[2024-08-06 23:21:46,481][reader.Mysql][INFO]: Connected!
-[2024-08-06 23:21:46,866][ui.Flights][INFO]: Extracted data from flights
-[2024-08-06 23:21:46,901][ui.Cart][INFO]: Refreshing Cart!
-[2024-08-06 23:21:46,903][ui.Cart][INFO]: Extracted data from passengers
-[2024-08-06 23:21:46,905][ui.Manager][INFO]: Showing Home
-[2024-08-06 23:21:49,542][ui.Manager][INFO]: Showing Flights
-[2024-08-06 23:22:10,842][ui.Flights][INFO]: Admin: kevin inserted ('1', '1', '1', '1', '01-01-2006', '12:00', '1234') to Flights
-[2024-08-06 23:22:10,858][ui.Flights][INFO]: Extracted data from flights
-[2024-08-06 23:22:53,272][ui.Manager][INFO]: Showing Home
-[2024-08-06 23:23:04,581][ui.Home][INFO]: Admin: kevin logged out
-[2024-08-06 23:23:04,607][ui.Manager][INFO]: Showing FrontPage
-[2024-08-06 23:23:06,493][__main__][INFO]: Program terminated!
+[2024-08-08 18:06:53,936][__main__][INFO]: Welcome to AirLine!
+[2024-08-08 18:06:53,936][reader.Mysql][INFO]: Connecting to database
+[2024-08-08 18:06:53,964][reader.Mysql][INFO]: Connected!
+[2024-08-08 18:06:54,264][ui.Flights][INFO]: Extracted data from flights
+[2024-08-08 18:06:54,287][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-08 18:06:54,290][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-08 18:06:54,290][ui.Manager][INFO]: Showing FrontPage
+[2024-08-08 18:06:56,922][ui.Manager][INFO]: Showing SignUp
+[2024-08-08 18:07:14,860][ui.SignUp][INFO]: User: user1 signed up
+[2024-08-08 18:07:14,920][ui.Manager][INFO]: Reinitialized Login
+[2024-08-08 18:07:14,975][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-08-08 18:07:15,053][ui.Manager][INFO]: Reinitialized SignUp
+[2024-08-08 18:07:15,074][ui.Manager][INFO]: Reinitialized Home
+[2024-08-08 18:07:15,080][ui.Flights][INFO]: Extracted data from flights
+[2024-08-08 18:07:15,091][ui.Manager][INFO]: Reinitialized Flights
+[2024-08-08 18:07:15,108][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-08 18:07:15,109][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-08 18:07:15,110][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-08 18:07:15,110][ui.Manager][INFO]: Showing Home
+[2024-08-08 18:07:16,540][ui.Manager][INFO]: Showing Flights
+[2024-08-08 18:07:18,283][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-08 18:07:18,283][ui.Flights][INFO]: Extracted data from flights
+[2024-08-08 18:07:20,930][ui.Manager][INFO]: Showing Home
+[2024-08-08 18:07:22,549][ui.Manager][INFO]: Showing Cart
+[2024-08-08 18:07:23,821][ui.Manager][INFO]: Showing Home
+[2024-08-08 18:07:27,010][ui.Home][INFO]: User: user1 logged out
+[2024-08-08 18:07:27,035][ui.Manager][INFO]: Showing FrontPage
+[2024-08-08 18:07:28,880][ui.Manager][INFO]: Showing SignUp
+[2024-08-08 18:07:38,250][ui.SignUp][INFO]: Admin: admin signed up
+[2024-08-08 18:07:38,324][ui.Manager][INFO]: Reinitialized Login
+[2024-08-08 18:07:38,379][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-08-08 18:07:38,460][ui.Manager][INFO]: Reinitialized SignUp
+[2024-08-08 18:07:38,483][ui.Manager][INFO]: Reinitialized Home
+[2024-08-08 18:07:38,492][ui.Flights][INFO]: Extracted data from flights
+[2024-08-08 18:07:38,510][ui.Manager][INFO]: Reinitialized Flights
+[2024-08-08 18:07:38,528][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-08 18:07:38,530][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-08 18:07:38,530][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-08 18:07:38,531][ui.Manager][INFO]: Showing Home
+[2024-08-08 18:07:40,222][ui.Manager][INFO]: Showing Flights
+[2024-08-08 18:08:11,726][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-08 18:08:11,726][ui.Flights][INFO]: Extracted data from flights
+[2024-08-08 18:08:16,056][ui.Manager][INFO]: Showing Home
+[2024-08-08 18:08:17,137][ui.Manager][INFO]: Showing Cart
+[2024-08-08 18:08:18,036][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-08 18:08:18,036][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-08 18:08:18,852][ui.Manager][INFO]: Showing Home
+[2024-08-08 18:08:20,245][__main__][INFO]: Program terminated!

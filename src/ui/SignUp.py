@@ -105,16 +105,17 @@ class SignUp(BgFrame):
                 self.admin_password.configure(border_color="red")
                 return
 
-        sql_cmd = "INSERT INTO Accounts VALUES(%s, %s, %s)"
-        sql_args = (input_username, input_password, permission)
-
-        result = self.mysql.execute(sql_cmd, sql_args)
+        sql_cmd = f"INSERT INTO Accounts VALUES('{input_username}', '{input_password}', {permission});"
+        result = self.mysql.execute(sql_cmd)
 
         if result[0] is False:
             if f"Duplicate entry '{input_username}' for key 'accounts.PRIMARY'" == result[1].msg: # pyright: ignore
                 self.error_text.set("Username already exists!")
                 self.username_entry.configure(border_color="red")
-                logger.warning("Failed to create account as the username already exists")
+                logger.warning("Failed to create an account as the username already exists")
+
+            logger.error("Failed to create an account")
+            logger.exception(result[1])
             return
 
         appdata.data["user"]["name"] = input_username

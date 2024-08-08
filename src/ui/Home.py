@@ -43,11 +43,11 @@ class Home(BgFrame):
         self.root.showFrame("FrontPage")
 
     def delAccount(self):
-        sql_cmd_del_passengers = "DELETE FROM Passengers WHERE Name = %s;"
-        sql_cmd_del_accounts = "DELETE FROM Accounts WHERE Name = %s"
-        sql_args = (appdata.data["user"]["name"],)
-        result_passengers = self.mysql.execute(sql_cmd_del_passengers, sql_args)
-        result_accounts = self.mysql.execute(sql_cmd_del_accounts, sql_args)
+        sql_cmd_del_passengers = f"DELETE FROM Passengers WHERE Name = '{appdata.data["user"]["name"]}';"
+        sql_cmd_del_accounts = f"DELETE FROM Accounts WHERE Name = '{appdata.data["user"]["name"]}';"
+
+        result_passengers = self.mysql.execute(sql_cmd_del_passengers)
+        result_accounts = self.mysql.execute(sql_cmd_del_accounts)
 
         if result_passengers[0] is False:
             logger.error(f"Failed to delete {get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")

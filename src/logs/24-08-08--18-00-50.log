@@ -1,0 +1,41 @@
+[2024-08-08 17:59:02,367][__main__][INFO]: Welcome to AirLine!
+[2024-08-08 17:59:02,367][reader.Mysql][INFO]: Connecting to database
+[2024-08-08 17:59:02,395][reader.Mysql][INFO]: Connected!
+[2024-08-08 17:59:02,755][ui.Flights][INFO]: Extracted data from flights
+[2024-08-08 17:59:02,777][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-08 17:59:02,777][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-08 17:59:02,777][ui.Manager][INFO]: Showing Home
+[2024-08-08 17:59:04,236][ui.Manager][INFO]: Showing Flights
+[2024-08-08 17:59:05,988][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-08 17:59:05,988][ui.Flights][INFO]: Extracted data from flights
+[2024-08-08 17:59:08,658][ui.Manager][INFO]: Showing Home
+[2024-08-08 17:59:09,878][ui.Manager][INFO]: Showing Cart
+[2024-08-08 17:59:10,998][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-08 17:59:10,998][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-08 17:59:18,000][ui.Cart][INFO]: Admin: user unbooked flight with id 2
+[2024-08-08 17:59:39,138][ui.Manager][INFO]: Showing Home
+[2024-08-08 17:59:40,370][ui.Manager][INFO]: Showing Flights
+[2024-08-08 17:59:41,320][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-08 17:59:41,320][ui.Flights][INFO]: Extracted data from flights
+[2024-08-08 17:59:43,160][ui.Manager][INFO]: Showing Home
+[2024-08-08 17:59:44,178][ui.Home][INFO]: Admin: user logged out
+[2024-08-08 17:59:44,199][ui.Manager][INFO]: Showing FrontPage
+[2024-08-08 17:59:45,888][ui.Manager][INFO]: Showing Login
+[2024-08-08 17:59:50,378][ui.Login][INFO]: Admin: user logged in
+[2024-08-08 17:59:50,448][ui.Manager][INFO]: Reinitialized Login
+[2024-08-08 17:59:50,503][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-08-08 17:59:50,588][ui.Manager][INFO]: Reinitialized SignUp
+[2024-08-08 17:59:50,617][ui.Manager][INFO]: Reinitialized Home
+[2024-08-08 17:59:50,628][ui.Flights][INFO]: Extracted data from flights
+[2024-08-08 17:59:50,644][ui.Manager][INFO]: Reinitialized Flights
+[2024-08-08 17:59:50,663][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-08 17:59:50,664][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-08 17:59:50,665][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-08 17:59:50,665][ui.Manager][INFO]: Showing Home
+[2024-08-08 17:59:52,368][ui.Home][INFO]: Deleted Admin: user's account
+[2024-08-08 17:59:52,388][ui.Manager][INFO]: Showing FrontPage
+[2024-08-08 17:59:53,779][ui.Manager][INFO]: Showing SignUp
+[2024-08-08 18:00:08,757][ui.Manager][INFO]: Reinitialized SignUp
+[2024-08-08 18:00:08,763][ui.Manager][INFO]: Showing FrontPage
+[2024-08-08 18:00:10,069][ui.Manager][INFO]: Showing SignUp
+[2024-08-08 18:00:42,233][__main__][INFO]: Program terminated!

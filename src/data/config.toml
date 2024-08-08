@@ -1,6 +1,6 @@
 [database]
 "host" = "localhost"
 "user" = "root"
-"password" = "Mysql1234"
+"password" = "History2030"
 "name" = "airline"
 "force_create" = true
