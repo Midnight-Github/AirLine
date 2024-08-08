@@ -1,0 +1,12 @@
+[2024-08-08 18:03:54,378][__main__][INFO]: Welcome to AirLine!
+[2024-08-08 18:03:54,378][reader.Mysql][INFO]: Connecting to database
+[2024-08-08 18:03:54,413][reader.Mysql][INFO]: Connected!
+[2024-08-08 18:03:54,767][ui.Flights][INFO]: Extracted data from flights
+[2024-08-08 18:03:54,787][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-08 18:03:54,789][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-08 18:03:54,789][ui.Manager][INFO]: Showing FrontPage
+[2024-08-08 18:03:58,298][ui.Manager][INFO]: Showing SignUp
+[2024-08-08 18:04:07,898][ui.SignUp][CRITICAL]: Failed to create an account
+[2024-08-08 18:04:07,898][ui.SignUp][ERROR]: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0)' at line 1
+NoneType: None
+[2024-08-08 18:06:53,000][__main__][INFO]: Program terminated!

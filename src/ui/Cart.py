@@ -74,7 +74,7 @@ class Cart(ctk.CTkFrame):
         date, time = str(datetime.now()).split()
         HH, MM, SS = time.split(':')
 
-        sql_cmd = f"SELECT * FROM Flights NATURAL JOIN Passengers WHERE Name = '{appdata.data["user"]["name"]}' AND (Date > DATE('{date}') OR (Date = DATE('{date}') AND (60*Time_h + Time_m) >= {60*HH + MM}))"
+        sql_cmd = f"SELECT * FROM Flights NATURAL JOIN Passengers WHERE Name = '{appdata.data["user"]["name"]}' AND (Date > DATE('{date}') OR (Date = DATE('{date}') AND (60*Time_h + Time_m) >= {60*int(HH) + int(MM)}));"
         result = mysql.execute(sql_cmd, buffered=True)
 
         if result[0] is False:
@@ -116,10 +116,8 @@ class Cart(ctk.CTkFrame):
         return True
 
     def deleteRowPassengers(self, flight_id):
-        sql_cmd_del_passengers = "DELETE FROM Passengers WHERE Flight_ID = %s"
-        sql_args = (flight_id,)
-
-        result = mysql.execute(sql_cmd_del_passengers, sql_args)
+        sql_cmd_del_passengers = f"DELETE FROM Passengers WHERE Flight_ID = {flight_id};"
+        result = mysql.execute(sql_cmd_del_passengers)
 
         if result[0] is False:
             logger.error("Failed to delete data from Passengers!")

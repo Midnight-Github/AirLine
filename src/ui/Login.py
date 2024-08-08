@@ -50,10 +50,9 @@ class Login(BgFrame):
             self.password_entry.configure(border_color="red")
             return
 
-        sql_cmd = "SELECT Name, Password, Permission FROM Accounts WHERE Name = %s AND Password = %s"
-        sql_args = (input_username, input_password)
+        sql_cmd = f"SELECT Name, Password, Permission FROM Accounts WHERE Name = '{input_username}' AND Password = '{input_password}';"
 
-        result = self.mysql.execute(sql_cmd, sql_args, buffered=True)
+        result = self.mysql.execute(sql_cmd, buffered=True)
         if result[0] is False:
             logger.error("Failed to login!")
             logger.error(result[1])
