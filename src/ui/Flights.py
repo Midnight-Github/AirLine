@@ -15,7 +15,7 @@ class Flights(ctk.CTkFrame):
     def __init__(self, root):
         super().__init__(root)
 
-        self.root = root
+        self.root = root 
         self.grid_rowconfigure(1, weight=1)
         self.grid_columnconfigure(0,weight=1)
 
@@ -88,6 +88,10 @@ class Flights(ctk.CTkFrame):
         self.delete_btn.grid(row=0, column=2, padx=5)
 
     def formatFlights(self, table):
+        # table["time"] = (table["time_h"]) + str(table["time_m"])
+        # table.pop("time_h")
+        # table.pop("time_m")
+        print(table)
         for i, row in enumerate(table):
             row = row[:-1] + (str(row[-1]) + 'INR',)
             table[i] = row
@@ -129,9 +133,8 @@ class Flights(ctk.CTkFrame):
 
     def extractFlights(self):
         date, time = str(datetime.now()).split()
-        HH, MM, SS = time.split(':')
 
-        sql_cmd = f"SELECT * FROM Flights WHERE (Date > DATE('{date}') OR (Date = DATE('{date}') AND (60*Time_h + Time_m) >= {60*int(HH) + int(MM)}));"
+        sql_cmd = f"SELECT * FROM Flights WHERE (Date > DATE('{date}') OR (Date = DATE('{date}') AND Time >= TIME('{time}')));"
         result = mysql.execute(sql_cmd, buffered=True)
 
         if result[0] is False:

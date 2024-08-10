@@ -29,8 +29,7 @@ class Mysql():
         Destination VARCHAR(255) NOT NULL,
         Class VARCHAR(255) NOT NULL,
         Date DATE NOT NULL,
-        Time_h INT NOT NULL,
-        Time_m INT NOT NULL,
+        Time TIME NOT NULL,
         Price INT NOT NULL
         );
         CREATE TABLE Passengers(
@@ -53,8 +52,7 @@ class Mysql():
             ('Destination', 'varchar(255)', 'NO', '', None, ''), 
             ('Class', 'varchar(255)', 'NO', '', None, ''),
             ('Date', 'date', 'NO', '', None, ''),
-            ('Time_h', 'int', 'NO', '', None, ''),
-            ('Time_m', 'int', 'NO', '', None, ''),
+            ('Time', 'time', 'NO', '', None, ''),
             ('Price', 'int', 'NO', '', None, '')
         ]
         self.passengers_table_structure = [

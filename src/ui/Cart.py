@@ -72,9 +72,8 @@ class Cart(ctk.CTkFrame):
     def refresh(self):
         logger.info("Refreshing Cart!")
         date, time = str(datetime.now()).split()
-        HH, MM, SS = time.split(':')
 
-        sql_cmd = f"SELECT * FROM Flights NATURAL JOIN Passengers WHERE Name = '{appdata.data["user"]["name"]}' AND (Date > DATE('{date}') OR (Date = DATE('{date}') AND (60*Time_h + Time_m) >= {60*int(HH) + int(MM)}));"
+        sql_cmd = f"SELECT * FROM Flights NATURAL JOIN Passengers WHERE Name = '{appdata.data["user"]["name"]}' AND (Date > DATE('{date}') OR (Date = DATE('{date}') AND Time >= TIME('{time}')));"
         result = mysql.execute(sql_cmd, buffered=True)
 
         if result[0] is False:

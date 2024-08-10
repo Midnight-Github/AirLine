@@ -1,0 +1,21 @@
+[2024-08-10 21:49:12,781][__main__][INFO]: Welcome to AirLine!
+[2024-08-10 21:49:12,781][reader.Mysql][INFO]: Connecting to database
+[2024-08-10 21:49:13,184][reader.Mysql][INFO]: Connected!
+[2024-08-10 21:49:13,187][__main__][WARNING]: Failed to auto log Admin: abc
+[2024-08-10 21:49:13,539][ui.Flights][INFO]: Extracted data from flights
+[2024-08-10 21:49:13,558][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-10 21:49:13,559][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-10 21:49:13,559][ui.Manager][INFO]: Showing FrontPage
+[2024-08-10 21:49:52,168][ui.Manager][INFO]: Showing SignUp
+[2024-08-10 21:50:05,219][ui.SignUp][INFO]: Admin: admin signed up
+[2024-08-10 21:50:05,283][ui.Manager][INFO]: Reinitialized Login
+[2024-08-10 21:50:05,340][ui.Manager][INFO]: Reinitialized FrontPage
+[2024-08-10 21:50:05,419][ui.Manager][INFO]: Reinitialized SignUp
+[2024-08-10 21:50:05,443][ui.Manager][INFO]: Reinitialized Home
+[2024-08-10 21:50:05,450][ui.Flights][INFO]: Extracted data from flights
+[2024-08-10 21:50:05,467][ui.Manager][INFO]: Reinitialized Flights
+[2024-08-10 21:50:05,485][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-10 21:50:05,487][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-10 21:50:05,487][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-10 21:50:05,487][ui.Manager][INFO]: Showing Home
+[2024-08-10 21:50:09,082][__main__][INFO]: Program terminated!

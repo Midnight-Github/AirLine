@@ -24,7 +24,7 @@ class AddFlight(ctk.CTkToplevel):
         self.fields["class"].grid(row=3, column=0, padx=30, pady=15)
         self.fields["date"] = ctk.CTkEntry(self, width=200, placeholder_text="Date: YYYY-MM-DD", border_color="grey")
         self.fields["date"].grid(row=4, column=0, padx=30, pady=15)
-        self.fields["time"] = ctk.CTkEntry(self, width=200, placeholder_text="Time: hh:mm", border_color="grey")
+        self.fields["time"] = ctk.CTkEntry(self, width=200, placeholder_text="Time: hh:mm:ss", border_color="grey")
         self.fields["time"].grid(row=5, column=0, padx=30, pady=15)
         self.fields["price"] = ctk.CTkEntry(self, width=200, placeholder_text="Price", border_color="grey")
         self.fields["price"].grid(row=6, column=0, padx=30, pady=15)
@@ -53,10 +53,6 @@ class AddFlight(ctk.CTkToplevel):
         if self.verification(details) is False:
             return
 
-        time_h, time_m = details["time"].split(':')
-        details.update({"time_h": time_h, "time_m": time_m})
-        details.pop("time")
-
         self.submit_command(details)
 
     def verification(self, target):
@@ -65,7 +61,7 @@ class AddFlight(ctk.CTkToplevel):
                 self.fields[i].configure(border_color="red")
                 self.error_text.set("All fields must be filled")
                 return False
-
+            
         try:
             bool(datetime.strptime(target["date"], "%Y-%m-%d"))
         except ValueError:
@@ -73,7 +69,7 @@ class AddFlight(ctk.CTkToplevel):
             self.error_text.set("Invalid date")
             return False
 
-        if re.fullmatch(r"([01]\d|2[0-3]):[0-5]\d", target["time"]) is None:
+        if re.fullmatch(r"([01]\d|2[0-3]):[0-5]\d:[0-5]\d", target["time"]) is None:
             self.fields["time"].configure(border_color="red")
             self.error_text.set("Invalid time")
             return False
