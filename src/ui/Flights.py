@@ -88,10 +88,6 @@ class Flights(ctk.CTkFrame):
         self.delete_btn.grid(row=0, column=2, padx=5)
 
     def formatFlights(self, table):
-        # table["time"] = (table["time_h"]) + str(table["time_m"])
-        # table.pop("time_h")
-        # table.pop("time_m")
-        print(table)
         for i, row in enumerate(table):
             row = row[:-1] + (str(row[-1]) + 'INR',)
             table[i] = row

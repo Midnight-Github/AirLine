@@ -1,9 +1,0 @@
-[2024-08-10 21:50:10,770][__main__][INFO]: Welcome to AirLine!
-[2024-08-10 21:50:10,770][reader.Mysql][INFO]: Connecting to database
-[2024-08-10 21:50:10,900][reader.Mysql][INFO]: Connected!
-[2024-08-10 21:50:10,901][__main__][WARNING]: Auto logged Admin: admin in
-[2024-08-10 21:50:11,220][ui.Flights][INFO]: Extracted data from flights
-[2024-08-10 21:50:11,245][ui.Cart][INFO]: Refreshing Cart!
-[2024-08-10 21:50:11,246][ui.Cart][INFO]: Extracted data from passengers
-[2024-08-10 21:50:11,246][ui.Manager][INFO]: Showing Home
-[2024-08-10 21:50:46,945][__main__][INFO]: Program terminated!

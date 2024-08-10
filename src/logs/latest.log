@@ -1,27 +1,8 @@
-[2024-08-10 21:54:09,611][__main__][INFO]: Welcome to AirLine!
-[2024-08-10 21:54:09,612][reader.Mysql][INFO]: Connecting to database
-[2024-08-10 21:54:09,798][reader.Mysql][INFO]: Connected!
-[2024-08-10 21:54:09,801][__main__][WARNING]: Auto logged Admin: admin
-[2024-08-10 21:54:10,217][ui.Flights][INFO]: Extracted data from flights
-[2024-08-10 21:54:10,259][ui.Cart][INFO]: Refreshing Cart!
-[2024-08-10 21:54:10,362][ui.Cart][INFO]: Extracted data from passengers
-[2024-08-10 21:54:10,363][ui.Manager][INFO]: Showing Home
-[2024-08-10 21:54:12,351][ui.Manager][INFO]: Showing Flights
-[2024-08-10 21:55:40,574][__main__][INFO]: Program terminated!
-[2024-08-10 21:55:59,367][ui.Flights][INFO]: Admin: admin inserted {'airline': 'test1', 'pod': 'a', 'destination': 'b', 'class': '1', 'date': '2024-11-11', 'time': '10:00:00', 'price': '1234'} to Flights
-[2024-08-10 21:55:59,385][ui.Flights][INFO]: Extracted data from flights
-[2024-08-10 21:56:02,380][ui.Flights][INFO]: Refreshing Flights!
-[2024-08-10 21:56:02,381][ui.Flights][INFO]: Extracted data from flights
-[2024-08-10 21:56:09,002][ui.Flights][INFO]: Admin: admin booked Flight with id: 1
-[2024-08-10 21:56:09,028][ui.Cart][INFO]: Refreshing Cart!
-[2024-08-10 21:56:09,031][ui.Cart][INFO]: Extracted data from passengers
-[2024-08-10 21:56:09,032][ui.Manager][INFO]: Reinitialized Cart
-[2024-08-10 21:56:09,032][ui.Manager][INFO]: Showing Flights
-[2024-08-10 21:56:11,354][ui.Manager][INFO]: Showing Home
-[2024-08-10 21:56:12,192][ui.Manager][INFO]: Showing Cart
-[2024-08-10 21:56:14,818][ui.Cart][INFO]: Admin: admin unbooked flight with id 1
-[2024-08-10 21:56:17,237][ui.Cart][INFO]: Refreshing Cart!
-[2024-08-10 21:56:17,240][ui.Cart][INFO]: Extracted data from passengers
-[2024-08-10 21:56:17,895][ui.Manager][INFO]: Showing Home
-[2024-08-10 21:56:18,914][ui.Manager][INFO]: Showing Flights
-[2024-08-10 21:56:33,956][__main__][INFO]: Program terminated!
+[2024-08-10 22:14:21,935][__main__][INFO]: Welcome to AirLine!
+[2024-08-10 22:14:21,935][reader.Mysql][INFO]: Connecting to database
+[2024-08-10 22:14:22,105][reader.Mysql][INFO]: Connected!
+[2024-08-10 22:14:22,105][__main__][WARNING]: Auto logged Admin: admin
+[2024-08-10 22:14:22,483][ui.Flights][INFO]: Extracted data from flights
+[2024-08-10 22:14:22,499][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-10 22:14:22,609][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-10 22:14:22,609][ui.Manager][INFO]: Showing Home
