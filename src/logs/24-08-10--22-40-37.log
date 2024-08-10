@@ -1,0 +1,33 @@
+[2024-08-10 22:37:26,319][__main__][INFO]: Welcome to AirLine!
+[2024-08-10 22:37:26,319][reader.Mysql][INFO]: Connecting to database
+[2024-08-10 22:37:26,789][reader.Mysql][INFO]: Connected!
+[2024-08-10 22:37:26,790][__main__][WARNING]: Auto logged Admin: admin
+[2024-08-10 22:37:27,131][ui.Flights][INFO]: Extracted data from flights
+[2024-08-10 22:37:27,153][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-10 22:37:27,155][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-10 22:37:27,156][ui.Manager][INFO]: Showing Home
+[2024-08-10 22:37:28,543][ui.Manager][INFO]: Showing Flights
+[2024-08-10 22:37:31,073][ui.Flights][INFO]: Admin: admin booked Flight with id: 1
+[2024-08-10 22:37:31,092][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-10 22:37:31,094][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-10 22:37:31,094][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-10 22:37:31,095][ui.Manager][INFO]: Showing Flights
+[2024-08-10 22:37:42,808][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-10 22:37:42,810][ui.Flights][INFO]: Extracted data from flights
+[2024-08-10 22:37:46,952][ui.Manager][INFO]: Showing Home
+[2024-08-10 22:37:48,315][ui.Manager][INFO]: Showing Cart
+[2024-08-10 22:37:54,676][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-10 22:37:54,679][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-10 22:38:03,119][ui.Cart][INFO]: Admin: admin canceled flight with id 1
+[2024-08-10 22:38:05,839][ui.Manager][INFO]: Showing Home
+[2024-08-10 22:38:07,051][ui.Manager][INFO]: Showing Flights
+[2024-08-10 22:38:09,393][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-10 22:38:09,395][ui.Flights][INFO]: Extracted data from flights
+[2024-08-10 22:38:21,249][ui.Flights][INFO]: Admin: admin booked Flight with id: 1
+[2024-08-10 22:38:21,269][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-10 22:38:21,273][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-10 22:38:21,273][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-10 22:38:21,274][ui.Manager][INFO]: Showing Flights
+[2024-08-10 22:38:23,971][ui.Flights][ERROR]: Failed to insert data to Passengers!
+[2024-08-10 22:38:23,971][ui.Flights][ERROR]: 1062 (23000): Duplicate entry 'admin-1' for key 'passengers.PRIMARY'
+[2024-08-10 22:40:37,170][__main__][INFO]: Program terminated!

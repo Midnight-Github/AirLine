@@ -1,8 +1,22 @@
-[2024-08-10 22:14:21,935][__main__][INFO]: Welcome to AirLine!
-[2024-08-10 22:14:21,935][reader.Mysql][INFO]: Connecting to database
-[2024-08-10 22:14:22,105][reader.Mysql][INFO]: Connected!
-[2024-08-10 22:14:22,105][__main__][WARNING]: Auto logged Admin: admin
-[2024-08-10 22:14:22,483][ui.Flights][INFO]: Extracted data from flights
-[2024-08-10 22:14:22,499][ui.Cart][INFO]: Refreshing Cart!
-[2024-08-10 22:14:22,609][ui.Cart][INFO]: Extracted data from passengers
-[2024-08-10 22:14:22,609][ui.Manager][INFO]: Showing Home
+[2024-08-10 22:46:54,791][__main__][INFO]: Welcome to AirLine!
+[2024-08-10 22:46:54,791][reader.Mysql][INFO]: Connecting to database
+[2024-08-10 22:46:54,818][reader.Mysql][INFO]: Connected!
+[2024-08-10 22:46:54,819][__main__][WARNING]: Auto logged Admin: admin
+[2024-08-10 22:46:55,178][ui.Flights][INFO]: Extracted data from flights
+[2024-08-10 22:46:55,200][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-10 22:46:55,201][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-10 22:46:55,202][ui.Manager][INFO]: Showing Home
+[2024-08-10 22:46:56,605][ui.Manager][INFO]: Showing Flights
+[2024-08-10 22:46:59,341][ui.Flights][WARNING]: Admin: admin tried to rebook flight with id: 1
+[2024-08-10 22:47:14,340][ui.Manager][INFO]: Showing Home
+[2024-08-10 22:47:15,479][ui.Manager][INFO]: Showing Cart
+[2024-08-10 22:47:22,802][ui.Cart][INFO]: Admin: admin canceled flight with id 1
+[2024-08-10 22:47:27,263][ui.Manager][INFO]: Showing Home
+[2024-08-10 22:47:28,438][ui.Manager][INFO]: Showing Flights
+[2024-08-10 22:47:30,888][ui.Flights][INFO]: Admin: admin booked Flight with id: 1
+[2024-08-10 22:47:30,905][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-10 22:47:30,907][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-10 22:47:30,907][ui.Manager][INFO]: Reinitialized Cart
+[2024-08-10 22:47:30,908][ui.Manager][INFO]: Showing Flights
+[2024-08-10 22:47:35,362][ui.Flights][WARNING]: Admin: admin tried to rebook flight with id: 1
+[2024-08-10 22:47:39,331][__main__][INFO]: Program terminated!

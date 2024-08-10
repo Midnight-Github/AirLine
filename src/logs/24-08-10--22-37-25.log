@@ -1,0 +1,17 @@
+[2024-08-10 22:35:03,183][__main__][INFO]: Welcome to AirLine!
+[2024-08-10 22:35:03,183][reader.Mysql][INFO]: Connecting to database
+[2024-08-10 22:35:03,596][reader.Mysql][INFO]: Connected!
+[2024-08-10 22:35:03,597][__main__][WARNING]: Auto logged Admin: admin
+[2024-08-10 22:35:03,932][ui.Flights][INFO]: Extracted data from flights
+[2024-08-10 22:35:03,958][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-10 22:35:03,959][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-10 22:35:03,960][ui.Manager][INFO]: Showing Home
+[2024-08-10 22:35:05,345][ui.Manager][INFO]: Showing Flights
+[2024-08-10 22:35:07,653][ui.Flights][ERROR]: Failed to insert data to Passengers!
+[2024-08-10 22:35:07,653][ui.Flights][ERROR]: 1062 (23000): Duplicate entry 'admin-1' for key 'passengers.PRIMARY'
+[2024-08-10 22:35:45,226][ui.Manager][INFO]: Showing Home
+[2024-08-10 22:35:46,381][ui.Manager][INFO]: Showing Cart
+[2024-08-10 22:35:48,625][ui.Cart][INFO]: Admin: admin canceled flight with id 1
+[2024-08-10 22:35:52,921][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-10 22:35:52,923][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-10 22:35:56,027][__main__][INFO]: Program terminated!

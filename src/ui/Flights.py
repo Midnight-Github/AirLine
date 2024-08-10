@@ -197,7 +197,10 @@ class Flights(ctk.CTkFrame):
         result = mysql.execute(f"INSERT INTO Passengers VALUES('{appdata.data["user"]["name"]}', {flight_id});")
         
         if result[0] is False:
-            ctkmsgbox(title="Flights", message="You have already booked this flight")
+            if "Duplicate entry" in str(result[1]):
+                ctkmsgbox(title="Flights", message="You have already booked this flight")
+                logger.warning(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} tried to rebook flight with id: {flight_id}")
+                return
             logger.error("Failed to insert data to Passengers!")
             logger.error(result[1])
             return
