@@ -48,8 +48,6 @@ class Flights(ctk.CTkFrame):
         self.tree.column('time',anchor='center', width=50)
         self.tree.heading('price', text='Price')
         self.tree.column('price',anchor='center', width=50)
-        
-        self.extractFlights()
 
         # ('Indigo','Delhi','Mumbai','Economy', '17:00 - 19:30' ,'5000INR')
         # ('Indigo','Bangalore','Mumbai','Economy', '18:00 - 20:00', '5500INR')
@@ -77,6 +75,8 @@ class Flights(ctk.CTkFrame):
 
         if appdata.data["user"]["permission"] > 0:
             self.adminFeatures()
+
+        self.refresh()
 
     def adminFeatures(self):
         self.add_flight_form = None
