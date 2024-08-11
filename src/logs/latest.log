@@ -1,8 +1,0 @@
-[2024-08-11 09:43:48,924][__main__][INFO]: Welcome to AirLine!
-[2024-08-11 09:43:48,924][reader.Mysql][INFO]: Connecting to database
-[2024-08-11 09:43:48,955][reader.Mysql][INFO]: Connected!
-[2024-08-11 09:43:49,220][ui.Manager][INFO]: Initialized SignUp
-[2024-08-11 09:43:49,284][ui.Manager][INFO]: Initialized Login
-[2024-08-11 09:43:49,284][ui.Manager][INFO]: Initialized FrontPage
-[2024-08-11 09:43:49,285][ui.Manager][INFO]: Showing FrontPage
-[2024-08-11 09:43:51,216][__main__][INFO]: Program terminated!
