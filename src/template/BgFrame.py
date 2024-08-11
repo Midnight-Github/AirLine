@@ -1,7 +1,6 @@
 import customtkinter as ctk
 from os import path
 from PIL import Image
-from reader.Logger import Logger
 
 class BgFrame(ctk.CTkFrame):
     def __init__(self, root, img_name, height_factor, width_factor):

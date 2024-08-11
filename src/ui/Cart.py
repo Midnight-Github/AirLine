@@ -4,7 +4,7 @@ from tkinter import ttk
 from var.ConfigManager import appdata
 from reader.Logger import Logger
 from var.SqlManager import mysql
-from var.Globals import get_user_position
+from var.Globals import get_user_role
 from CTkMessagebox import CTkMessagebox as ctkmsgbox
 from datetime import datetime
 
@@ -127,7 +127,7 @@ class Cart(ctk.CTkFrame):
             logger.error(result[1])
             return False
 
-        logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} canceled flight with id {flight_id}")
+        logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} canceled flight with id {flight_id}")
 
     def getSelectedFlight(self):
         selected = self.tree.selection()
