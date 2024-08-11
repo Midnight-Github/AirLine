@@ -48,8 +48,6 @@ class Flights(ctk.CTkFrame):
         self.tree.column('time',anchor='center', width=50)
         self.tree.heading('price', text='Price')
         self.tree.column('price',anchor='center', width=50)
-        
-        self.extractFlights()
 
         # ('Indigo','Delhi','Mumbai','Economy', '17:00 - 19:30' ,'5000INR')
         # ('Indigo','Bangalore','Mumbai','Economy', '18:00 - 20:00', '5500INR')
@@ -77,6 +75,8 @@ class Flights(ctk.CTkFrame):
 
         if appdata.data["user"]["permission"] > 0:
             self.adminFeatures()
+
+        self.refresh()
 
     def adminFeatures(self):
         self.add_flight_form = None
@@ -197,7 +197,10 @@ class Flights(ctk.CTkFrame):
         result = mysql.execute(f"INSERT INTO Passengers VALUES('{appdata.data["user"]["name"]}', {flight_id});")
         
         if result[0] is False:
-            ctkmsgbox(title="Flights", message="You have already booked this flight")
+            if "Duplicate entry" in str(result[1]):
+                ctkmsgbox(title="Flights", message="You have already booked this flight")
+                logger.warning(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} tried to rebook flight with id: {flight_id}")
+                return
             logger.error("Failed to insert data to Passengers!")
             logger.error(result[1])
             return

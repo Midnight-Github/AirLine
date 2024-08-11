@@ -1,8 +1,9 @@
-[2024-08-10 22:14:21,935][__main__][INFO]: Welcome to AirLine!
-[2024-08-10 22:14:21,935][reader.Mysql][INFO]: Connecting to database
-[2024-08-10 22:14:22,105][reader.Mysql][INFO]: Connected!
-[2024-08-10 22:14:22,105][__main__][WARNING]: Auto logged Admin: admin
-[2024-08-10 22:14:22,483][ui.Flights][INFO]: Extracted data from flights
-[2024-08-10 22:14:22,499][ui.Cart][INFO]: Refreshing Cart!
-[2024-08-10 22:14:22,609][ui.Cart][INFO]: Extracted data from passengers
-[2024-08-10 22:14:22,609][ui.Manager][INFO]: Showing Home
+[2024-08-10 22:56:58,507][__main__][INFO]: Welcome to AirLine!
+[2024-08-10 22:56:58,518][reader.Mysql][INFO]: Connecting to database
+[2024-08-10 22:56:58,575][reader.Mysql][INFO]: Connected!
+[2024-08-10 22:56:58,997][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-10 22:56:58,997][ui.Flights][INFO]: Extracted data from flights
+[2024-08-10 22:56:59,013][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-10 22:56:59,013][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-10 22:56:59,013][ui.Manager][INFO]: Showing FrontPage
+[2024-08-10 22:57:22,134][__main__][INFO]: Program terminated!

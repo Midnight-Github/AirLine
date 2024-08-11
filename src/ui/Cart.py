@@ -60,8 +60,8 @@ class Cart(ctk.CTkFrame):
 
         self.btn_frame = ctk.CTkFrame(self,fg_color='transparent')
         self.btn_frame.grid(row=2,column=0,sticky='se')
-        self.unbook_btn = ctk.CTkButton(self.btn_frame, text="Unbook", command=self.unbookFlight)
-        self.unbook_btn.grid(row=0,column=0, padx=5)
+        self.cancel_flight_btn = ctk.CTkButton(self.btn_frame, text="Cancel Flight", command=self.cancelFlight)
+        self.cancel_flight_btn.grid(row=0,column=0, padx=5)
         self.refresh_btn = ctk.CTkButton(self.btn_frame, text="Refresh", command=self.refresh)
         self.refresh_btn.grid(row=0,column=1, padx=5)
         self.back_btn = ctk.CTkButton(self.btn_frame, text="Back", command=lambda : self.root.showFrame("Home"))
@@ -102,17 +102,21 @@ class Cart(ctk.CTkFrame):
         for row in self.tree.get_children():
             self.tree.delete(row)
 
-    def unbookFlight(self):
+    def cancelFlight(self):
         selected = self.getSelectedFlight()
         if selected is None:
-            ctkmsgbox(title="Flights", message="No flight selected!")
+            ctkmsgbox(title="Cancel flight", message="No flight selected!")
             return
+
+        msg = ctkmsgbox(title="Cancel flight", message="Are you sure you want to cancel the flight!", icon="warning", option_1="Yes", option_2="No")
+        if msg.get() != "Yes":
+            return
+
         if self.deleteRowPassengers(selected[0]) is False:
             return
+            
         selected = self.tree.selection()[0]
         self.tree.delete(selected)
-
-        return True
 
     def deleteRowPassengers(self, flight_id):
         sql_cmd_del_passengers = f"DELETE FROM Passengers WHERE Flight_ID = {flight_id};"
@@ -123,7 +127,7 @@ class Cart(ctk.CTkFrame):
             logger.error(result[1])
             return False
 
-        logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} unbooked flight with id {flight_id}")
+        logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} canceled flight with id {flight_id}")
 
     def getSelectedFlight(self):
         selected = self.tree.selection()
