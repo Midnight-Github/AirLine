@@ -1,8 +1,6 @@
 import customtkinter as ctk
 import tkinter as tk
-from os import path
 from template.BgFrame import BgFrame
-import csv
 from var.ConfigManager import appdata
 from var.SqlManager import mysql
 from reader.Logger import Logger
