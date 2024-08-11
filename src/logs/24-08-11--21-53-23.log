@@ -1,0 +1,36 @@
+[2024-08-11 21:32:57,245][__main__][INFO]: Welcome to AirLine!
+[2024-08-11 21:32:57,245][reader.Mysql][INFO]: Connecting to database
+[2024-08-11 21:32:57,463][reader.Mysql][INFO]: Connected!
+[2024-08-11 21:32:58,215][ui.Manager][INFO]: Initialized SignUp
+[2024-08-11 21:32:58,281][ui.Manager][INFO]: Initialized Login
+[2024-08-11 21:32:58,282][ui.Manager][INFO]: Initialized FrontPage
+[2024-08-11 21:32:58,282][ui.Manager][INFO]: Showing FrontPage
+[2024-08-11 21:33:00,452][ui.Manager][INFO]: Showing Login
+[2024-08-11 21:33:04,417][ui.Login][INFO]: Admin: admin logged in
+[2024-08-11 21:33:04,433][ui.Manager][INFO]: Deleted Login
+[2024-08-11 21:33:04,433][ui.Manager][INFO]: Deleted FrontPage
+[2024-08-11 21:33:04,433][ui.Manager][INFO]: Deleted SignUp
+[2024-08-11 21:33:04,484][ui.Manager][INFO]: Initialized Home
+[2024-08-11 21:33:04,484][ui.Manager][INFO]: Showing Home
+[2024-08-11 21:33:06,283][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-11 21:33:06,283][ui.Flights][INFO]: Extracted data from flights
+[2024-08-11 21:33:06,299][ui.Manager][INFO]: Initialized Flights
+[2024-08-11 21:33:06,299][ui.Manager][INFO]: Showing Flights
+[2024-08-11 21:33:08,442][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-11 21:33:08,442][ui.Flights][INFO]: Extracted data from flights
+[2024-08-11 21:33:42,468][ui.Flights][INFO]: Admin: admin inserted {'airline': 'test2', 'pod': '1', 'destination': '1', 'class': '1', 'date': '2025-01-01', 'time': '10:00:00', 'price': '1'} to Flights
+[2024-08-11 21:33:42,506][ui.Flights][INFO]: Extracted data from flights
+[2024-08-11 21:34:01,742][ui.Flights][INFO]: Admin: admin inserted {'airline': '1', 'pod': '1', 'destination': '1', 'class': '1', 'date': '2222-01-01', 'time': '10:00:00', 'price': '2'} to Flights
+[2024-08-11 21:34:01,778][ui.Flights][INFO]: Extracted data from flights
+[2024-08-11 21:34:18,293][ui.Flights][INFO]: Admin: admin inserted {'airline': '1', 'pod': '1', 'destination': '1', 'class': '1', 'date': '2222-01-01', 'time': '10:00:00', 'price': '1'} to Flights
+[2024-08-11 21:34:18,327][ui.Flights][INFO]: Extracted data from flights
+[2024-08-11 21:34:20,241][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-11 21:34:20,241][ui.Flights][INFO]: Extracted data from flights
+[2024-08-11 21:34:22,625][ui.Flights][INFO]: Admin: admin deleted flight with id 3
+[2024-08-11 21:34:22,640][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-11 21:34:22,653][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-11 21:34:22,654][ui.Manager][INFO]: Initialized Cart
+[2024-08-11 21:34:22,655][ui.Manager][INFO]: Showing Flights
+[2024-08-11 21:34:24,657][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-11 21:34:24,657][ui.Flights][INFO]: Extracted data from flights
+[2024-08-11 21:34:48,952][__main__][INFO]: Program terminated!
