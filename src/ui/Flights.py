@@ -1,6 +1,4 @@
 import customtkinter as ctk
-import tkinter as tk
-from tkinter import ttk
 from var.ConfigManager import appdata
 from reader.Logger import Logger
 from var.SqlManager import mysql
