@@ -6,6 +6,7 @@ from reader.Logger import Logger
 from var.SqlManager import mysql
 from var.Globals import get_user_position
 from CTkMessagebox import CTkMessagebox as ctkmsgbox
+from datetime import datetime
 
 logger = Logger(__name__).logger
 
@@ -70,11 +71,10 @@ class Cart(ctk.CTkFrame):
     
     def refresh(self):
         logger.info("Refreshing Cart!")
+        date, time = str(datetime.now()).split()
 
-        sql_cmd = "SELECT * FROM Flights NATURAL JOIN Passengers WHERE Name = %s;"
-        sql_args = (appdata.data["user"]["name"],)
-        
-        result = mysql.execute(sql_cmd, sql_args, buffered=True)
+        sql_cmd = f"SELECT * FROM Flights NATURAL JOIN Passengers WHERE Name = '{appdata.data["user"]["name"]}' AND (Date > DATE('{date}') OR (Date = DATE('{date}') AND Time >= TIME('{time}')));"
+        result = mysql.execute(sql_cmd, buffered=True)
 
         if result[0] is False:
             logger.error("Failed to extract data from Passengers")
@@ -115,10 +115,8 @@ class Cart(ctk.CTkFrame):
         return True
 
     def deleteRowPassengers(self, flight_id):
-        sql_cmd_del_passengers = "DELETE FROM Passengers WHERE Flight_ID = %s"
-        sql_args = (flight_id,)
-
-        result = mysql.execute(sql_cmd_del_passengers, sql_args)
+        sql_cmd_del_passengers = f"DELETE FROM Passengers WHERE Flight_ID = {flight_id};"
+        result = mysql.execute(sql_cmd_del_passengers)
 
         if result[0] is False:
             logger.error("Failed to delete data from Passengers!")

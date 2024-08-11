@@ -7,6 +7,7 @@ from var.SqlManager import mysql
 from ui.AddFlight import AddFlight
 from var.Globals import get_user_position
 from CTkMessagebox import CTkMessagebox as ctkmsgbox
+from datetime import datetime
 
 logger = Logger(__name__).logger
 
@@ -14,7 +15,7 @@ class Flights(ctk.CTkFrame):
     def __init__(self, root):
         super().__init__(root)
 
-        self.root = root
+        self.root = root 
         self.grid_rowconfigure(1, weight=1)
         self.grid_columnconfigure(0,weight=1)
 
@@ -127,7 +128,11 @@ class Flights(ctk.CTkFrame):
         self.extractFlights()
 
     def extractFlights(self):
-        result = mysql.execute("SELECT * FROM Flights;", buffered=True)
+        date, time = str(datetime.now()).split()
+
+        sql_cmd = f"SELECT * FROM Flights WHERE (Date > DATE('{date}') OR (Date = DATE('{date}') AND Time >= TIME('{time}')));"
+        result = mysql.execute(sql_cmd, buffered=True)
+
         if result[0] is False:
             logger.error("Failed to extract data from Flights!")
             logger.error(result[1])
@@ -144,15 +149,16 @@ class Flights(ctk.CTkFrame):
             else: 
                 self.tree.insert('', tk.END, values=flight, tags=('evenrow',)) # pyright: ignore
 
-    def insertRowFlights(self, sql_args):
-        sql_cmd = "INSERT INTO Flights (Airline, Pod, Destination, Class, Date, Time, Price) VALUES (%s, %s, %s, %s, %s, %s, %s);"
-        result = mysql.execute(sql_cmd, sql_args)
+    def insertRowFlights(self, row):
+        sql_cmd = f"INSERT INTO Flights {str(tuple(row.keys())).replace('\'', '')} VALUES {str(tuple(row.values()))};"
+        result = mysql.execute(sql_cmd)
+
         if result[0] is False:
             logger.error("Failed to insert data to Flights!")
             logger.error(result[1])
             return False
 
-        logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} inserted {sql_args} to Flights")
+        logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} inserted {row} to Flights")
         if self.isAddFlightFormAlive():
             self.add_flight_form.destroy() # pyright: ignore
             self.add_flight_form.update() # pyright: ignore
@@ -161,12 +167,10 @@ class Flights(ctk.CTkFrame):
         return True
 
     def deleteRowFlights(self, flight_id):
-        sql_cmd_del_passengers = "DELETE FROM Passengers WHERE Flight_ID = %s"
-        sql_cmd_del_flights = "DELETE FROM Flights WHERE Flight_ID = %s;"
-        sql_args = (flight_id,)
-
-        result_passengers = mysql.execute(sql_cmd_del_passengers, sql_args)
-        result_flights = mysql.execute(sql_cmd_del_flights, sql_args)
+        sql_cmd_del_passengers = f"DELETE FROM Passengers WHERE Flight_ID = {flight_id}"
+        sql_cmd_del_flights = f"DELETE FROM Flights WHERE Flight_ID = {flight_id};"
+        result_passengers = mysql.execute(sql_cmd_del_passengers)
+        result_flights = mysql.execute(sql_cmd_del_flights)
 
         if result_passengers[0] is False:
             logger.error("Failed to delete data from Passengers!")
@@ -190,7 +194,7 @@ class Flights(ctk.CTkFrame):
             return
 
         flight_id = flight_id[0]
-        result = mysql.execute(f"INSERT INTO Passengers VALUES(\"{appdata.data["user"]["name"]}\",{flight_id});")
+        result = mysql.execute(f"INSERT INTO Passengers VALUES('{appdata.data["user"]["name"]}', {flight_id});")
         
         if result[0] is False:
             ctkmsgbox(title="Flights", message="You have already booked this flight")
