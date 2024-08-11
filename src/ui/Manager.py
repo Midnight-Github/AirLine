@@ -22,28 +22,42 @@ class Manager(ctk.CTk):
 
         self.frame_class = {"Login": Login, "FrontPage": FrontPage, "SignUp": SignUp, "Home": Home, "Flights": Flights, "Cart": Cart}
 
-        self.frames = dict()
-        for frame_name, Frame in self.frame_class.items():
-            frame = Frame(self)
-            frame.grid(row=0, column=0, sticky="nesw")
-            self.frames[frame_name] = frame
+        self.frames = dict.fromkeys(self.frame_class.keys())
 
         if appdata.data["user"]["name"] == "None":
             self.showFrame("FrontPage")
         else:
             self.showFrame("Home")
             
-    def showFrame(self, frame):            
-        self.frames[frame].tkraise()
+    def showFrame(self, frame):
+        if self.frames[frame] is None:
+            self.initFrame(frame)
+            
+        self.frames[frame].tkraise() # pyright: ignore
         logger.info(f"Showing {frame}")
 
-    def reinitFrame(self, frame):
-        self.frames[frame].destroy()
+    def initFrame(self, frame):
         f = self.frame_class[frame](self)
         f.grid(row=0, column=0, sticky="nesw")
         self.frames[frame] = f
-        logger.info(f"Reinitialized {frame}")
+        logger.info(f"Initialized {frame}")
+
+    def deleteFrame(self, frame):
+        if self.frames[frame] is None:
+            return
+
+        self.frames[frame].destroy() # pyright: ignore
+        self.frames[frame] = None
+        logger.info(f"Deleted {frame}")
+
+    def reinitFrame(self, frame):
+        self.deleteFrame(frame)
+        self.initFrame(frame)
 
     def reinitFrameAll(self):
         for i in self.frame_class.keys():
             self.reinitFrame(i)
+
+    def deleteFrameAll(self):
+        for i in self.frame_class.keys():
+            self.deleteFrame(i)

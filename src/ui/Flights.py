@@ -5,7 +5,7 @@ from var.ConfigManager import appdata
 from reader.Logger import Logger
 from var.SqlManager import mysql
 from ui.AddFlight import AddFlight
-from var.Globals import get_user_position
+from var.Globals import get_user_role
 from CTkMessagebox import CTkMessagebox as ctkmsgbox
 from datetime import datetime
 
@@ -158,7 +158,7 @@ class Flights(ctk.CTkFrame):
             logger.error(result[1])
             return False
 
-        logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} inserted {row} to Flights")
+        logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} inserted {row} to Flights")
         if self.isAddFlightFormAlive():
             self.add_flight_form.destroy() # pyright: ignore
             self.add_flight_form.update() # pyright: ignore
@@ -182,7 +182,7 @@ class Flights(ctk.CTkFrame):
             logger.error(result_flights[1])
             return False
 
-        logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} deleted flight with id {flight_id}")
+        logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} deleted flight with id {flight_id}")
         self.root.reinitFrame("Cart")
         self.root.showFrame("Flights")
         return True
@@ -199,14 +199,14 @@ class Flights(ctk.CTkFrame):
         if result[0] is False:
             if "Duplicate entry" in str(result[1]):
                 ctkmsgbox(title="Flights", message="You have already booked this flight")
-                logger.warning(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} tried to rebook flight with id: {flight_id}")
+                logger.warning(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} tried to rebook flight with id: {flight_id}")
                 return
             logger.error("Failed to insert data to Passengers!")
             logger.error(result[1])
             return
         
         ctkmsgbox(message="Successfully booked flight",icon="check")
-        logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} booked Flight with id: {flight_id}")
+        logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} booked Flight with id: {flight_id}")
         self.root.reinitFrame("Cart")
         self.root.showFrame("Flights")
         return

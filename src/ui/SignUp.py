@@ -6,7 +6,7 @@ import csv
 from var.ConfigManager import appdata
 from var.SqlManager import mysql
 from reader.Logger import Logger
-from var.Globals import get_user_position
+from var.Globals import get_user_role
 
 logger = Logger(__name__).logger
 
@@ -121,9 +121,9 @@ class SignUp(BgFrame):
         appdata.data["user"]["name"] = input_username
         appdata.data["user"]["permission"] = permission
         appdata.push()
-        logger.info(f"{get_user_position[permission]}: {input_username} signed up")
+        logger.info(f"{get_user_role[permission]}: {input_username} signed up")
 
-        self.root.reinitFrameAll()
+        self.root.deleteFrameAll()
         self.root.showFrame("Home")
 
     def resetFields(self):

@@ -2,7 +2,7 @@ import customtkinter as ctk
 from var.ConfigManager import appdata
 from reader.Logger import Logger
 from var.SqlManager import mysql
-from var.Globals import get_user_position
+from var.Globals import get_user_role
 from template.BgFrame import BgFrame
 
 logger = Logger(__name__).logger
@@ -35,11 +35,12 @@ class Home(BgFrame):
         self.del_account_btn.grid(row=3, column=0)
 
     def signout(self):
-        logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} logged out")
+        logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} logged out")
         appdata.data["user"]["name"] = "None"
         appdata.data["user"]["permission"] = -1
         appdata.push()
 
+        self.root.deleteFrameAll()
         self.root.showFrame("FrontPage")
 
     def delAccount(self):
@@ -50,18 +51,19 @@ class Home(BgFrame):
         result_accounts = self.mysql.execute(sql_cmd_del_accounts)
 
         if result_passengers[0] is False:
-            logger.error(f"Failed to delete {get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
+            logger.error(f"Failed to delete {get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
             logger.error(result_passengers[1])
             return
 
         if result_accounts[0] is False:
-            logger.error(f"Failed to delete {get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
+            logger.error(f"Failed to delete {get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
             logger.error(result_accounts[1])
             return
 
-        logger.info(f"Deleted {get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
+        logger.info(f"Deleted {get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
         appdata.data["user"]["name"] = "None"
         appdata.data["user"]["permission"] = -1
         appdata.push()
-
+        
+        self.root.deleteFrameAll()
         self.root.showFrame("FrontPage")

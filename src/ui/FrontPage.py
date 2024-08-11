@@ -27,6 +27,9 @@ class FrontPage(BgFrame):
         self.signin_btn = ctk.CTkButton(self.btn_frame, text="Sign in", command=self.signinAccount, width=200)
         self.signin_btn.grid(row=1, column=0, pady=(0, 10))
 
+        self.root.initFrame("SignUp")
+        self.root.initFrame("Login")
+
     def loginAccount(self):
         self.root.showFrame("Login")
 

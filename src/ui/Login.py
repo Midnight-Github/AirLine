@@ -3,7 +3,7 @@ from template.BgFrame import BgFrame
 from var.ConfigManager import appdata
 from var.SqlManager import mysql
 from reader.Logger import Logger
-from var.Globals import get_user_position
+from var.Globals import get_user_role
 
 logger = Logger(__name__).logger
 
@@ -62,8 +62,8 @@ class Login(BgFrame):
             appdata.data["user"]["name"] = input_username
             appdata.data["user"]["permission"] = result[1][0][2] #pyright: ignore
             appdata.push()
-            logger.info(f"{get_user_position[result[1][0][2]]}: {input_username} logged in") #pyright: ignore
-            self.root.reinitFrameAll()
+            logger.info(f"{get_user_role[result[1][0][2]]}: {input_username} logged in") #pyright: ignore
+            self.root.deleteFrameAll()
             self.root.showFrame("Home")
             return
 
