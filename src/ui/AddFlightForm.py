@@ -3,7 +3,7 @@ import tkinter as tk
 import re
 from datetime import datetime
 
-class AddFlight(ctk.CTkToplevel):
+class AddFlightForm(ctk.CTkToplevel):
     def __init__(self, submit_command):
         super().__init__()
 

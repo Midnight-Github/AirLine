@@ -71,10 +71,10 @@ class Login(BgFrame):
         self.password_entry.configure(border_color="red")
         logger.warning(f"{input_username} tried to login but failed")
 
-    def resetFields(self):
-        self.username_entry.configure(border_color="gray")
-        self.password_entry.configure(border_color="gray")
-                    
     def backEvent(self):
         self.root.reinitFrame("Login")
         self.root.showFrame("FrontPage")
+
+    def resetFields(self):
+        self.username_entry.configure(border_color="gray")
+        self.password_entry.configure(border_color="gray")

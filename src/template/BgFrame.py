@@ -22,6 +22,11 @@ class BgFrame(ctk.CTkFrame):
         self.bg_image_label = ctk.CTkLabel(self, image=self.bg_img, text='')
         self.bg_image_label.grid(row=0, column=0, sticky='nesw')
 
+
+    def resizeBgImg(self, e):
+        self.setBgSize()
+        self.bg_image_label.configure(image=self.bg_img)
+
     def setBgSize(self):
         height = self.winfo_height()
         width = self.winfo_width()
@@ -32,8 +37,4 @@ class BgFrame(ctk.CTkFrame):
 
         img = Image.open(self.bg_img_path)
         self.bg_img = ctk.CTkImage(dark_image=img, light_image=img, size=(width, height))
-
-    def resizeBgImg(self, e):
-        self.setBgSize()
-        self.bg_image_label.configure(image=self.bg_img)
 

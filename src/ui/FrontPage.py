@@ -5,8 +5,6 @@ class FrontPage(BgFrame):
     def __init__(self, root):
         super().__init__(root, "login_bg.png", 1, 1)
 
-        self.root = root
-
         self.content_frame = ctk.CTkFrame(self.bg_image_label, fg_color="transparent")
         self.content_frame.grid(row=0, column=0, sticky="ns")
 
