@@ -5,7 +5,7 @@ from var.ConfigManager import appdata
 from reader.Logger import Logger
 from var.SqlManager import mysql
 from ui.AddFlight import AddFlight
-from var.Globals import get_user_role
+from var.Globals import get_user_position
 from CTkMessagebox import CTkMessagebox as ctkmsgbox
 from datetime import datetime
 
@@ -15,9 +15,12 @@ class Flights(ctk.CTkFrame):
     def __init__(self, root):
         super().__init__(root)
 
-        self.root = root 
+        self.root = root
+        self.show_flights_by = appdata.data["user"]["show_flights_by"]
         self.grid_rowconfigure(1, weight=1)
-        self.grid_columnconfigure(0,weight=1)
+        self.grid_columnconfigure(0,weight=0)
+        self.grid_columnconfigure(1,weight=1)
+        self.grid_columnconfigure(2,weight=0)
 
         self.style = ttk.Style(self)
         self.style.theme_use("clam")
@@ -26,7 +29,7 @@ class Flights(ctk.CTkFrame):
         self.style.map('Treeview', background=[('selected','#D3D3D3')])
         
         self.header = ctk.CTkLabel(self, text="Available Flights", font=ctk.CTkFont(size=30, weight="bold"))
-        self.header.grid(row=0, column=0, sticky='new')
+        self.header.grid(row=0, column=0, sticky='new', columnspan=3)
 
         self.columns = ('id', 'airline', 'pod', 'dest', 'class', 'date', 'time', 'price')
         self.tree = ttk.Treeview(self, columns=self.columns, show='headings')
@@ -39,15 +42,15 @@ class Flights(ctk.CTkFrame):
         self.tree.heading('dest', text='Destination')
         self.tree.column('dest',anchor='center', width=50)
         self.tree.heading('class', text='Class')
-        self.tree.column('class',anchor='center', width=50)
-        
+        self.tree.column('class',anchor='center', width=50)      
         self.tree.heading('date', text='Date')
-        self.tree.column('date',anchor='center', width=50)
-        
+        self.tree.column('date',anchor='center', width=50)       
         self.tree.heading('time', text='Time')
         self.tree.column('time',anchor='center', width=50)
         self.tree.heading('price', text='Price')
         self.tree.column('price',anchor='center', width=50)
+        
+        self.extractFlights()
 
         # ('Indigo','Delhi','Mumbai','Economy', '17:00 - 19:30' ,'5000INR')
         # ('Indigo','Bangalore','Mumbai','Economy', '18:00 - 20:00', '5500INR')
@@ -57,37 +60,49 @@ class Flights(ctk.CTkFrame):
         self.tree.tag_configure('evenrow', background='#1c1c1c')
         
         self.tree.bind('<<TreeviewSelect>>')
-        self.tree.grid(row=1, column=0, sticky='nesw')
+        self.tree.grid(row=1, column=1, sticky='nesw')
 
         self.scrollbar = ttk.Scrollbar(self, orient=tk.VERTICAL, command=self.tree.yview)
         self.tree.configure(yscrollcommand=self.scrollbar.set)
-        self.scrollbar.grid(row=1, column=1, sticky='ns')
+        self.scrollbar.grid(row=1, column=2, sticky='ns')
 
         self.btn_frame = ctk.CTkFrame(self,fg_color='transparent')
-        self.btn_frame.grid(row=2,column=0, sticky='se')
+        self.btn_frame.grid(row=1,column=0, sticky='ns')
         
         self.book_btn = ctk.CTkButton(self.btn_frame, text="Book Flight", command=self.BookFlight)
-        self.book_btn.grid(row=0,column=0, padx=5)    
+        self.book_btn.grid(row=0,column=0, padx=10, pady=10)    
         self.refresh_btn = ctk.CTkButton(self.btn_frame, text="Refresh", command=self.refresh)
-        self.refresh_btn.grid(row=0,column=3, padx=5)
+        self.refresh_btn.grid(row=1,column=0, padx=10, pady=10)
         self.back_btn = ctk.CTkButton(self.btn_frame, text="Back", command=lambda : self.root.showFrame("Home"))
-        self.back_btn.grid(row=0, column=4, padx=5)
+        self.back_btn.grid(row=4, column=0, padx=10, pady=10)
+        
+        self.rb_label = ctk.CTkLabel(self.btn_frame, text = "Search By", font=ctk.CTkFont(size=20, weight="bold"))
+        self.rb_label.grid(row=5, column=0, pady=20)
+        
+        radio_var = ctk.StringVar(value="other")
+        
+        self.available_flights_rb = ctk.CTkRadioButton(self.btn_frame, text="Available Flights", radiobutton_height=15, radiobutton_width=15, border_width_checked=5, variable=radio_var, command=self.extractAvailableFlights)
+        self.available_flights_rb.grid(row=6, column=0, padx=10, pady=10, sticky='w')
+        self.deleted_flights_rb = ctk.CTkRadioButton(self.btn_frame, text="Deleted Flights", radiobutton_height=15, radiobutton_width=15, border_width_checked=5, variable=radio_var, command=self.extractDeletedFlights)
+        self.deleted_flights_rb.grid(row=7, column=0, padx=10, pady=10, sticky='w')
+        self.all_flights_rb = ctk.CTkRadioButton(self.btn_frame, text="All Flights", radiobutton_height=15, radiobutton_width=15, border_width_checked=5, variable=radio_var, command=self.extractAllFlights)
+        self.all_flights_rb.grid(row=8, column=0, padx=10, pady=10, sticky='w')
+        
 
         if appdata.data["user"]["permission"] > 0:
             self.adminFeatures()
-
-        self.refresh()
 
     def adminFeatures(self):
         self.add_flight_form = None
 
         self.add_btn = ctk.CTkButton(self.btn_frame, text="Add Flight", command=self.addFlight)
-        self.add_btn.grid(row=0, column=1, padx=5)
+        self.add_btn.grid(row=2, column=0, padx=10, pady=10)
 
         self.delete_btn = ctk.CTkButton(self.btn_frame, text="Delete Flight", command=self.deleteFlight)
-        self.delete_btn.grid(row=0, column=2, padx=5)
+        self.delete_btn.grid(row=3, column=0, padx=10, pady=10)
 
     def formatFlights(self, table):
+        print(table)
         for i, row in enumerate(table):
             row = row[:-1] + (str(row[-1]) + 'INR',)
             table[i] = row
@@ -129,18 +144,13 @@ class Flights(ctk.CTkFrame):
 
     def extractFlights(self):
         date, time = str(datetime.now()).split()
-
-        sql_cmd = f"SELECT * FROM Flights WHERE (Date > DATE('{date}') OR (Date = DATE('{date}') AND Time >= TIME('{time}')));"
-        result = mysql.execute(sql_cmd, buffered=True)
-
-        if result[0] is False:
-            logger.error("Failed to extract data from Flights!")
-            logger.error(result[1])
-            return
-
-        logger.info("Extracted data from flights")
-        self.flights = self.formatFlights(result[1])
-
+        match(self.show_flights_by):
+            case "all":
+                self.extractAllFlights()
+            case "available":
+                self.extractAvailableFlights()
+            case "deleted":
+                self.extractDeletedFlights()
         self.deleteAllRows()
 
         for count, flight in enumerate(self.flights):
@@ -158,7 +168,7 @@ class Flights(ctk.CTkFrame):
             logger.error(result[1])
             return False
 
-        logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} inserted {row} to Flights")
+        logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} inserted {row} to Flights")
         if self.isAddFlightFormAlive():
             self.add_flight_form.destroy() # pyright: ignore
             self.add_flight_form.update() # pyright: ignore
@@ -182,7 +192,7 @@ class Flights(ctk.CTkFrame):
             logger.error(result_flights[1])
             return False
 
-        logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} deleted flight with id {flight_id}")
+        logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} deleted flight with id {flight_id}")
         self.root.reinitFrame("Cart")
         self.root.showFrame("Flights")
         return True
@@ -197,16 +207,53 @@ class Flights(ctk.CTkFrame):
         result = mysql.execute(f"INSERT INTO Passengers VALUES('{appdata.data["user"]["name"]}', {flight_id});")
         
         if result[0] is False:
-            if "Duplicate entry" in str(result[1]):
-                ctkmsgbox(title="Flights", message="You have already booked this flight")
-                logger.warning(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} tried to rebook flight with id: {flight_id}")
-                return
+            ctkmsgbox(title="Flights", message="You have already booked this flight")
             logger.error("Failed to insert data to Passengers!")
             logger.error(result[1])
             return
         
         ctkmsgbox(message="Successfully booked flight",icon="check")
-        logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} booked Flight with id: {flight_id}")
+        logger.info(f"{get_user_position[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} booked Flight with id: {flight_id}")
         self.root.reinitFrame("Cart")
         self.root.showFrame("Flights")
         return
+    
+    def extractAvailableFlights(self):
+        date, time = str(datetime.now()).split()
+        sql_cmd = f"SELECT * FROM Flights WHERE (Date > DATE('{date}') OR (Date = DATE('{date}') AND Time >= TIME('{time}')));"
+        result = mysql.execute(sql_cmd, buffered=True)
+
+        if result[0] is False:
+            logger.error("Failed to extract data from Flights!")
+            logger.error(result[1])
+            return
+        
+        logger.info("Extracted data from flights")
+        self.flights = self.formatFlights(result[1])
+        
+    
+    def extractDeletedFlights(self):
+        date, time = str(datetime.now()).split()
+        sql_cmd = f"SELECT * FROM Flights WHERE (Date < DATE('{date}') OR (Date = DATE('{date}') AND Time <= TIME('{time}')));"
+        result = mysql.execute(sql_cmd, buffered=True)
+
+        if result[0] is False:
+            logger.error("Failed to extract data from Flights!")
+            logger.error(result[1])
+            return
+        
+        logger.info("Extracted data from flights")
+        self.flights = self.formatFlights(result[1])
+    
+    def extractAllFlights(self):
+        date, time = str(datetime.now()).split()
+        sql_cmd = f"SELECT * FROM Flights;"
+        result = mysql.execute(sql_cmd, buffered=True)
+
+        if result[0] is False:
+            logger.error("Failed to extract data from Flights!")
+            logger.error(result[1])
+            return
+        
+        logger.info("Extracted data from flights")
+        self.flights = self.formatFlights(result[1])
