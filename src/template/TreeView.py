@@ -40,6 +40,20 @@ class TreeView(ctk.CTkFrame):
         self.tree.configure(yscrollcommand=self.scrollbar.set)
         self.scrollbar.grid(row=1, column=1, sticky='ns')
 
+    def reloadTable(self, rows):
+        self.deleteAllRows()
+
+        for flight in rows:
+            self.insertRow(flight)
+
+    # tree view manipulation functions:
+    def getSelectedRow(self):
+        selected = self.tree.selection()
+        if not selected:
+            return None
+        details = self.tree.item(selected[0])
+        return details["values"]
+
     def insertRow(self, row):
         if self.row_count % 2 == 0:
             self.tree.insert('', tk.END, values=row, tags=('oddrow',)) # pyright: ignore
@@ -57,11 +71,3 @@ class TreeView(ctk.CTkFrame):
             self.tree.delete(row)
 
         self.row_count = 0
-
-    def getSelectedRow(self):
-        selected = self.tree.selection()
-        if not selected:
-            return None
-        details = self.tree.item(selected[0])
-        return details["values"]
-

@@ -50,6 +50,10 @@ class Manager(ctk.CTk):
         self.frames[frame] = None
         logger.info(f"Deleted {frame}")
 
+    def deleteFrameAll(self):
+        for i in self.frame_class.keys():
+            self.deleteFrame(i)
+
     def reinitFrame(self, frame):
         self.deleteFrame(frame)
         self.initFrame(frame)
@@ -57,7 +61,3 @@ class Manager(ctk.CTk):
     def reinitFrameAll(self):
         for i in self.frame_class.keys():
             self.reinitFrame(i)
-
-    def deleteFrameAll(self):
-        for i in self.frame_class.keys():
-            self.deleteFrame(i)
