@@ -49,7 +49,7 @@ class Cart(TreeView):
     def getRowsBookedFlights(self):
         date, time = str(datetime.now()).split()
 
-        sql_cmd = f"SELECT * FROM Flights NATURAL JOIN Passengers WHERE Name = '{appdata.data["user"]["name"]}' AND (Date > DATE('{date}') OR (Date = DATE('{date}') AND Time >= TIME('{time}')));"
+        sql_cmd = f"SELECT Flight_ID, Airline, Place_of_departure, Destination, Class, Date, Time, Price FROM Flights NATURAL JOIN Passengers WHERE Name = '{appdata.data["user"]["name"]}' AND (Date > DATE('{date}') OR (Date = DATE('{date}') AND Time >= TIME('{time}')));"
         result = mysql.execute(sql_cmd, buffered=True)
 
         if result[0] is False:

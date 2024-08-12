@@ -25,7 +25,7 @@ class Mysql():
         CREATE TABLE Flights(
         Flight_ID INT PRIMARY KEY AUTO_INCREMENT,
         Airline VARCHAR(255) NOT NULL,
-        Pod VARCHAR(255) NOT NULL,
+        Place_of_departure VARCHAR(255) NOT NULL,
         Destination VARCHAR(255) NOT NULL,
         Class VARCHAR(255) NOT NULL,
         Date DATE NOT NULL,
@@ -48,7 +48,7 @@ class Mysql():
         self.flights_table_structure = [
             ('Flight_ID', 'int', 'NO', 'PRI', None, 'auto_increment'), 
             ('Airline', 'varchar(255)', 'NO', '', None, ''), 
-            ('Pod', 'varchar(255)', 'NO', '', None, ''), 
+            ('Place_of_departure', 'varchar(255)', 'NO', '', None, ''), 
             ('Destination', 'varchar(255)', 'NO', '', None, ''), 
             ('Class', 'varchar(255)', 'NO', '', None, ''),
             ('Date', 'date', 'NO', '', None, ''),
