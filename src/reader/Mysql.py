@@ -159,3 +159,7 @@ class Mysql():
             raise e
         finally:
             cursor.close()
+
+    def close(self):
+        if self.database is not None:
+            self.database.close()
