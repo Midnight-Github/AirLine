@@ -34,15 +34,6 @@ class Home(BgFrame):
         self.del_account_btn = ctk.CTkButton(self.btn_frame, text="Delete account", command=self.delAccount)
         self.del_account_btn.grid(row=3, column=0)
 
-    def signout(self):
-        logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} logged out")
-        appdata.data["user"]["name"] = "None"
-        appdata.data["user"]["permission"] = -1
-        appdata.push()
-
-        self.root.deleteFrameAll()
-        self.root.showFrame("FrontPage")
-
     def delAccount(self):
         sql_cmd_del_passengers = f"DELETE FROM Passengers WHERE Name = '{appdata.data["user"]["name"]}';"
         sql_cmd_del_accounts = f"DELETE FROM Accounts WHERE Name = '{appdata.data["user"]["name"]}';"
@@ -65,5 +56,14 @@ class Home(BgFrame):
         appdata.data["user"]["permission"] = -1
         appdata.push()
         
+        self.root.deleteFrameAll()
+        self.root.showFrame("FrontPage")
+
+    def signout(self):
+        logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} logged out")
+        appdata.data["user"]["name"] = "None"
+        appdata.data["user"]["permission"] = -1
+        appdata.push()
+
         self.root.deleteFrameAll()
         self.root.showFrame("FrontPage")

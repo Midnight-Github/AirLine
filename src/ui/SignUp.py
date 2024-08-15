@@ -12,7 +12,6 @@ class SignUp(BgFrame):
     def __init__(self, root):
         super().__init__(root, "login_bg.png", 1, 1)
 
-        self.root = root
         self.mysql = mysql
 
         self.content_frame = ctk.CTkFrame(self.bg_image_label, fg_color="transparent")
