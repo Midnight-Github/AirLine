@@ -37,7 +37,7 @@ class Cart(TreeView):
             ctkmsgbox(title="Cancel flight", message="No flight selected!")
             return
 
-        msg = ctkmsgbox(title="Cancel flight", message="Are you sure you want to cancel the flight!", icon="warning", option_1="Yes", option_2="No")
+        msg = ctkmsgbox(title="Cancel flight", message="Are you sure you want to cancel this flight!", icon="question", option_1="Yes", option_2="No")
         if msg.get() != "Yes":
             return
 
@@ -45,6 +45,8 @@ class Cart(TreeView):
             
         self.deleteRow()
         self.refresh()
+
+        ctkmsgbox(title="Cancel flight", message="Successfully canceled this flight", icon="check")
 
     # database functions:
     def getRowsBookedFlights(self):

@@ -1,0 +1,37 @@
+[2024-08-17 14:15:57,423][__main__][INFO]: Welcome to AirLine!
+[2024-08-17 14:15:57,423][reader.Mysql][INFO]: Connecting to database
+[2024-08-17 14:15:57,504][reader.Mysql][INFO]: Connected!
+[2024-08-17 14:15:57,505][__main__][WARNING]: Auto logged Admin: admin
+[2024-08-17 14:15:57,692][ui.Manager][INFO]: Initialized Home
+[2024-08-17 14:15:57,692][ui.Manager][INFO]: Showing Home
+[2024-08-17 14:15:58,852][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-17 14:15:58,853][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-17 14:15:58,855][ui.Manager][INFO]: Initialized Cart
+[2024-08-17 14:15:58,855][ui.Manager][INFO]: Showing Cart
+[2024-08-17 14:16:04,981][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-17 14:16:04,982][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-17 14:16:12,585][ui.Cart][INFO]: Admin: admin canceled flight with id 4
+[2024-08-17 14:16:12,585][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-17 14:16:12,587][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-17 14:16:14,395][ui.Manager][INFO]: Showing Home
+[2024-08-17 14:16:15,371][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 14:16:15,374][ui.Flights][INFO]: Extracted flights from Flights!
+[2024-08-17 14:16:15,378][ui.Manager][INFO]: Initialized Flights
+[2024-08-17 14:16:15,379][ui.Manager][INFO]: Showing Flights
+[2024-08-17 14:16:27,300][ui.Flights][INFO]: Admin: admin booked Flight with id: 4
+[2024-08-17 14:16:27,302][ui.Manager][INFO]: Deleted Cart
+[2024-08-17 14:16:27,316][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-17 14:16:27,317][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-17 14:16:27,318][ui.Manager][INFO]: Initialized Cart
+[2024-08-17 14:16:27,318][ui.Manager][INFO]: Showing Flights
+[2024-08-17 14:16:31,286][ui.Manager][INFO]: Showing Home
+[2024-08-17 14:16:33,619][ui.Manager][INFO]: Showing Flights
+[2024-08-17 14:16:37,615][ui.Flights][INFO]: Admin: admin deleted flight with id 4
+[2024-08-17 14:16:37,616][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 14:16:37,617][ui.Flights][INFO]: Extracted flights from Flights!
+[2024-08-17 14:16:37,621][ui.Manager][INFO]: Deleted Cart
+[2024-08-17 14:16:37,636][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-17 14:16:37,638][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-17 14:16:37,639][ui.Manager][INFO]: Initialized Cart
+[2024-08-17 14:16:37,640][ui.Manager][INFO]: Showing Flights
+[2024-08-17 14:16:52,675][__main__][INFO]: Program terminated!

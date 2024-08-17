@@ -79,12 +79,17 @@ class Flights(TreeView):
     def deleteFlight(self):
         selected = self.getSelectedRow()
         if selected is None:
-            ctkmsgbox(title="Flights", message="No flight selected!")
+            ctkmsgbox(title="Delete flight", message="No flight selected!")
+            return
+        msg = ctkmsgbox(title="Delete flight", message="Are you sure you want to delete this flight?", icon="question", option_1="Yes", option_2="No")
+        if msg.get() != "Yes":
             return
 
         self.deleteRowFlights(selected[0]) # passing flight id
 
         self.refresh()
+
+        ctkmsgbox(title="Delete flight", message="Successfully deleted this flight!", icon="check")
 
         self.root.reinitFrame("Cart")
         self.root.showFrame("Flights")
@@ -92,7 +97,11 @@ class Flights(TreeView):
     def BookFlight(self):
         flight_id = self.getSelectedRow()
         if flight_id is None:
-            ctkmsgbox(title="Flights", message="No flight selected!")
+            ctkmsgbox(title="Book flight", message="No flight selected!")
+            return
+
+        msg = ctkmsgbox(title="Book flight", message="Are you sure you want to Book this flight", icon="question", option_1="Yes", option_2="No")
+        if msg.get() != "Yes":
             return
 
         flight_id = flight_id[0]
@@ -103,7 +112,7 @@ class Flights(TreeView):
             logger.error(result[1])
             return
         if not result[1]:
-            ctkmsgbox(title="Flights", message="You cannot book expired flight!", icon="warning")
+            ctkmsgbox(title="Book flight", message="You cannot book expired flight!", icon="warning")
             logger.warning(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} tried to book expired flight with id: {flight_id}")
             return
 
@@ -111,14 +120,14 @@ class Flights(TreeView):
         
         if result[0] is False:
             if "Duplicate entry" in str(result[1]):
-                ctkmsgbox(title="Flights", message="You have already booked this flight")
+                ctkmsgbox(title="Book flight", message="You have already booked this flight")
                 logger.warning(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} tried to rebook flight with id: {flight_id}")
                 return
             logger.error("Failed to insert data to Passengers!")
             logger.error(result[1])
             return
         
-        ctkmsgbox(message="Successfully booked flight",icon="check")
+        ctkmsgbox(title="Book flight", message="Successfully booked flight!",icon="check")
         logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} booked Flight with id: {flight_id}")
         self.root.reinitFrame("Cart")
         self.root.showFrame("Flights")
@@ -159,6 +168,7 @@ class Flights(TreeView):
             return
 
         logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} inserted {row} to Flights")
+        ctkmsgbox(title="Add flight", message="Successfully added this flight!", icon="check")
 
     def deleteRowFlights(self, flight_id):
         sql_cmd_del_passengers = f"DELETE FROM Passengers WHERE Flight_ID = {flight_id}"

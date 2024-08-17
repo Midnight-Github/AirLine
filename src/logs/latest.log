@@ -1,38 +1,10 @@
-[2024-08-17 14:00:30,269][__main__][INFO]: Welcome to AirLine!
-[2024-08-17 14:00:30,269][reader.Mysql][INFO]: Connecting to database
-[2024-08-17 14:00:30,320][reader.Mysql][INFO]: Connected!
-[2024-08-17 14:00:30,321][__main__][WARNING]: Auto logged User: user
-[2024-08-17 14:00:30,520][ui.Manager][INFO]: Initialized Home
-[2024-08-17 14:00:30,521][ui.Manager][INFO]: Showing Home
-[2024-08-17 14:00:31,743][ui.Flights][INFO]: Refreshing Flights!
-[2024-08-17 14:00:31,747][ui.Flights][INFO]: Extracted flights from Flights!
-[2024-08-17 14:00:31,757][ui.Manager][INFO]: Initialized Flights
-[2024-08-17 14:00:31,757][ui.Manager][INFO]: Showing Flights
-[2024-08-17 14:00:35,649][ui.Flights][INFO]: Refreshing Flights!
-[2024-08-17 14:00:35,650][ui.Flights][INFO]: Extracted flights from Flights!
-[2024-08-17 14:00:36,469][ui.Manager][INFO]: Showing Home
-[2024-08-17 14:00:37,804][ui.Home][INFO]: User: user logged out
-[2024-08-17 14:00:37,835][ui.Manager][INFO]: Deleted Home
-[2024-08-17 14:00:37,838][ui.Manager][INFO]: Deleted Flights
-[2024-08-17 14:00:37,987][ui.Manager][INFO]: Initialized SignUp
-[2024-08-17 14:00:38,049][ui.Manager][INFO]: Initialized Login
-[2024-08-17 14:00:38,050][ui.Manager][INFO]: Initialized FrontPage
-[2024-08-17 14:00:38,050][ui.Manager][INFO]: Showing FrontPage
-[2024-08-17 14:00:39,179][ui.Manager][INFO]: Showing Login
-[2024-08-17 14:00:44,737][ui.Login][INFO]: Admin: admin logged in
-[2024-08-17 14:00:44,743][ui.Manager][INFO]: Deleted Login
-[2024-08-17 14:00:44,750][ui.Manager][INFO]: Deleted FrontPage
-[2024-08-17 14:00:44,756][ui.Manager][INFO]: Deleted SignUp
-[2024-08-17 14:00:44,783][ui.Manager][INFO]: Initialized Home
-[2024-08-17 14:00:44,784][ui.Manager][INFO]: Showing Home
-[2024-08-17 14:00:45,687][ui.Flights][INFO]: Refreshing Flights!
-[2024-08-17 14:00:45,689][ui.Flights][INFO]: Extracted flights from Flights!
-[2024-08-17 14:00:45,689][ui.Manager][INFO]: Initialized Flights
-[2024-08-17 14:00:45,690][ui.Manager][INFO]: Showing Flights
-[2024-08-17 14:00:47,352][ui.Flights][INFO]: Refreshing Flights!
-[2024-08-17 14:00:47,353][ui.Flights][INFO]: Extracted available flights from flights
-[2024-08-17 14:00:48,058][ui.Flights][INFO]: Refreshing Flights!
-[2024-08-17 14:00:48,059][ui.Flights][INFO]: Extracted expired flights from Flights!
-[2024-08-17 14:00:49,155][ui.Flights][INFO]: Refreshing Flights!
-[2024-08-17 14:00:49,158][ui.Flights][INFO]: Extracted flights from Flights!
-[2024-08-17 14:01:07,746][__main__][INFO]: Program terminated!
+[2024-08-17 14:18:52,960][__main__][INFO]: Welcome to AirLine!
+[2024-08-17 14:18:52,961][reader.Mysql][INFO]: Connecting to database
+[2024-08-17 14:18:53,014][reader.Mysql][INFO]: Connected!
+[2024-08-17 14:18:53,015][__main__][WARNING]: Auto logged Admin: admin
+[2024-08-17 14:18:53,194][ui.Manager][INFO]: Initialized Home
+[2024-08-17 14:18:53,194][ui.Manager][INFO]: Showing Home
+[2024-08-17 14:18:54,966][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 14:18:54,969][ui.Flights][INFO]: Extracted flights from Flights!
+[2024-08-17 14:18:54,973][ui.Manager][INFO]: Initialized Flights
+[2024-08-17 14:18:54,973][ui.Manager][INFO]: Showing Flights
