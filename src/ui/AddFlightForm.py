@@ -13,7 +13,6 @@ class AddFlightForm(ctk.CTkToplevel):
         self.title("Flight details")
 
         self.fields = dict()
-
         self.fields["airline"] = ctk.CTkEntry(self, width=200, placeholder_text="Airline", border_color="grey")
         self.fields["airline"].grid(row=0, column=0, padx=30, pady=(30, 15))
         self.fields["place_of_departure"] = ctk.CTkEntry(self, width=200, placeholder_text="place of departure", border_color="grey")
