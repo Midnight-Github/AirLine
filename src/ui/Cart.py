@@ -16,13 +16,14 @@ class Cart(TreeView):
         super().__init__(root, columns=('ID', 'Airline', 'Place of Departure', 'Destination', 'Class', 'Date', 'Time', 'Price'), heading="Booked Flights")
 
         self.btn_frame = ctk.CTkFrame(self,fg_color='transparent')
-        self.btn_frame.grid(row=2,column=0,sticky='se')
-        self.cancel_flight_btn = ctk.CTkButton(self.btn_frame, text="Cancel Flight", command=self.cancelFlight)
-        self.cancel_flight_btn.grid(row=0,column=0, padx=5)
+        self.btn_frame.grid(row=1, column=0, sticky='n')
+
         self.refresh_btn = ctk.CTkButton(self.btn_frame, text="Refresh", command=self.refresh)
-        self.refresh_btn.grid(row=0,column=1, padx=5)
+        self.refresh_btn.grid(row=0, column=0, padx=10, pady=(0, 10))
+        self.cancel_flight_btn = ctk.CTkButton(self.btn_frame, text="Cancel Flight", command=self.cancelFlight)
+        self.cancel_flight_btn.grid(row=1, column=0, padx=10, pady=(0, 10))
         self.back_btn = ctk.CTkButton(self.btn_frame, text="Back", command=lambda : self.root.showFrame("Home"))
-        self.back_btn.grid(row=0, column=2, padx=5)
+        self.back_btn.grid(row=2, column=0, padx=10)
 
         self.refresh()
     

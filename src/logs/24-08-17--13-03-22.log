@@ -1,0 +1,29 @@
+[2024-08-17 13:00:10,275][__main__][INFO]: Welcome to AirLine!
+[2024-08-17 13:00:10,275][reader.Mysql][INFO]: Connecting to database
+[2024-08-17 13:00:10,297][reader.Mysql][INFO]: Connected!
+[2024-08-17 13:00:10,297][__main__][WARNING]: Auto logged Admin: admin
+[2024-08-17 13:00:10,486][ui.Manager][INFO]: Initialized Home
+[2024-08-17 13:00:10,486][ui.Manager][INFO]: Showing Home
+[2024-08-17 13:00:11,842][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:00:11,846][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:00:11,854][ui.Manager][INFO]: Initialized Flights
+[2024-08-17 13:00:11,855][ui.Manager][INFO]: Showing Flights
+[2024-08-17 13:00:34,932][ui.Flights][ERROR]: Failed to insert data to Flights!
+[2024-08-17 13:00:34,932][ui.Flights][ERROR]: 1054 (42S22): Unknown column 'pod' in 'field list'
+[2024-08-17 13:00:34,932][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:00:34,932][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:00:37,041][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:00:37,047][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:00:41,087][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:00:41,087][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:00:42,817][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:00:42,817][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:00:44,057][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:00:44,057][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:00:45,297][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:00:45,303][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:00:47,606][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:00:47,606][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:00:48,888][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:00:48,888][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:00:52,642][__main__][INFO]: Program terminated!
