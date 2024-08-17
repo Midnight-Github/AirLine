@@ -16,8 +16,8 @@ class AddFlightForm(ctk.CTkToplevel):
 
         self.fields["airline"] = ctk.CTkEntry(self, width=200, placeholder_text="Airline", border_color="grey")
         self.fields["airline"].grid(row=0, column=0, padx=30, pady=(30, 15))
-        self.fields["pod"] = ctk.CTkEntry(self, width=200, placeholder_text="Place of departure", border_color="grey")
-        self.fields["pod"].grid(row=1, column=0, padx=30, pady=15)
+        self.fields["place_of_departure"] = ctk.CTkEntry(self, width=200, placeholder_text="place of departure", border_color="grey")
+        self.fields["place_of_departure"].grid(row=1, column=0, padx=30, pady=15)
         self.fields["destination"] = ctk.CTkEntry(self, width=200, placeholder_text="Destination", border_color="grey")
         self.fields["destination"].grid(row=2, column=0, padx=30, pady=15)
         self.fields["class"] = ctk.CTkEntry(self, width=200, placeholder_text="Class", border_color="grey")
@@ -42,7 +42,7 @@ class AddFlightForm(ctk.CTkToplevel):
 
         details = {
             "airline": self.fields["airline"].get(),
-            "pod": self.fields["pod"].get(),
+            "place_of_departure": self.fields["place_of_departure"].get(),
             "destination": self.fields["destination"].get(),
             "class": self.fields["class"].get(),
             "date": self.fields["date"].get(),

@@ -1,0 +1,72 @@
+[2024-08-17 13:16:10,078][__main__][INFO]: Welcome to AirLine!
+[2024-08-17 13:16:10,078][reader.Mysql][INFO]: Connecting to database
+[2024-08-17 13:16:10,106][reader.Mysql][INFO]: Connected!
+[2024-08-17 13:16:10,106][__main__][WARNING]: Auto logged Admin: admin
+[2024-08-17 13:16:10,268][ui.Manager][INFO]: Initialized Home
+[2024-08-17 13:16:10,268][ui.Manager][INFO]: Showing Home
+[2024-08-17 13:16:12,286][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:16:12,286][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:16:12,296][ui.Manager][INFO]: Initialized Flights
+[2024-08-17 13:16:12,296][ui.Manager][INFO]: Showing Flights
+[2024-08-17 13:16:37,696][ui.Flights][INFO]: Admin: admin inserted {'airline': 'test1', 'place_of_departure': 'a', 'destination': 'c', 'class': '1', 'date': '2222-01-01', 'time': '10:00:00', 'price': '12434'} to Flights
+[2024-08-17 13:16:37,696][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:16:37,706][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:07,099][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:07,115][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:07,546][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:07,546][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:09,886][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:09,886][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:11,366][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:11,366][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:12,426][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:12,428][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:14,026][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:14,026][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:15,387][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:15,387][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:16,610][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:16,610][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:17,776][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:17,786][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:40,556][ui.Flights][INFO]: Admin: admin inserted {'airline': 'test2', 'place_of_departure': 'a', 'destination': 'b', 'class': '1', 'date': '1000-01-01', 'time': '10:00:00', 'price': '1292'} to Flights
+[2024-08-17 13:18:40,556][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:40,556][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:45,586][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:45,586][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:47,076][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:47,076][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:48,300][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:48,300][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:49,419][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:49,426][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:58,035][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:58,036][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:58,666][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:58,666][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:18:59,826][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:18:59,826][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:19:01,066][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:19:01,066][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:19:02,186][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:19:02,186][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:19:03,166][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:19:03,166][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:19:12,297][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:19:12,297][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:19:14,077][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:19:14,077][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:19:29,317][ui.Flights][INFO]: Admin: admin deleted flight with id 1
+[2024-08-17 13:19:29,317][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:19:29,317][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:19:29,337][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-17 13:19:29,341][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-17 13:19:29,341][ui.Manager][INFO]: Initialized Cart
+[2024-08-17 13:19:29,341][ui.Manager][INFO]: Showing Flights
+[2024-08-17 13:19:45,373][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:19:45,373][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:19:46,673][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:19:46,673][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:19:47,696][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:19:47,696][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:19:57,468][__main__][INFO]: Program terminated!

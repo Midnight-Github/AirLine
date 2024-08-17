@@ -37,16 +37,16 @@ class Flights(TreeView):
         self.all_flights_rb.grid(row=6, column=0, padx=10, pady=10, sticky='w')
         self.available_flights_rb = ctk.CTkRadioButton(self.btn_frame, text="Available Flights", radiobutton_height=15, radiobutton_width=15, border_width_checked=5, variable=self.radio_var, command=lambda : self.updateRadioBtn("available"))
         self.available_flights_rb.grid(row=7, column=0, padx=10, pady=10, sticky='w')
-        self.deleted_flights_rb = ctk.CTkRadioButton(self.btn_frame, text="Deleted Flights", radiobutton_height=15, radiobutton_width=15, border_width_checked=5, variable=self.radio_var, command=lambda : self.updateRadioBtn("deleted"))
-        self.deleted_flights_rb.grid(row=8, column=0, padx=10, pady=10, sticky='w')
+        self.expired_flights_rb = ctk.CTkRadioButton(self.btn_frame, text="Expired Flights", radiobutton_height=15, radiobutton_width=15, border_width_checked=5, variable=self.radio_var, command=lambda : self.updateRadioBtn("expired"))
+        self.expired_flights_rb.grid(row=8, column=0, padx=10, pady=10, sticky='w')
 
         match(appdata.data["user"]["show_flights_by"]):
             case "all":
                 self.all_flights_rb.select()
             case "available":
                 self.available_flights_rb.select()
-            case "deleted":
-                self.deleted_flights_rb.select()
+            case "expired":
+                self.expired_flights_rb.select()
         
         if appdata.data["user"]["permission"] > 0:
             self.adminFeatures()
@@ -130,7 +130,7 @@ class Flights(TreeView):
                 rows = self.getAllFlights()
             case "available":
                 rows = self.getAvailableFlights(date, time)
-            case "deleted":
+            case "expired":
                 rows = self.getDeletedFlights(date, time)
             case _:
                 logger.error("Incorrect appdata.data[\"User\"][\"show_flights_by\"] value")
