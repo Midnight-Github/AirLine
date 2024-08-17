@@ -1,7 +1,7 @@
 [user]
 name = "admin"
 permission = 1
-show_flights_by = "available"
+show_flights_by = "all"
 
 [admin]
 password = "admin123"

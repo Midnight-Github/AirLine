@@ -29,6 +29,20 @@ class Flights(TreeView):
         self.back_btn = ctk.CTkButton(self.btn_frame, text="Back", command=lambda : self.root.showFrame("Home"))
         self.back_btn.grid(row=4, column=0, padx=10)
         
+        if appdata.data["user"]["permission"] > 0:
+            self.adminFeatures()
+
+        self.refresh()
+
+    def adminFeatures(self):
+        self.add_flight_form = None
+
+        self.add_btn = ctk.CTkButton(self.btn_frame, text="Add Flight", command=self.launchFlightForm)
+        self.add_btn.grid(row=2, column=0, padx=10, pady=(0, 20))
+
+        self.delete_btn = ctk.CTkButton(self.btn_frame, text="Delete Flight", command=self.deleteFlight)
+        self.delete_btn.grid(row=3, column=0, padx=10, pady=(0, 20))
+
         self.rb_label = ctk.CTkLabel(self.btn_frame, text = "Search By", font=ctk.CTkFont(size=20, weight="bold"))
         self.rb_label.grid(row=5, column=0, pady=(40, 10))
         
@@ -47,20 +61,6 @@ class Flights(TreeView):
                 self.available_flights_rb.select()
             case "expired":
                 self.expired_flights_rb.select()
-        
-        if appdata.data["user"]["permission"] > 0:
-            self.adminFeatures()
-
-        self.refresh()
-
-    def adminFeatures(self):
-        self.add_flight_form = None
-
-        self.add_btn = ctk.CTkButton(self.btn_frame, text="Add Flight", command=self.launchFlightForm)
-        self.add_btn.grid(row=2, column=0, padx=10, pady=(0, 20))
-
-        self.delete_btn = ctk.CTkButton(self.btn_frame, text="Delete Flight", command=self.deleteFlight)
-        self.delete_btn.grid(row=3, column=0, padx=10, pady=(0, 20))
 
     def refresh(self):
         logger.info("Refreshing Flights!")
@@ -96,6 +96,17 @@ class Flights(TreeView):
             return
 
         flight_id = flight_id[0]
+        date, time = str(datetime.now()).split()
+        result = mysql.execute(f"SELECT * FROM Flights WHERE Flight_ID = {flight_id} AND (Date > DATE('{date}') OR (Date = DATE('{date}') AND Time >= TIME('{time}')));", buffered=True)
+        if result[0] is False:
+            logger.error(f"Failed to extract flight with id: {flight_id} from Flights!")
+            logger.error(result[1])
+            return
+        if not result[1]:
+            ctkmsgbox(title="Flights", message="You cannot book expired flight!", icon="warning")
+            logger.warning(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} tried to book expired flight with id: {flight_id}")
+            return
+
         result = mysql.execute(f"INSERT INTO Passengers VALUES('{appdata.data["user"]["name"]}', {flight_id});")
         
         if result[0] is False:

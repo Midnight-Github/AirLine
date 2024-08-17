@@ -1,0 +1,12 @@
+[2024-08-17 13:55:27,876][__main__][INFO]: Welcome to AirLine!
+[2024-08-17 13:55:27,876][reader.Mysql][INFO]: Connecting to database
+[2024-08-17 13:55:27,909][reader.Mysql][INFO]: Connected!
+[2024-08-17 13:55:27,910][__main__][WARNING]: Auto logged Admin: admin
+[2024-08-17 13:55:28,077][ui.Manager][INFO]: Initialized Home
+[2024-08-17 13:55:28,078][ui.Manager][INFO]: Showing Home
+[2024-08-17 13:55:29,830][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:55:29,833][ui.Flights][INFO]: Extracted flights from Flights!
+[2024-08-17 13:55:29,837][ui.Manager][INFO]: Initialized Flights
+[2024-08-17 13:55:29,837][ui.Manager][INFO]: Showing Flights
+[2024-08-17 13:55:32,096][ui.Flights][WARNING]: Admin: admin tried to book expired flight with id: 2
+[2024-08-17 13:55:42,522][__main__][INFO]: Program terminated!
