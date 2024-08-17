@@ -2,10 +2,8 @@ import customtkinter as ctk
 from var.ConfigManager import appdata
 from reader.Logger import Logger
 from var.SqlManager import mysql
-
 from ui.AddFlightForm import AddFlightForm
 from var.Globals import get_user_role
-
 from CTkMessagebox import CTkMessagebox as ctkmsgbox
 from datetime import datetime
 from template.TreeView import TreeView
@@ -15,7 +13,6 @@ logger = Logger(__name__).logger
 class Flights(TreeView):
     def __init__(self, root):
         super().__init__(root, columns=('ID', 'Airline', 'Place of Departure', 'Destination', 'Class', 'Date', 'Time', 'Price'), heading="Available Flights")
-
 
         # example flights
         # ('Indigo','Delhi','Mumbai','Economy', '17:00 - 19:30' ,'5000INR')
