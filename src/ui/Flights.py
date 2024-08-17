@@ -131,7 +131,7 @@ class Flights(TreeView):
             case "available":
                 rows = self.getAvailableFlights(date, time)
             case "expired":
-                rows = self.getDeletedFlights(date, time)
+                rows = self.getExpiredFlights(date, time)
             case _:
                 logger.error("Incorrect appdata.data[\"User\"][\"show_flights_by\"] value")
                 return
@@ -173,23 +173,23 @@ class Flights(TreeView):
         result = mysql.execute(sql_cmd, buffered=True)
 
         if result[0] is False:
-            logger.error("Failed to extract data from Flights!")
+            logger.error("Failed to extract available flights from Flights!")
             logger.error(result[1])
             return
         
-        logger.info("Extracted data from flights")
+        logger.info("Extracted available flights from flights")
         return result[1]
     
-    def getDeletedFlights(self, date, time):
+    def getExpiredFlights(self, date, time):
         sql_cmd = f"SELECT * FROM Flights WHERE (Date < DATE('{date}') OR (Date = DATE('{date}') AND Time <= TIME('{time}')));"
         result = mysql.execute(sql_cmd, buffered=True)
 
         if result[0] is False:
-            logger.error("Failed to extract data from Flights!")
+            logger.error("Failed to extract expired flights from Flights!")
             logger.error(result[1])
             return
         
-        logger.info("Extracted data from flights")
+        logger.info("Extracted expired flights from Flights!")
         return result[1]
     
     def getAllFlights(self):
@@ -197,13 +197,14 @@ class Flights(TreeView):
         result = mysql.execute(sql_cmd, buffered=True)
 
         if result[0] is False:
-            logger.error("Failed to extract data from Flights!")
+            logger.error("Failed to extract flights from Flights!")
             logger.error(result[1])
             return
         
-        logger.info("Extracted data from flights")
+        logger.info("Extracted flights from Flights!")
         return result[1]
 
+    # radio button functions:
     def updateRadioBtn(self, btn):
         appdata.data["user"]["show_flights_by"] = btn
         appdata.push()
