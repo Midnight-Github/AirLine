@@ -19,9 +19,9 @@ class Cart(TreeView):
         self.btn_frame.grid(row=1, column=0, sticky='n')
 
         self.refresh_btn = ctk.CTkButton(self.btn_frame, text="Refresh", command=self.refresh)
-        self.refresh_btn.grid(row=0, column=0, padx=10, pady=(0, 10))
+        self.refresh_btn.grid(row=0, column=0, padx=10, pady=(0, 20))
         self.cancel_flight_btn = ctk.CTkButton(self.btn_frame, text="Cancel Flight", command=self.cancelFlight)
-        self.cancel_flight_btn.grid(row=1, column=0, padx=10, pady=(0, 10))
+        self.cancel_flight_btn.grid(row=1, column=0, padx=10, pady=(0, 20))
         self.back_btn = ctk.CTkButton(self.btn_frame, text="Back", command=lambda : self.root.showFrame("Home"))
         self.back_btn.grid(row=2, column=0, padx=10)
 

@@ -1,0 +1,25 @@
+[2024-08-17 13:21:42,156][__main__][INFO]: Welcome to AirLine!
+[2024-08-17 13:21:42,156][reader.Mysql][INFO]: Connecting to database
+[2024-08-17 13:21:42,186][reader.Mysql][INFO]: Connected!
+[2024-08-17 13:21:42,186][__main__][WARNING]: Auto logged Admin: admin
+[2024-08-17 13:21:42,346][ui.Manager][INFO]: Initialized Home
+[2024-08-17 13:21:42,346][ui.Manager][INFO]: Showing Home
+[2024-08-17 13:21:43,606][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:21:43,606][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:21:43,606][ui.Manager][INFO]: Initialized Flights
+[2024-08-17 13:21:43,606][ui.Manager][INFO]: Showing Flights
+[2024-08-17 13:21:45,297][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:21:45,298][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:21:50,246][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:21:50,246][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:21:51,186][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:21:51,195][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:21:52,496][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:21:52,496][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:21:54,856][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:21:54,856][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:21:55,779][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:21:55,779][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:21:56,812][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 13:21:56,812][ui.Flights][INFO]: Extracted data from flights
+[2024-08-17 13:22:21,857][__main__][INFO]: Program terminated!
