@@ -13,7 +13,7 @@ class TreeView(ctk.CTkFrame):
         self.row_count = 0
 
         self.grid_rowconfigure(1, weight=1)
-        self.grid_columnconfigure(0,weight=1)
+        self.grid_columnconfigure(1,weight=1)
 
         self.style = ttk.Style(self)
         self.style.theme_use("clam")
@@ -22,7 +22,7 @@ class TreeView(ctk.CTkFrame):
         self.style.map('Treeview', background=[('selected','#D3D3D3')])
         
         self.header = ctk.CTkLabel(self, text=self.heading, font=ctk.CTkFont(size=30, weight="bold"))
-        self.header.grid(row=0, column=0, sticky='new')
+        self.header.grid(row=0, column=1, sticky='new')
 
         self.tree = ttk.Treeview(self, columns=self.columns, show='headings')
 
@@ -34,11 +34,11 @@ class TreeView(ctk.CTkFrame):
         self.tree.tag_configure('evenrow', background='#1c1c1c')
         
         self.tree.bind('<<TreeviewSelect>>')
-        self.tree.grid(row=1, column=0, sticky='nesw')
+        self.tree.grid(row=1, column=1, sticky='nesw')
 
         self.scrollbar = ttk.Scrollbar(self, orient=tk.VERTICAL, command=self.tree.yview)
         self.tree.configure(yscrollcommand=self.scrollbar.set)
-        self.scrollbar.grid(row=1, column=1, sticky='ns')
+        self.scrollbar.grid(row=1, column=2, sticky='ns')
 
     def reloadTable(self, rows):
         self.deleteAllRows()

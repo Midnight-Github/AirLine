@@ -1,0 +1,22 @@
+[2024-08-17 14:09:42,273][__main__][INFO]: Welcome to AirLine!
+[2024-08-17 14:09:42,273][reader.Mysql][INFO]: Connecting to database
+[2024-08-17 14:09:42,310][reader.Mysql][INFO]: Connected!
+[2024-08-17 14:09:42,311][__main__][WARNING]: Auto logged Admin: admin
+[2024-08-17 14:09:42,540][ui.Manager][INFO]: Initialized Home
+[2024-08-17 14:09:42,540][ui.Manager][INFO]: Showing Home
+[2024-08-17 14:09:43,705][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 14:09:43,707][ui.Flights][INFO]: Extracted flights from Flights!
+[2024-08-17 14:09:43,708][ui.Manager][INFO]: Initialized Flights
+[2024-08-17 14:09:43,708][ui.Manager][INFO]: Showing Flights
+[2024-08-17 14:09:46,772][ui.Flights][WARNING]: Admin: admin tried to rebook flight with id: 3
+[2024-08-17 14:09:58,068][ui.Flights][WARNING]: Admin: admin tried to rebook flight with id: 3
+[2024-08-17 14:10:06,924][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 14:10:06,926][ui.Flights][INFO]: Extracted flights from Flights!
+[2024-08-17 14:10:13,768][ui.Flights][INFO]: Admin: admin deleted flight with id 3
+[2024-08-17 14:10:13,769][ui.Flights][INFO]: Refreshing Flights!
+[2024-08-17 14:10:13,771][ui.Flights][INFO]: Extracted flights from Flights!
+[2024-08-17 14:10:13,790][ui.Cart][INFO]: Refreshing Cart!
+[2024-08-17 14:10:13,793][ui.Cart][INFO]: Extracted data from passengers
+[2024-08-17 14:10:13,797][ui.Manager][INFO]: Initialized Cart
+[2024-08-17 14:10:13,798][ui.Manager][INFO]: Showing Flights
+[2024-08-17 14:10:15,844][__main__][INFO]: Program terminated!

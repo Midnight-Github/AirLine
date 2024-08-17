@@ -1,6 +1,4 @@
 import customtkinter as ctk
-import tkinter as tk
-from tkinter import ttk
 from var.ConfigManager import appdata
 from reader.Logger import Logger
 from var.SqlManager import mysql
@@ -16,13 +14,14 @@ class Cart(TreeView):
         super().__init__(root, columns=('ID', 'Airline', 'Place of Departure', 'Destination', 'Class', 'Date', 'Time', 'Price'), heading="Booked Flights")
 
         self.btn_frame = ctk.CTkFrame(self,fg_color='transparent')
-        self.btn_frame.grid(row=2,column=0,sticky='se')
-        self.cancel_flight_btn = ctk.CTkButton(self.btn_frame, text="Cancel Flight", command=self.cancelFlight)
-        self.cancel_flight_btn.grid(row=0,column=0, padx=5)
+        self.btn_frame.grid(row=1, column=0, sticky='n')
+
         self.refresh_btn = ctk.CTkButton(self.btn_frame, text="Refresh", command=self.refresh)
-        self.refresh_btn.grid(row=0,column=1, padx=5)
+        self.refresh_btn.grid(row=0, column=0, padx=10, pady=(0, 20))
+        self.cancel_flight_btn = ctk.CTkButton(self.btn_frame, text="Cancel Flight", command=self.cancelFlight)
+        self.cancel_flight_btn.grid(row=1, column=0, padx=10, pady=(0, 20))
         self.back_btn = ctk.CTkButton(self.btn_frame, text="Back", command=lambda : self.root.showFrame("Home"))
-        self.back_btn.grid(row=0, column=2, padx=5)
+        self.back_btn.grid(row=2, column=0, padx=10)
 
         self.refresh()
     
@@ -36,7 +35,7 @@ class Cart(TreeView):
             ctkmsgbox(title="Cancel flight", message="No flight selected!")
             return
 
-        msg = ctkmsgbox(title="Cancel flight", message="Are you sure you want to cancel the flight!", icon="warning", option_1="Yes", option_2="No")
+        msg = ctkmsgbox(title="Cancel flight", message="Are you sure you want to cancel this flight!", icon="question", option_1="Yes", option_2="No")
         if msg.get() != "Yes":
             return
 
@@ -44,6 +43,8 @@ class Cart(TreeView):
             
         self.deleteRow()
         self.refresh()
+
+        ctkmsgbox(title="Cancel flight", message="Successfully canceled this flight", icon="check")
 
     # database functions:
     def getRowsBookedFlights(self):
