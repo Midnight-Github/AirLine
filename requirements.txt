@@ -3,3 +3,4 @@ customtkinter
 mysql.connector
 pillow
 ctkmessagebox
+faker

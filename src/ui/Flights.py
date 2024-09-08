@@ -12,14 +12,14 @@ logger = Logger(__name__).logger
 
 class Flights(TreeView):
     def __init__(self, root):
-        super().__init__(root, columns=('ID', 'Airline', 'Place of Departure', 'Destination', 'Class', 'Date', 'Time', 'Price'), heading="Available Flights")
+        super().__init__(root, columns=('ID', 'Airline', 'Place of Departure', 'Destination', 'Class', 'Date', 'Time', 'Price'), heading="Flights")
 
         # example flights
         # ('Indigo','Delhi','Mumbai','Economy', '17:00 - 19:30' ,'5000')
         # ('Indigo','Bangalore','Mumbai','Economy', '18:00 - 20:00', '5500')
         # ('Emirates','Bangalore','Dubai','First Class', '01:00 - 04:30', '10000')
 
-        self.btn_frame = ctk.CTkFrame(self, fg_color='transparent')
+        self.btn_frame = ctk.CTkFrame(self)
         self.btn_frame.grid(row=1, column=0, sticky='ns')
 
         self.refresh_btn = ctk.CTkButton(self.btn_frame, text="Refresh", command=self.refresh)
@@ -167,7 +167,7 @@ class Flights(TreeView):
             logger.error(result[1])
             return
 
-        logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} inserted {row} to Flights")
+        logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} inserted flight: {row}")
         ctkmsgbox(title="Add flight", message="Successfully added this flight!", icon="check")
 
     def deleteRowFlights(self, flight_id):

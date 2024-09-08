@@ -1,7 +1,6 @@
 import mysql.connector
 from var.ConfigManager import config
 from reader.Logger import Logger
-from inspect import cleandoc
 
 logger = Logger(__name__).logger
 
@@ -13,33 +12,33 @@ class Mysql():
         self.name = config.data["database"]["name"]
         self.force_create = config.data["database"]["force_create"]
 
-        self.startup_script = cleandoc(f'''
-        CREATE DATABASE {self.name};
-        USE {self.name};
-        CREATE TABLE Accounts(
-        Name VARCHAR(255) PRIMARY KEY,
-        Password VARCHAR(255) NOT NULL,
-        Permission INT NOT NULL,
-        CHECK (Permission = 0 OR Permission = 1)
-        );
-        CREATE TABLE Flights(
-        Flight_ID INT PRIMARY KEY AUTO_INCREMENT,
-        Airline VARCHAR(255) NOT NULL,
-        Place_of_departure VARCHAR(255) NOT NULL,
-        Destination VARCHAR(255) NOT NULL,
-        Class VARCHAR(255) NOT NULL,
-        Date DATE NOT NULL,
-        Time TIME NOT NULL,
-        Price INT NOT NULL
-        );
-        CREATE TABLE Passengers(
-        Name VARCHAR(255) NOT NULL,
-        Flight_ID INT NOT NULL,
-        PRIMARY KEY (Name, Flight_ID),
-        FOREIGN KEY(Name) REFERENCES Accounts(Name),
-        FOREIGN KEY(Flight_ID) REFERENCES Flights(Flight_ID)
-        );
-        ''')
+        self.startup_script = f'''
+            CREATE DATABASE {self.name};
+            USE {self.name};
+            CREATE TABLE Accounts(
+            Name VARCHAR(255) PRIMARY KEY,
+            Password VARCHAR(255) NOT NULL,
+            Permission INT NOT NULL,
+            CHECK (Permission = 0 OR Permission = 1)
+            );
+            CREATE TABLE Flights(
+            Flight_ID INT PRIMARY KEY AUTO_INCREMENT,
+            Airline VARCHAR(255) NOT NULL,
+            Place_of_departure VARCHAR(255) NOT NULL,
+            Destination VARCHAR(255) NOT NULL,
+            Class VARCHAR(255) NOT NULL,
+            Date DATE NOT NULL,
+            Time TIME NOT NULL,
+            Price INT NOT NULL
+            );
+            CREATE TABLE Passengers(
+            Name VARCHAR(255) NOT NULL,
+            Flight_ID INT NOT NULL,
+            PRIMARY KEY (Name, Flight_ID),
+            FOREIGN KEY(Name) REFERENCES Accounts(Name),
+            FOREIGN KEY(Flight_ID) REFERENCES Flights(Flight_ID)
+            );
+        '''
         self.accounts_table_structure = [
             ('Name', 'varchar(255)', 'NO', 'PRI', None, ''), 
             ('Password', 'varchar(255)', 'NO', '', None, ''), 

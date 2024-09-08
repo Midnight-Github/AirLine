@@ -4,3 +4,10 @@
 "password" = "History2030"
 "name" = "airline"
 "force_create" = true
+
+[random_flight_generator]
+default_available_flights_limit = 100
+default_expired_flights_limit = 100
+year_bias = 2
+flight_price_lower_limit = 20_000
+flight_price_upper_limit = 8_00_000
