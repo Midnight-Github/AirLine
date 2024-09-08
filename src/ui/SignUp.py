@@ -90,7 +90,7 @@ class SignUp(BgFrame):
 
         if input_username == "None":
             self.username_entry.configure(border_color="red")
-            self.error_text.set(f"Username 'None' is not valid")
+            self.error_text.set("Username 'None' is not valid")
             return
 
         permission = 0

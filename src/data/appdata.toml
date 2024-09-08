@@ -1,6 +1,6 @@
 [user]
-name = "k"
-permission = 1
+name = "None"
+permission = -1
 show_flights_by = "all"
 
 [admin]
