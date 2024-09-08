@@ -1,7 +1,7 @@
 [user]
-name = "None"
-permission = -1
-show_flights_by = "all"
+name = "k"
+permission = 1
+show_flights_by = "expired"
 
 [admin]
 password = "admin123"

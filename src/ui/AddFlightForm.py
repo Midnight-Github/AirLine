@@ -21,10 +21,33 @@ class AddFlightForm(ctk.CTkToplevel):
         self.fields["destination"].grid(row=2, column=0, padx=30, pady=15)
         self.fields["class"] = ctk.CTkEntry(self, width=200, placeholder_text="Class", border_color="grey")
         self.fields["class"].grid(row=3, column=0, padx=30, pady=15)
-        self.fields["date"] = ctk.CTkEntry(self, width=200, placeholder_text="Date: YYYY-MM-DD", border_color="grey")
-        self.fields["date"].grid(row=4, column=0, padx=30, pady=15)
-        self.fields["time"] = ctk.CTkEntry(self, width=200, placeholder_text="Time: hh:mm:ss", border_color="grey")
-        self.fields["time"].grid(row=5, column=0, padx=30, pady=15)
+
+        self.date_frame = ctk.CTkFrame(self, fg_color="transparent")
+        self.date_frame.grid(row=4, column=0, padx=30, pady=15)
+        self.fields["date_day"] = ctk.CTkEntry(self.date_frame, width=50, placeholder_text="DD", border_color="grey")
+        self.fields["date_day"].grid(row=0, column=0, padx=5)
+        self.divider = ctk.CTkLabel(self.date_frame, text='-', padx=5)
+        self.divider.grid(row=0, column=1)
+        self.fields["date_month"] = ctk.CTkEntry(self.date_frame, width=50, placeholder_text="MM", border_color="grey")
+        self.fields["date_month"].grid(row=0, column=2, padx=5)
+        self.divider = ctk.CTkLabel(self.date_frame, text='-', padx=5)
+        self.divider.grid(row=0, column=3)
+        self.fields["date_year"] = ctk.CTkEntry(self.date_frame, width=50, placeholder_text="YYYY", border_color="grey")
+        self.fields["date_year"].grid(row=0, column=4, padx=5)
+
+        self.time_frame = ctk.CTkFrame(self, fg_color="transparent")
+        self.time_frame.grid(row=5, column=0, padx=30, pady=15)
+        self.fields["time_hour"] = ctk.CTkEntry(self.time_frame, width=50, placeholder_text="hh", border_color="grey")
+        self.fields["time_hour"].grid(row=0, column=0, padx=5)
+        self.divider = ctk.CTkLabel(self.time_frame, text=':', padx=5)
+        self.divider.grid(row=0, column=1)
+        self.fields["time_minute"] = ctk.CTkEntry(self.time_frame, width=50, placeholder_text="mm", border_color="grey")
+        self.fields["time_minute"].grid(row=0, column=2, padx=5)
+        self.divider = ctk.CTkLabel(self.time_frame, text=':', padx=5)
+        self.divider.grid(row=0, column=3)
+        self.fields["time_second"] = ctk.CTkEntry(self.time_frame, width=50, placeholder_text="ss", border_color="grey")
+        self.fields["time_second"].grid(row=0, column=4, padx=5)
+
         self.fields["price"] = ctk.CTkEntry(self, width=200, placeholder_text="Price", border_color="grey")
         self.fields["price"].grid(row=6, column=0, padx=30, pady=15)
 
@@ -44,8 +67,8 @@ class AddFlightForm(ctk.CTkToplevel):
             "place_of_departure": self.fields["place_of_departure"].get(),
             "destination": self.fields["destination"].get(),
             "class": self.fields["class"].get(),
-            "date": self.fields["date"].get(),
-            "time": self.fields["time"].get(),
+            "date": self.fields["date_year"].get() + '-' + self.fields["date_month"].get() + '-' + self.fields["date_day"].get(),
+            "time": self.fields["time_hour"].get() + ':' + self.fields["time_minute"].get() + ':' + self.fields["time_second"].get(),
             "price": self.fields["price"].get()
         }
 
@@ -64,19 +87,29 @@ class AddFlightForm(ctk.CTkToplevel):
         try:
             bool(datetime.strptime(target["date"], "%Y-%m-%d"))
         except ValueError:
-            self.fields["date"].configure(border_color="red")
+            self.fields["date_day"].configure(border_color="red")
+            self.fields["date_month"].configure(border_color="red")
+            self.fields["date_year"].configure(border_color="red")
             self.error_text.set("Invalid date")
             return False
 
         if re.fullmatch(r"([01]\d|2[0-3]):[0-5]\d:[0-5]\d", target["time"]) is None:
-            self.fields["time"].configure(border_color="red")
+            self.fields["time_hour"].configure(border_color="red")
+            self.fields["time_minute"].configure(border_color="red")
+            self.fields["time_second"].configure(border_color="red")
             self.error_text.set("Invalid time")
             return False
 
         try:
-            int(target["price"])
+            price = int(target["price"])
         except ValueError:
+            self.fields["price"].configure(border_color="red")
             self.error_text.set("Price should be a number")
+            return False
+        
+        if price < 0:
+            self.fields["price"].configure(border_color="red")
+            self.error_text.set("Price should be a positive number")
             return False
 
         return True

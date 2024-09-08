@@ -89,6 +89,7 @@ def logUser():
         logger.warning(f"Failed to auto log {get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} in")
         appdata.data["user"]["name"] = "None"
         appdata.data["user"]["permission"] = -1
+        appdata.data["user"]["show_flights_by"] = "all"
         appdata.push()
         return
 

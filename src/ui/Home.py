@@ -52,18 +52,21 @@ class Home(BgFrame):
             return
 
         logger.info(f"Deleted {get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]}'s account")
-        appdata.data["user"]["name"] = "None"
-        appdata.data["user"]["permission"] = -1
-        appdata.push()
+        self.removeUserData()
         
         self.root.deleteFrameAll()
         self.root.showFrame("FrontPage")
 
     def signout(self):
         logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} logged out")
-        appdata.data["user"]["name"] = "None"
-        appdata.data["user"]["permission"] = -1
+        self.removeUserData()
         appdata.push()
 
         self.root.deleteFrameAll()
         self.root.showFrame("FrontPage")
+
+    def removeUserData(self):
+        appdata.data["user"]["name"] = "None"
+        appdata.data["user"]["permission"] = -1
+        appdata.data["user"]["show_flights_by"] = "all"
+        appdata.push()

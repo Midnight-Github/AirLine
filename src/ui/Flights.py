@@ -69,7 +69,6 @@ class Flights(TreeView):
 
         if self.isAddFlightFormAlive():
             self.add_flight_form.destroy() # pyright: ignore
-            self.add_flight_form.update() # pyright: ignore
 
     def deleteFlight(self):
         selected = self.getSelectedRow()

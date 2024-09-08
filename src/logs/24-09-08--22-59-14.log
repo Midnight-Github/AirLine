@@ -1,0 +1,14 @@
+[2024-09-08 22:52:24,045][__main__][INFO]: Welcome to AirLine!
+[2024-09-08 22:52:24,047][reader.Mysql][INFO]: Connecting to database
+[2024-09-08 22:52:24,079][reader.Mysql][INFO]: Connected!
+[2024-09-08 22:52:24,080][__main__][WARNING]: Auto logged Admin: k
+[2024-09-08 22:52:24,321][ui.Manager][INFO]: Initialized Home
+[2024-09-08 22:52:24,321][ui.Manager][INFO]: Showing Home
+[2024-09-08 22:52:25,674][ui.Flights][INFO]: Refreshing Flights!
+[2024-09-08 22:52:25,679][ui.Flights][INFO]: Extracted flights from Flights!
+[2024-09-08 22:52:25,691][ui.Manager][INFO]: Initialized Flights
+[2024-09-08 22:52:25,692][ui.Manager][INFO]: Showing Flights
+[2024-09-08 22:52:52,896][ui.Flights][INFO]: Admin: k inserted flight: {'airline': 't', 'place_of_departure': 't', 'destination': 't', 'class': 't', 'date': '1010-10-10', 'time': '10:00:00', 'price': '1'}
+[2024-09-08 22:52:53,061][ui.Flights][INFO]: Refreshing Flights!
+[2024-09-08 22:52:53,064][ui.Flights][INFO]: Extracted flights from Flights!
+[2024-09-08 22:56:12,648][__main__][INFO]: Program terminated!

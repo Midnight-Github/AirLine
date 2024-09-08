@@ -1,0 +1,34 @@
+[2024-09-08 22:59:14,993][__main__][INFO]: Welcome to AirLine!
+[2024-09-08 22:59:14,993][reader.Mysql][INFO]: Connecting to database
+[2024-09-08 22:59:15,018][reader.Mysql][INFO]: Connected!
+[2024-09-08 22:59:15,019][__main__][WARNING]: Auto logged Admin: k
+[2024-09-08 22:59:15,200][ui.Manager][INFO]: Initialized Home
+[2024-09-08 22:59:15,201][ui.Manager][INFO]: Showing Home
+[2024-09-08 22:59:16,820][ui.Flights][INFO]: Refreshing Flights!
+[2024-09-08 22:59:16,825][ui.Flights][INFO]: Extracted flights from Flights!
+[2024-09-08 22:59:16,832][ui.Manager][INFO]: Initialized Flights
+[2024-09-08 22:59:16,833][ui.Manager][INFO]: Showing Flights
+[2024-09-08 22:59:18,300][ui.Flights][INFO]: Refreshing Flights!
+[2024-09-08 22:59:18,307][ui.Flights][INFO]: Extracted expired flights from Flights!
+[2024-09-08 22:59:19,653][ui.Manager][INFO]: Showing Home
+[2024-09-08 22:59:20,762][ui.Manager][INFO]: Showing Flights
+[2024-09-08 22:59:21,884][ui.Manager][INFO]: Showing Home
+[2024-09-08 22:59:22,954][ui.Home][INFO]: Deleted Admin: k's account
+[2024-09-08 22:59:22,977][ui.Manager][INFO]: Deleted Home
+[2024-09-08 22:59:22,990][ui.Manager][INFO]: Deleted Flights
+[2024-09-08 22:59:23,188][ui.Manager][INFO]: Initialized SignUp
+[2024-09-08 22:59:23,249][ui.Manager][INFO]: Initialized Login
+[2024-09-08 22:59:23,249][ui.Manager][INFO]: Initialized FrontPage
+[2024-09-08 22:59:23,250][ui.Manager][INFO]: Showing FrontPage
+[2024-09-08 22:59:25,271][ui.Manager][INFO]: Showing SignUp
+[2024-09-08 22:59:35,771][ui.SignUp][INFO]: Admin: k signed up
+[2024-09-08 22:59:35,777][ui.Manager][INFO]: Deleted Login
+[2024-09-08 22:59:35,780][ui.Manager][INFO]: Deleted FrontPage
+[2024-09-08 22:59:35,788][ui.Manager][INFO]: Deleted SignUp
+[2024-09-08 22:59:35,812][ui.Manager][INFO]: Initialized Home
+[2024-09-08 22:59:35,813][ui.Manager][INFO]: Showing Home
+[2024-09-08 22:59:36,830][ui.Flights][INFO]: Refreshing Flights!
+[2024-09-08 22:59:36,832][ui.Flights][INFO]: Extracted expired flights from Flights!
+[2024-09-08 22:59:36,834][ui.Manager][INFO]: Initialized Flights
+[2024-09-08 22:59:36,834][ui.Manager][INFO]: Showing Flights
+[2024-09-08 22:59:52,459][__main__][INFO]: Program terminated!
