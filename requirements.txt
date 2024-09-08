@@ -1,6 +1,6 @@
 toml
 customtkinter
-mysql.connector
+mysql-connector-python
 pillow
 ctkmessagebox
 faker
