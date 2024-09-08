@@ -14,11 +14,6 @@ class Flights(TreeView):
     def __init__(self, root):
         super().__init__(root, columns=('ID', 'Airline', 'Place of Departure', 'Destination', 'Class', 'Date', 'Time', 'Price'), heading="Flights")
 
-        # example flights
-        # ('Indigo','Delhi','Mumbai','Economy', '17:00 - 19:30' ,'5000')
-        # ('Indigo','Bangalore','Mumbai','Economy', '18:00 - 20:00', '5500')
-        # ('Emirates','Bangalore','Dubai','First Class', '01:00 - 04:30', '10000')
-
         self.btn_frame = ctk.CTkFrame(self)
         self.btn_frame.grid(row=1, column=0, sticky='ns')
 
