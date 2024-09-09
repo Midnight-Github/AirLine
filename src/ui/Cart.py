@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from var.ConfigManager import appdata
+from var.ConfigManager import server_config
 from reader.Logger import Logger
 from var.SqlManager import mysql
 from var.Globals import get_user_role
@@ -50,7 +50,7 @@ class Cart(TreeView):
     def getRowsBookedFlights(self):
         date, time = str(datetime.now()).split()
 
-        sql_cmd = f"SELECT Flight_ID, Airline, Place_of_departure, Destination, Class, Date, Time, Price FROM Flights NATURAL JOIN Passengers WHERE Name = '{appdata.data["user"]["name"]}' AND (Date > DATE('{date}') OR (Date = DATE('{date}') AND Time >= TIME('{time}')));"
+        sql_cmd = f"SELECT Flight_ID, Airline, Place_of_departure, Destination, Class, Date, Time, Price FROM Flights NATURAL JOIN Passengers WHERE Name = '{server_config.data["user"]["name"]}' AND (Date > DATE('{date}') OR (Date = DATE('{date}') AND Time >= TIME('{time}')));"
         result = mysql.execute(sql_cmd, buffered=True)
 
         if result[0] is False:
@@ -70,4 +70,4 @@ class Cart(TreeView):
             logger.error(result[1])
             return
 
-        logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} canceled flight with id {flight_id}")
+        logger.info(f"{get_user_role[server_config.data["user"]["permission"]]}: {server_config.data["user"]["name"]} canceled flight with id {flight_id}")

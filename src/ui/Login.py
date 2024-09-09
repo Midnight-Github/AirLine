@@ -1,7 +1,7 @@
 import customtkinter as ctk
 import tkinter as tk
 from template.BgFrame import BgFrame
-from var.ConfigManager import appdata
+from var.ConfigManager import server_config
 from var.SqlManager import mysql
 from reader.Logger import Logger
 from var.Globals import get_user_role
@@ -64,9 +64,9 @@ class Login(BgFrame):
             return
 
         if result[1]:
-            appdata.data["user"]["name"] = input_username
-            appdata.data["user"]["permission"] = result[1][0][2] #pyright: ignore
-            appdata.push()
+            server_config.data["user"]["name"] = input_username
+            server_config.data["user"]["permission"] = result[1][0][2] #pyright: ignore
+            server_config.push()
             logger.info(f"{get_user_role[result[1][0][2]]}: {input_username} logged in") #pyright: ignore
             self.root.deleteFrameAll()
             self.root.showFrame("Home")

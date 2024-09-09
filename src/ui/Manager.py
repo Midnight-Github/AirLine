@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from var.ConfigManager import appdata
+from var.ConfigManager import server_config
 from ui.Login import Login
 from ui.FrontPage import FrontPage
 from ui.SignUp import SignUp
@@ -24,7 +24,7 @@ class Manager(ctk.CTk):
 
         self.frames = dict.fromkeys(self.frame_class.keys())
 
-        if appdata.data["user"]["name"] == "None":
+        if server_config.data["user"]["name"] == "None":
             self.showFrame("FrontPage")
         else:
             self.showFrame("Home")

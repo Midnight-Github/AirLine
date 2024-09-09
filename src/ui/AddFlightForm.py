@@ -19,7 +19,7 @@ class AddFlightForm(ctk.CTkToplevel):
         self.fields["place_of_departure"].grid(row=1, column=0, padx=30, pady=15)
         self.fields["destination"] = ctk.CTkEntry(self, width=200, placeholder_text="Destination", border_color="grey")
         self.fields["destination"].grid(row=2, column=0, padx=30, pady=15)
-        self.fields["class"] = ctk.CTkEntry(self, width=200, placeholder_text="Class", border_color="grey")
+        self.fields["class"] = ctk.CTkComboBox(self, width=200, border_color="grey", values=['a', 'b'])
         self.fields["class"].grid(row=3, column=0, padx=30, pady=15)
 
         self.date_frame = ctk.CTkFrame(self, fg_color="transparent")
