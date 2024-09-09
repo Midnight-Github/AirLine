@@ -2,6 +2,7 @@ import customtkinter as ctk
 import tkinter as tk
 import re
 from datetime import datetime
+from var.ConfigManager import config
 
 class AddFlightForm(ctk.CTkToplevel):
     def __init__(self, submit_command):
@@ -19,7 +20,9 @@ class AddFlightForm(ctk.CTkToplevel):
         self.fields["place_of_departure"].grid(row=1, column=0, padx=30, pady=15)
         self.fields["destination"] = ctk.CTkEntry(self, width=200, placeholder_text="Destination", border_color="grey")
         self.fields["destination"].grid(row=2, column=0, padx=30, pady=15)
-        self.fields["class"] = ctk.CTkComboBox(self, width=200, border_color="grey", values=['a', 'b'])
+        self.heading = ctk.CTkLabel(self, text="Class:")
+        self.heading.grid(row=2, column=0, padx=30)
+        self.fields["class"] = ctk.CTkComboBox(self, width=200, border_color="grey", values=config.data["flight_info"]["flight_classes"])
         self.fields["class"].grid(row=3, column=0, padx=30, pady=15)
 
         self.date_frame = ctk.CTkFrame(self, fg_color="transparent")

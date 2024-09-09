@@ -1,0 +1,11 @@
+[2024-09-09 19:25:36,117][__main__][INFO]: Welcome to AirLine!
+[2024-09-09 19:25:36,117][reader.Mysql][INFO]: Connecting to database
+[2024-09-09 19:25:36,487][reader.Mysql][INFO]: Connected!
+[2024-09-09 19:25:36,487][__main__][WARNING]: Auto logged Admin: k
+[2024-09-09 19:25:36,658][ui.Manager][INFO]: Initialized Home
+[2024-09-09 19:25:36,658][ui.Manager][INFO]: Showing Home
+[2024-09-09 19:25:38,145][ui.Flights][INFO]: Refreshing Flights!
+[2024-09-09 19:25:38,145][ui.Flights][INFO]: Extracted flights from Flights!
+[2024-09-09 19:25:38,161][ui.Manager][INFO]: Initialized Flights
+[2024-09-09 19:25:38,161][ui.Manager][INFO]: Showing Flights
+[2024-09-09 19:26:04,991][__main__][INFO]: Program terminated!
