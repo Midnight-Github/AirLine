@@ -3,6 +3,8 @@ import tkinter as tk
 import re
 from datetime import datetime
 from var.ConfigManager import config
+from utils.ctkext import labeledComboBox
+from datetime import datetime
 
 class AddFlightForm(ctk.CTkToplevel):
     def __init__(self, submit_command):
@@ -14,42 +16,31 @@ class AddFlightForm(ctk.CTkToplevel):
         self.title("Flight details")
 
         self.fields = dict()
-        self.fields["airline"] = ctk.CTkEntry(self, width=200, placeholder_text="Airline", border_color="grey")
-        self.fields["airline"].grid(row=0, column=0, padx=30, pady=(30, 15))
-        self.fields["place_of_departure"] = ctk.CTkEntry(self, width=200, placeholder_text="place of departure", border_color="grey")
-        self.fields["place_of_departure"].grid(row=1, column=0, padx=30, pady=15)
-        self.fields["destination"] = ctk.CTkEntry(self, width=200, placeholder_text="Destination", border_color="grey")
-        self.fields["destination"].grid(row=2, column=0, padx=30, pady=15)
-        self.heading = ctk.CTkLabel(self, text="Class:")
-        self.heading.grid(row=2, column=0, padx=30)
-        self.fields["class"] = ctk.CTkComboBox(self, width=200, border_color="grey", values=config.data["flight_info"]["flight_classes"])
-        self.fields["class"].grid(row=3, column=0, padx=30, pady=15)
+        self.fields["airline"] = labeledComboBox(self, width=220, text="Airline", values=config.data["flight_info"]["flight_names"], row=0, column=0, padx=30, pady=10)
+        self.fields["place_of_departure"] = labeledComboBox(self, width=220, text="place of departure", values=config.data["flight_info"]["states"], row=1, column=0, padx=30, pady=10)
+        self.fields["destination"] = labeledComboBox(self, width=220, text="Destination", values=config.data["flight_info"]["states"], row=2, column=0, padx=30, pady=10)
+        self.fields["class"] = labeledComboBox(self, width=220, text="Class", values=config.data["flight_info"]["flight_classes"], row=3, column=0, padx=30, pady=10)
 
         self.date_frame = ctk.CTkFrame(self, fg_color="transparent")
-        self.date_frame.grid(row=4, column=0, padx=30, pady=15)
-        self.fields["date_day"] = ctk.CTkEntry(self.date_frame, width=50, placeholder_text="DD", border_color="grey")
-        self.fields["date_day"].grid(row=0, column=0, padx=5)
+        self.date_frame.grid(row=4, column=0, padx=30, pady=15, sticky='w')
+        self.fields["date_day"] = labeledComboBox(self.date_frame, width=55, text="DD", values=[str(i) for i in range(1, 32)], row=0, column=0, padx=5, state="normal")
         self.divider = ctk.CTkLabel(self.date_frame, text='-', padx=5)
-        self.divider.grid(row=0, column=1)
-        self.fields["date_month"] = ctk.CTkEntry(self.date_frame, width=50, placeholder_text="MM", border_color="grey")
-        self.fields["date_month"].grid(row=0, column=2, padx=5)
+        self.divider.grid(row=0, column=1, sticky="s")
+        self.fields["date_month"] = labeledComboBox(self.date_frame, width=55, text="MM", values=[str(i) for i in range(1, 13)], row=0, column=2, padx=5, state="normal")
         self.divider = ctk.CTkLabel(self.date_frame, text='-', padx=5)
-        self.divider.grid(row=0, column=3)
-        self.fields["date_year"] = ctk.CTkEntry(self.date_frame, width=50, placeholder_text="YYYY", border_color="grey")
-        self.fields["date_year"].grid(row=0, column=4, padx=5)
+        self.divider.grid(row=0, column=3, sticky="s")
+        year = datetime.now().year
+        self.fields["date_year"] = labeledComboBox(self.date_frame, width=70, text="YYYY", values=[str(i) for i in range(year, year + 20)], row=0, column=4, padx=5, state="normal")
 
         self.time_frame = ctk.CTkFrame(self, fg_color="transparent")
-        self.time_frame.grid(row=5, column=0, padx=30, pady=15)
-        self.fields["time_hour"] = ctk.CTkEntry(self.time_frame, width=50, placeholder_text="hh", border_color="grey")
-        self.fields["time_hour"].grid(row=0, column=0, padx=5)
+        self.time_frame.grid(row=5, column=0, padx=30, pady=15, sticky='w')
+        self.fields["time_hour"] = labeledComboBox(self.time_frame, width=55, text="hh", values=[str(i) for i in range(0, 24)], row=0, column=0, padx=5, state="normal")
         self.divider = ctk.CTkLabel(self.time_frame, text=':', padx=5)
-        self.divider.grid(row=0, column=1)
-        self.fields["time_minute"] = ctk.CTkEntry(self.time_frame, width=50, placeholder_text="mm", border_color="grey")
-        self.fields["time_minute"].grid(row=0, column=2, padx=5)
+        self.divider.grid(row=0, column=1, sticky="s")
+        self.fields["time_minute"] = labeledComboBox(self.time_frame, width=55, text="mm", values=[str(i) for i in range(0, 60)], row=0, column=2, padx=5, state="normal")
         self.divider = ctk.CTkLabel(self.time_frame, text=':', padx=5)
-        self.divider.grid(row=0, column=3)
-        self.fields["time_second"] = ctk.CTkEntry(self.time_frame, width=50, placeholder_text="ss", border_color="grey")
-        self.fields["time_second"].grid(row=0, column=4, padx=5)
+        self.divider.grid(row=0, column=3, sticky="s")
+        self.fields["time_second"] = labeledComboBox(self.time_frame, width=55, text="ss", values=[str(i) for i in range(0, 60)], row=0, column=4, padx=5, state="normal")
 
         self.fields["price"] = ctk.CTkEntry(self, width=200, placeholder_text="Price", border_color="grey")
         self.fields["price"].grid(row=6, column=0, padx=30, pady=15)
@@ -82,7 +73,7 @@ class AddFlightForm(ctk.CTkToplevel):
 
     def verification(self, target):
         for i, v in target.items():
-            if v.strip() == '':
+            if v.strip() == '' or v == "Empty":
                 self.fields[i].configure(border_color="red")
                 self.error_text.set("All fields must be filled")
                 return False
