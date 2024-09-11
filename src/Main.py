@@ -50,7 +50,7 @@ def generateFlight(year_bias, flight_names, flight_classes, states):
 
     rand_int1 = random.randint(0, len(states) - 1)
     rand_int2 = random.randint(0, len(states) - 1)
-    while rand_int1 != rand_int2:
+    while rand_int1 == rand_int2:
         rand_int2 = random.randint(0, len(states) - 1)
 
     flight_details = {
@@ -90,7 +90,7 @@ def logUser():
         logger.warning(f"Failed to auto log {get_user_role[server_config.data["user"]["permission"]]}: {server_config.data["user"]["name"]} in")
         server_config.data["user"]["name"] = "None"
         server_config.data["user"]["permission"] = -1
-        server_config.data["user"]["show_flights_by"] = "all"
+        server_config.data["user"]["show_flights_by"] = "available"
         server_config.push()
         return
 

@@ -1,0 +1,25 @@
+[2024-09-11 10:38:58,031][__main__][INFO]: Welcome to AirLine!
+[2024-09-11 10:38:58,031][reader.Mysql][INFO]: Connecting to database
+[2024-09-11 10:38:58,068][reader.Mysql][INFO]: Connected!
+[2024-09-11 10:38:58,069][__main__][WARNING]: Auto logged User: k
+[2024-09-11 10:38:58,240][ui.Manager][INFO]: Initialized Home
+[2024-09-11 10:38:58,241][ui.Manager][INFO]: Showing Home
+[2024-09-11 10:39:03,362][ui.Flights][INFO]: Refreshing Flights!
+[2024-09-11 10:39:03,366][ui.Flights][INFO]: Extracted available flights from flights
+[2024-09-11 10:39:03,373][ui.Manager][INFO]: Initialized Flights
+[2024-09-11 10:39:03,373][ui.Manager][INFO]: Showing Flights
+[2024-09-11 10:39:06,263][ui.Manager][INFO]: Showing Home
+[2024-09-11 10:39:07,292][ui.Cart][INFO]: Refreshing Cart!
+[2024-09-11 10:39:07,297][ui.Cart][INFO]: Extracted data from passengers
+[2024-09-11 10:39:07,308][ui.Manager][INFO]: Initialized Cart
+[2024-09-11 10:39:07,308][ui.Manager][INFO]: Showing Cart
+[2024-09-11 10:39:07,886][ui.Manager][INFO]: Showing Home
+[2024-09-11 10:39:09,764][ui.Home][INFO]: Deleted User: k's account
+[2024-09-11 10:39:09,811][ui.Manager][INFO]: Deleted Home
+[2024-09-11 10:39:09,816][ui.Manager][INFO]: Deleted Flights
+[2024-09-11 10:39:09,823][ui.Manager][INFO]: Deleted Cart
+[2024-09-11 10:39:09,989][ui.Manager][INFO]: Initialized SignUp
+[2024-09-11 10:39:10,059][ui.Manager][INFO]: Initialized Login
+[2024-09-11 10:39:10,059][ui.Manager][INFO]: Initialized FrontPage
+[2024-09-11 10:39:10,060][ui.Manager][INFO]: Showing FrontPage
+[2024-09-11 10:39:11,248][__main__][INFO]: Program terminated!

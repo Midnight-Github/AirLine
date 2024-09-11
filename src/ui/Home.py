@@ -4,6 +4,7 @@ from reader.Logger import Logger
 from var.SqlManager import mysql
 from var.Globals import get_user_role
 from template.BgFrame import BgFrame
+from CTkMessagebox import CTkMessagebox as ctkmsgbox
 
 logger = Logger(__name__).logger
 
@@ -16,7 +17,7 @@ class Home(BgFrame):
         self.content_frame = ctk.CTkFrame(self, fg_color="transparent")
         self.content_frame.grid(row=1, column=0, sticky='n')
 
-        self.welcome_label = ctk.CTkLabel(self.content_frame, text=f"Welcome back {server_config.data["user"]["name"]}!", font=ctk.CTkFont(family="times new roman", size=30), fg_color="transparent")
+        self.welcome_label = ctk.CTkLabel(self.content_frame, text=f"Welcome {server_config.data["user"]["name"]}!", font=ctk.CTkFont(family="times new roman", size=30), fg_color="transparent")
         self.welcome_label.grid(row=0, column=0)
 
         self.btn_frame = ctk.CTkFrame(self.content_frame, fg_color="transparent")
@@ -35,6 +36,10 @@ class Home(BgFrame):
         self.del_account_btn.grid(row=3, column=0)
 
     def delAccount(self):
+        msg = ctkmsgbox(title="Delete account", message="Are you sure you delete your account!", icon="question", option_1="Yes", option_2="No")
+        if msg.get() != "Yes":
+            return
+        
         sql_cmd_del_passengers = f"DELETE FROM Passengers WHERE Name = '{server_config.data["user"]["name"]}';"
         sql_cmd_del_accounts = f"DELETE FROM Accounts WHERE Name = '{server_config.data["user"]["name"]}';"
 
@@ -68,5 +73,5 @@ class Home(BgFrame):
     def removeUserData(self):
         server_config.data["user"]["name"] = "None"
         server_config.data["user"]["permission"] = -1
-        server_config.data["user"]["show_flights_by"] = "all"
+        server_config.data["user"]["show_flights_by"] = "available"
         server_config.push()

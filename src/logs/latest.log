@@ -1,11 +1,26 @@
-[2024-09-10 22:37:09,951][__main__][INFO]: Welcome to AirLine!
-[2024-09-10 22:37:09,951][reader.Mysql][INFO]: Connecting to database
-[2024-09-10 22:37:09,969][reader.Mysql][INFO]: Connected!
-[2024-09-10 22:37:09,969][__main__][WARNING]: Auto logged Admin: k
-[2024-09-10 22:37:10,220][ui.Manager][INFO]: Initialized Home
-[2024-09-10 22:37:10,220][ui.Manager][INFO]: Showing Home
-[2024-09-10 22:37:11,182][ui.Flights][INFO]: Refreshing Flights!
-[2024-09-10 22:37:11,182][ui.Flights][INFO]: Extracted flights from Flights!
-[2024-09-10 22:37:11,198][ui.Manager][INFO]: Initialized Flights
-[2024-09-10 22:37:11,198][ui.Manager][INFO]: Showing Flights
-[2024-09-10 22:37:50,891][__main__][INFO]: Program terminated!
+[2024-09-11 10:41:55,707][__main__][INFO]: Welcome to AirLine!
+[2024-09-11 10:41:55,707][reader.Mysql][INFO]: Connecting to database
+[2024-09-11 10:41:55,739][reader.Mysql][INFO]: Connected!
+[2024-09-11 10:41:56,016][ui.Manager][INFO]: Initialized SignUp
+[2024-09-11 10:41:56,084][ui.Manager][INFO]: Initialized Login
+[2024-09-11 10:41:56,084][ui.Manager][INFO]: Initialized FrontPage
+[2024-09-11 10:41:56,084][ui.Manager][INFO]: Showing FrontPage
+[2024-09-11 10:41:57,642][ui.Manager][INFO]: Showing Login
+[2024-09-11 10:42:01,824][ui.Login][WARNING]: k tried to login but failed
+[2024-09-11 10:42:03,019][ui.Manager][INFO]: Deleted Login
+[2024-09-11 10:42:03,093][ui.Manager][INFO]: Initialized Login
+[2024-09-11 10:42:03,094][ui.Manager][INFO]: Showing FrontPage
+[2024-09-11 10:42:03,977][ui.Manager][INFO]: Showing SignUp
+[2024-09-11 10:42:07,376][ui.SignUp][INFO]: User: k signed up
+[2024-09-11 10:42:07,384][ui.Manager][INFO]: Deleted Login
+[2024-09-11 10:42:07,391][ui.Manager][INFO]: Deleted FrontPage
+[2024-09-11 10:42:07,401][ui.Manager][INFO]: Deleted SignUp
+[2024-09-11 10:42:07,438][ui.Manager][INFO]: Initialized Home
+[2024-09-11 10:42:07,439][ui.Manager][INFO]: Showing Home
+[2024-09-11 10:42:14,546][ui.Home][INFO]: Deleted User: k's account
+[2024-09-11 10:42:14,601][ui.Manager][INFO]: Deleted Home
+[2024-09-11 10:42:14,780][ui.Manager][INFO]: Initialized SignUp
+[2024-09-11 10:42:14,853][ui.Manager][INFO]: Initialized Login
+[2024-09-11 10:42:14,854][ui.Manager][INFO]: Initialized FrontPage
+[2024-09-11 10:42:14,854][ui.Manager][INFO]: Showing FrontPage
+[2024-09-11 10:42:22,753][__main__][INFO]: Program terminated!

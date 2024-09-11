@@ -1,7 +1,7 @@
 [database]
 "host" = "localhost"
 "user" = "root"
-"password" = "History2030"
+"password" = "Mysql1234"
 "name" = "airline"
 "force_create" = true
 
@@ -15,5 +15,5 @@ flight_price_upper_limit = 8_00_000
 [flight_info]
 flight_names = ['Air India', 'IndiGo', 'SpiceJet', 'GoAir', 'Vistara', 'AirAsia India', 'Alliance Air', 'Akasa Air', 'Star Air', 'Air India Express']
 flight_classes = ['Economy Class', 'Premium Economy Class', 'Business Class', 'First Class']
-states = ['Andhra Pradesh', 'Arunachal Pradesh', 'Assam, Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal']
+states = ['Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal']
 

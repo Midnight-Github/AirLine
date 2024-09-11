@@ -220,7 +220,7 @@ class Flights(TreeView):
         return result[1]
 
     # radio button functions:
-    def updateRadioBtn(self, btn):
-        server_config.data["user"]["show_flights_by"] = btn
+    def updateRadioBtn(self, value):
+        server_config.data["user"]["show_flights_by"] = value
         server_config.push()
         self.refresh()
