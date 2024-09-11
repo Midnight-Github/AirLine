@@ -1,0 +1,17 @@
+[2024-09-11 17:37:57,730][__main__][INFO]: Welcome to AirLine!
+[2024-09-11 17:37:57,734][reader.Mysql][INFO]: Connecting to database
+[2024-09-11 17:37:57,802][reader.Mysql][INFO]: Connected!
+[2024-09-11 17:37:57,834][__main__][WARNING]: Auto logged Admin: k
+[2024-09-11 17:37:58,096][ui.Manager][INFO]: Initialized Home
+[2024-09-11 17:37:58,100][ui.Manager][INFO]: Showing Home
+[2024-09-11 17:37:59,485][ui.Flights][INFO]: Refreshing Flights!
+[2024-09-11 17:37:59,491][ui.Flights][INFO]: Extracted flights from Flights!
+[2024-09-11 17:37:59,498][ui.Manager][INFO]: Initialized Flights
+[2024-09-11 17:37:59,499][ui.Manager][INFO]: Showing Flights
+[2024-09-11 17:38:30,143][ui.Flights][INFO]: Admin: k inserted flight: {'airline': 'Vistara', 'place_of_departure': 'Jharkhand', 'destination': 'Jharkhand', 'class': 'Economy Class', 'date': '2024-01-01', 'time': '1:00:00', 'price': '8'}
+[2024-09-11 17:38:30,342][ui.Flights][INFO]: Refreshing Flights!
+[2024-09-11 17:38:30,361][ui.Flights][INFO]: Extracted flights from Flights!
+[2024-09-11 17:39:20,204][ui.Flights][INFO]: Admin: k inserted flight: {'airline': 'GoAir', 'place_of_departure': 'Karnataka', 'destination': 'Madhya Pradesh', 'class': 'Economy Class', 'date': '2024-01-01', 'time': '09:00:00', 'price': '7'}
+[2024-09-11 17:39:20,267][ui.Flights][INFO]: Refreshing Flights!
+[2024-09-11 17:39:20,331][ui.Flights][INFO]: Extracted flights from Flights!
+[2024-09-11 17:39:24,677][__main__][INFO]: Program terminated!

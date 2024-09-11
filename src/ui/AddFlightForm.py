@@ -29,24 +29,24 @@ class AddFlightForm(ctk.CTkToplevel):
 
         self.date_frame = ctk.CTkFrame(self.flight_departure_time_frame, fg_color="transparent")
         self.date_frame.grid(row=1, column=0, pady=(0, 5), sticky='w')
-        self.fields["date_day"] = labeledComboBox(self.date_frame, width=55, text="DD", values=[str(i) for i in range(1, 32)], row=0, column=0, padx=5, state="normal")
+        self.fields["date_day"] = labeledComboBox(self.date_frame, width=55, text="DD", values=[self.insert0(i) for i in range(1, 32)], row=0, column=0, padx=5, state="normal")
         self.divider = ctk.CTkLabel(self.date_frame, text='-', padx=5, pady=5)
         self.divider.grid(row=0, column=1, sticky="s")
-        self.fields["date_month"] = labeledComboBox(self.date_frame, width=55, text="MM", values=[str(i) for i in range(1, 13)], row=0, column=2, padx=5, state="normal")
+        self.fields["date_month"] = labeledComboBox(self.date_frame, width=55, text="MM", values=[self.insert0(i) for i in range(1, 13)], row=0, column=2, padx=5, state="normal")
         self.divider = ctk.CTkLabel(self.date_frame, text='-', padx=5, pady=5)
         self.divider.grid(row=0, column=3, sticky="s")
         year = datetime.now().year
-        self.fields["date_year"] = labeledComboBox(self.date_frame, width=70, text="YYYY", values=[str(i) for i in range(year, year + 20)], row=0, column=4, padx=5, state="normal")
+        self.fields["date_year"] = labeledComboBox(self.date_frame, width=70, text="YYYY", values=[self.insert0(i) for i in range(year, year + 20)], row=0, column=4, padx=5, state="normal")
 
         self.time_frame = ctk.CTkFrame(self.flight_departure_time_frame, fg_color="transparent")
         self.time_frame.grid(row=2, column=0, pady=5, sticky='w')
-        self.fields["time_hour"] = labeledComboBox(self.time_frame, width=57, text="hh", values=[str(i) for i in range(0, 24)], row=0, column=0, padx=5, state="normal")
+        self.fields["time_hour"] = labeledComboBox(self.time_frame, width=57, text="hh", values=[self.insert0(i) for i in range(1, 24)], row=0, column=0, padx=5, state="normal")
         self.divider = ctk.CTkLabel(self.time_frame, text=':', padx=5, pady=5)
         self.divider.grid(row=0, column=1, sticky="s")
-        self.fields["time_minute"] = labeledComboBox(self.time_frame, width=57, text="mm", values=[str(i) for i in range(0, 60)], row=0, column=2, padx=5, state="normal")
+        self.fields["time_minute"] = labeledComboBox(self.time_frame, width=57, text="mm", values=[self.insert0(i) for i in range(0, 60)], row=0, column=2, padx=5, state="normal")
         self.divider = ctk.CTkLabel(self.time_frame, text=':', padx=5, pady=5)
         self.divider.grid(row=0, column=3, sticky="s")
-        self.fields["time_second"] = labeledComboBox(self.time_frame, width=57, text="ss", values=[str(i) for i in range(0, 60)], row=0, column=4, padx=5, state="normal")
+        self.fields["time_second"] = labeledComboBox(self.time_frame, width=57, text="ss", values=[self.insert0(i) for i in range(0, 60)], row=0, column=4, padx=5, state="normal")
 
         self.fields["price"] = ctk.CTkEntry(self, width=230, placeholder_text="Price", border_color="grey")
         self.fields["price"].grid(row=5, column=0, padx=30, pady=15, sticky='w')
@@ -57,6 +57,11 @@ class AddFlightForm(ctk.CTkToplevel):
 
         self.submit_btn = ctk.CTkButton(self, text="Submit", command=self.submit)
         self.submit_btn.grid(row=8, column=0, padx=30, pady=15, sticky="e")
+
+    def insert0(self, num):
+        if num >= 10:
+            return str(num)
+        return '0' + str(num)
         
     def submit(self):
         for i in self.fields.values():
@@ -83,6 +88,12 @@ class AddFlightForm(ctk.CTkToplevel):
                 self.fields[i].configure(border_color="red")
                 self.error_text.set("All fields must be filled")
                 return False
+
+        if target["place_of_departure"] == target["destination"]:
+            self.fields["place_of_departure"].configure(border_color="red")
+            self.fields["destination"].configure(border_color="red")
+            self.error_text.set("Place Of Departure and Destination\ncannot be same")
+            return False
             
         try:
             bool(datetime.strptime(target["date"], "%Y-%m-%d"))
@@ -93,7 +104,7 @@ class AddFlightForm(ctk.CTkToplevel):
             self.error_text.set("Invalid date")
             return False
 
-        if re.fullmatch(r"([01]\d|2[0-3]):[0-5]\d:[0-5]\d", target["time"]) is None:
+        if re.fullmatch(r"([01]\d|2[0-3]|[1-9]):[0-5]\d:[0-5]\d", target["time"]) is None:
             self.fields["time_hour"].configure(border_color="red")
             self.fields["time_minute"].configure(border_color="red")
             self.fields["time_second"].configure(border_color="red")

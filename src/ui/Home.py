@@ -36,7 +36,7 @@ class Home(BgFrame):
         self.del_account_btn.grid(row=3, column=0)
 
     def delAccount(self):
-        msg = ctkmsgbox(title="Delete account", message="Are you sure you delete your account!", icon="question", option_1="Yes", option_2="No")
+        msg = ctkmsgbox(title="Delete account", message="Are you sure you want to delete your account!", icon="question", option_1="Yes", option_2="No")
         if msg.get() != "Yes":
             return
         
