@@ -44,7 +44,7 @@ def generateFlight(year_bias, flight_names, flight_classes, states):
     elif year_bias < 0:
         rand_date, rand_time = fake.past_datetime(start_date=f'-{abs(year_bias)}y').strftime('%Y-%m-%d %H:%M:%S').split()
     elif year_bias == 0:
-        rand_date, rand_time = fake.date_time_this_year().strftime('%Y-%m-%d %H:%M:%S').split()
+        rand_date, rand_time = fake.date_time_this_year(before_now=False, after_now=True).strftime('%Y-%m-%d %H:%M:%S').split()
     else:
         raise ValueError("Invalid year_bias!")
 

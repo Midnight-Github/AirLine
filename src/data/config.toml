@@ -8,7 +8,7 @@
 [random_flight_generator]
 available_flights_limit = 100
 expired_flights_limit = 100
-year_bias = 2
+year_bias = 3
 flight_price_lower_limit = 20_000
 flight_price_upper_limit = 8_00_000
 

@@ -1,0 +1,124 @@
+[2024-09-12 22:32:24,337][__main__][INFO]: Welcome to AirLine!
+[2024-09-12 22:32:24,352][reader.Mysql][INFO]: Connecting to database
+[2024-09-12 22:32:24,399][reader.Mysql][WARNING]: Failed!
+[2024-09-12 22:32:24,399][reader.Mysql][INFO]: Creating Database
+[2024-09-12 22:32:24,430][__main__][INFO]: Inserting default flights...
+[2024-09-12 22:32:25,449][__main__][INFO]: Inserted flight: {'name': 'IndiGo', 'pod': 'Haryana', 'dest': 'Himachal Pradesh', 'class': 'First Class', 'date': '2024-08-10', 'time': '12:56:01', 'price': 566438}
+[2024-09-12 22:32:25,465][__main__][INFO]: Inserted flight: {'name': 'Air India', 'pod': 'Himachal Pradesh', 'dest': 'Mizoram', 'class': 'Premium Economy Class', 'date': '2024-03-18', 'time': '14:35:37', 'price': 132846}
+[2024-09-12 22:32:25,465][__main__][INFO]: Inserted flight: {'name': 'Star Air', 'pod': 'Manipur', 'dest': 'Jharkhand', 'class': 'Economy Class', 'date': '2024-03-19', 'time': '06:41:19', 'price': 270346}
+[2024-09-12 22:32:25,481][__main__][INFO]: Inserted flight: {'name': 'Vistara', 'pod': 'Arunachal Pradesh', 'dest': 'Gujarat', 'class': 'Economy Class', 'date': '2024-06-29', 'time': '02:51:42', 'price': 63596}
+[2024-09-12 22:32:25,481][__main__][INFO]: Inserted flight: {'name': 'Air India Express', 'pod': 'Meghalaya', 'dest': 'Sikkim', 'class': 'Premium Economy Class', 'date': '2024-07-29', 'time': '15:46:23', 'price': 616227}
+[2024-09-12 22:32:25,496][__main__][INFO]: Inserted flight: {'name': 'Alliance Air', 'pod': 'Manipur', 'dest': 'Nagaland', 'class': 'First Class', 'date': '2024-04-17', 'time': '21:22:12', 'price': 351632}
+[2024-09-12 22:32:25,512][__main__][INFO]: Inserted flight: {'name': 'Vistara', 'pod': 'Rajasthan', 'dest': 'Punjab', 'class': 'Business Class', 'date': '2024-05-16', 'time': '21:00:16', 'price': 264241}
+[2024-09-12 22:32:25,512][__main__][INFO]: Inserted flight: {'name': 'Akasa Air', 'pod': 'Telangana', 'dest': 'Kerala', 'class': 'Business Class', 'date': '2024-04-17', 'time': '17:09:34', 'price': 614616}
+[2024-09-12 22:32:25,528][__main__][INFO]: Inserted flight: {'name': 'AirAsia India', 'pod': 'Chhattisgarh', 'dest': 'Tripura', 'class': 'First Class', 'date': '2024-06-10', 'time': '17:04:04', 'price': 250399}
+[2024-09-12 22:32:25,544][__main__][INFO]: Inserted flight: {'name': 'Alliance Air', 'pod': 'Telangana', 'dest': 'Chhattisgarh', 'class': 'Economy Class', 'date': '2024-08-29', 'time': '20:43:00', 'price': 496818}
+[2024-09-12 22:32:25,544][__main__][INFO]: Inserted flight: {'name': 'Air India Express', 'pod': 'Uttarakhand', 'dest': 'Karnataka', 'class': 'Business Class', 'date': '2024-02-27', 'time': '13:49:54', 'price': 65092}
+[2024-09-12 22:32:25,559][__main__][INFO]: Inserted flight: {'name': 'SpiceJet', 'pod': 'Arunachal Pradesh', 'dest': 'Karnataka', 'class': 'First Class', 'date': '2024-07-25', 'time': '17:23:44', 'price': 638742}
+[2024-09-12 22:32:25,559][__main__][INFO]: Inserted flight: {'name': 'Air India', 'pod': 'Mizoram', 'dest': 'Jharkhand', 'class': 'Premium Economy Class', 'date': '2024-06-27', 'time': '00:36:25', 'price': 597385}
+[2024-09-12 22:32:25,575][__main__][INFO]: Inserted flight: {'name': 'SpiceJet', 'pod': 'Haryana', 'dest': 'Punjab', 'class': 'Economy Class', 'date': '2024-04-25', 'time': '07:00:28', 'price': 547724}
+[2024-09-12 22:32:25,575][__main__][INFO]: Inserted flight: {'name': 'Akasa Air', 'pod': 'Punjab', 'dest': 'Himachal Pradesh', 'class': 'Premium Economy Class', 'date': '2024-07-11', 'time': '22:27:57', 'price': 717740}
+[2024-09-12 22:32:25,591][__main__][INFO]: Inserted flight: {'name': 'SpiceJet', 'pod': 'Arunachal Pradesh', 'dest': 'Odisha', 'class': 'Premium Economy Class', 'date': '2024-02-18', 'time': '01:50:51', 'price': 214799}
+[2024-09-12 22:32:25,591][__main__][INFO]: Inserted flight: {'name': 'GoAir', 'pod': 'Gujarat', 'dest': 'Nagaland', 'class': 'Economy Class', 'date': '2024-05-05', 'time': '19:15:41', 'price': 190144}
+[2024-09-12 22:32:25,606][__main__][INFO]: Inserted flight: {'name': 'Vistara', 'pod': 'Uttarakhand', 'dest': 'Punjab', 'class': 'Premium Economy Class', 'date': '2024-07-03', 'time': '07:41:35', 'price': 36281}
+[2024-09-12 22:32:25,622][__main__][INFO]: Inserted flight: {'name': 'Air India Express', 'pod': 'Uttarakhand', 'dest': 'Chhattisgarh', 'class': 'Economy Class', 'date': '2024-02-04', 'time': '11:29:03', 'price': 784734}
+[2024-09-12 22:32:25,622][__main__][INFO]: Inserted flight: {'name': 'SpiceJet', 'pod': 'Goa', 'dest': 'West Bengal', 'class': 'Business Class', 'date': '2024-07-03', 'time': '22:54:33', 'price': 316015}
+[2024-09-12 22:32:25,637][__main__][INFO]: Inserted flight: {'name': 'AirAsia India', 'pod': 'Gujarat', 'dest': 'Maharashtra', 'class': 'Business Class', 'date': '2024-02-18', 'time': '10:43:46', 'price': 317816}
+[2024-09-12 22:32:25,637][__main__][INFO]: Inserted flight: {'name': 'Star Air', 'pod': 'Goa', 'dest': 'Assam', 'class': 'Economy Class', 'date': '2024-04-30', 'time': '16:44:38', 'price': 69444}
+[2024-09-12 22:32:25,653][__main__][INFO]: Inserted flight: {'name': 'Alliance Air', 'pod': 'Himachal Pradesh', 'dest': 'Odisha', 'class': 'Economy Class', 'date': '2024-01-03', 'time': '02:24:27', 'price': 682414}
+[2024-09-12 22:32:25,653][__main__][INFO]: Inserted flight: {'name': 'IndiGo', 'pod': 'West Bengal', 'dest': 'Uttarakhand', 'class': 'Premium Economy Class', 'date': '2024-06-09', 'time': '06:31:59', 'price': 383834}
+[2024-09-12 22:32:25,669][__main__][INFO]: Inserted flight: {'name': 'Akasa Air', 'pod': 'Uttarakhand', 'dest': 'Kerala', 'class': 'Economy Class', 'date': '2024-04-13', 'time': '11:25:41', 'price': 437537}
+[2024-09-12 22:32:25,669][__main__][INFO]: Inserted flight: {'name': 'Star Air', 'pod': 'Tamil Nadu', 'dest': 'Sikkim', 'class': 'Premium Economy Class', 'date': '2024-01-23', 'time': '17:22:46', 'price': 170523}
+[2024-09-12 22:32:25,685][__main__][INFO]: Inserted flight: {'name': 'Vistara', 'pod': 'Karnataka', 'dest': 'Tamil Nadu', 'class': 'Business Class', 'date': '2024-07-26', 'time': '13:43:17', 'price': 763122}
+[2024-09-12 22:32:25,685][__main__][INFO]: Inserted flight: {'name': 'Star Air', 'pod': 'Mizoram', 'dest': 'Meghalaya', 'class': 'Economy Class', 'date': '2024-04-20', 'time': '17:35:03', 'price': 741967}
+[2024-09-12 22:32:25,700][__main__][INFO]: Inserted flight: {'name': 'AirAsia India', 'pod': 'Goa', 'dest': 'Karnataka', 'class': 'Premium Economy Class', 'date': '2024-05-24', 'time': '03:59:31', 'price': 348100}
+[2024-09-12 22:32:25,712][__main__][INFO]: Inserted flight: {'name': 'GoAir', 'pod': 'Bihar', 'dest': 'Himachal Pradesh', 'class': 'Business Class', 'date': '2024-02-26', 'time': '03:41:05', 'price': 630278}
+[2024-09-12 22:32:25,717][__main__][INFO]: Inserted flight: {'name': 'SpiceJet', 'pod': 'Punjab', 'dest': 'Uttarakhand', 'class': 'First Class', 'date': '2024-01-22', 'time': '08:41:53', 'price': 295928}
+[2024-09-12 22:32:25,717][__main__][INFO]: Inserted flight: {'name': 'GoAir', 'pod': 'Uttarakhand', 'dest': 'Telangana', 'class': 'First Class', 'date': '2024-07-18', 'time': '07:50:09', 'price': 310576}
+[2024-09-12 22:32:25,732][__main__][INFO]: Inserted flight: {'name': 'SpiceJet', 'pod': 'Manipur', 'dest': 'Odisha', 'class': 'Economy Class', 'date': '2024-04-19', 'time': '08:57:51', 'price': 71982}
+[2024-09-12 22:32:25,732][__main__][INFO]: Inserted flight: {'name': 'SpiceJet', 'pod': 'Chhattisgarh', 'dest': 'Karnataka', 'class': 'Premium Economy Class', 'date': '2024-06-11', 'time': '01:54:27', 'price': 46259}
+[2024-09-12 22:32:25,748][__main__][INFO]: Inserted flight: {'name': 'Alliance Air', 'pod': 'Meghalaya', 'dest': 'Rajasthan', 'class': 'First Class', 'date': '2024-06-29', 'time': '07:50:46', 'price': 387010}
+[2024-09-12 22:32:25,763][__main__][INFO]: Inserted flight: {'name': 'Vistara', 'pod': 'Kerala', 'dest': 'Sikkim', 'class': 'First Class', 'date': '2024-08-26', 'time': '16:55:16', 'price': 544421}
+[2024-09-12 22:32:25,765][__main__][INFO]: Inserted flight: {'name': 'Alliance Air', 'pod': 'Haryana', 'dest': 'Maharashtra', 'class': 'Business Class', 'date': '2024-01-01', 'time': '17:38:46', 'price': 113066}
+[2024-09-12 22:32:25,779][__main__][INFO]: Inserted flight: {'name': 'GoAir', 'pod': 'Goa', 'dest': 'Bihar', 'class': 'Business Class', 'date': '2024-05-23', 'time': '02:08:16', 'price': 693338}
+[2024-09-12 22:32:25,779][__main__][INFO]: Inserted flight: {'name': 'GoAir', 'pod': 'West Bengal', 'dest': 'Manipur', 'class': 'Business Class', 'date': '2024-03-14', 'time': '02:29:24', 'price': 542355}
+[2024-09-12 22:32:25,795][__main__][INFO]: Inserted flight: {'name': 'IndiGo', 'pod': 'Manipur', 'dest': 'Maharashtra', 'class': 'First Class', 'date': '2024-04-21', 'time': '04:16:10', 'price': 70152}
+[2024-09-12 22:32:25,795][__main__][INFO]: Inserted flight: {'name': 'Vistara', 'pod': 'Maharashtra', 'dest': 'Arunachal Pradesh', 'class': 'Economy Class', 'date': '2024-03-27', 'time': '13:16:16', 'price': 452320}
+[2024-09-12 22:32:25,811][__main__][INFO]: Inserted flight: {'name': 'Star Air', 'pod': 'Tripura', 'dest': 'Andhra Pradesh', 'class': 'Business Class', 'date': '2024-08-30', 'time': '07:18:02', 'price': 459491}
+[2024-09-12 22:32:25,811][__main__][INFO]: Inserted flight: {'name': 'SpiceJet', 'pod': 'Punjab', 'dest': 'Tamil Nadu', 'class': 'Premium Economy Class', 'date': '2024-05-22', 'time': '11:44:05', 'price': 714522}
+[2024-09-12 22:32:25,826][__main__][INFO]: Inserted flight: {'name': 'Akasa Air', 'pod': 'Meghalaya', 'dest': 'Punjab', 'class': 'Business Class', 'date': '2024-01-25', 'time': '18:33:50', 'price': 738569}
+[2024-09-12 22:32:25,826][__main__][INFO]: Inserted flight: {'name': 'Air India Express', 'pod': 'Rajasthan', 'dest': 'Assam', 'class': 'Economy Class', 'date': '2024-02-01', 'time': '03:15:28', 'price': 136794}
+[2024-09-12 22:32:25,842][__main__][INFO]: Inserted flight: {'name': 'SpiceJet', 'pod': 'Odisha', 'dest': 'Punjab', 'class': 'First Class', 'date': '2024-01-13', 'time': '10:06:50', 'price': 448938}
+[2024-09-12 22:32:25,842][__main__][INFO]: Inserted flight: {'name': 'Star Air', 'pod': 'Jharkhand', 'dest': 'Andhra Pradesh', 'class': 'Premium Economy Class', 'date': '2024-06-14', 'time': '06:13:02', 'price': 35389}
+[2024-09-12 22:32:25,858][__main__][INFO]: Inserted flight: {'name': 'SpiceJet', 'pod': 'Tamil Nadu', 'dest': 'Punjab', 'class': 'Economy Class', 'date': '2024-02-11', 'time': '11:28:29', 'price': 67224}
+[2024-09-12 22:32:25,858][__main__][INFO]: Inserted flight: {'name': 'Air India Express', 'pod': 'Madhya Pradesh', 'dest': 'Goa', 'class': 'Business Class', 'date': '2024-03-14', 'time': '13:38:17', 'price': 660380}
+[2024-09-12 22:32:25,874][__main__][INFO]: Inserted flight: {'name': 'GoAir', 'pod': 'Haryana', 'dest': 'Madhya Pradesh', 'class': 'First Class', 'date': '2024-04-17', 'time': '20:40:52', 'price': 274077}
+[2024-09-12 22:32:25,874][__main__][INFO]: Inserted flight: {'name': 'Air India Express', 'pod': 'Bihar', 'dest': 'Jharkhand', 'class': 'Business Class', 'date': '2024-06-06', 'time': '12:10:20', 'price': 176767}
+[2024-09-12 22:32:25,889][__main__][INFO]: Inserted flight: {'name': 'Vistara', 'pod': 'Mizoram', 'dest': 'Tripura', 'class': 'Business Class', 'date': '2024-03-25', 'time': '13:12:45', 'price': 668665}
+[2024-09-12 22:32:25,889][__main__][INFO]: Inserted flight: {'name': 'IndiGo', 'pod': 'Chhattisgarh', 'dest': 'Uttar Pradesh', 'class': 'First Class', 'date': '2024-02-21', 'time': '07:22:23', 'price': 754264}
+[2024-09-12 22:32:25,905][__main__][INFO]: Inserted flight: {'name': 'Alliance Air', 'pod': 'Assam', 'dest': 'Uttar Pradesh', 'class': 'Business Class', 'date': '2024-07-23', 'time': '14:15:50', 'price': 799536}
+[2024-09-12 22:32:25,905][__main__][INFO]: Inserted flight: {'name': 'Air India Express', 'pod': 'Assam', 'dest': 'Bihar', 'class': 'Economy Class', 'date': '2024-06-28', 'time': '23:59:43', 'price': 433291}
+[2024-09-12 22:32:25,921][__main__][INFO]: Inserted flight: {'name': 'SpiceJet', 'pod': 'Nagaland', 'dest': 'Uttar Pradesh', 'class': 'Economy Class', 'date': '2024-01-16', 'time': '21:53:40', 'price': 238192}
+[2024-09-12 22:32:25,936][__main__][INFO]: Inserted flight: {'name': 'SpiceJet', 'pod': 'Uttar Pradesh', 'dest': 'Tripura', 'class': 'Business Class', 'date': '2024-01-05', 'time': '03:24:07', 'price': 694300}
+[2024-09-12 22:32:25,936][__main__][INFO]: Inserted flight: {'name': 'Akasa Air', 'pod': 'Uttar Pradesh', 'dest': 'Manipur', 'class': 'Premium Economy Class', 'date': '2024-05-29', 'time': '05:59:15', 'price': 750786}
+[2024-09-12 22:32:25,952][__main__][INFO]: Inserted flight: {'name': 'IndiGo', 'pod': 'Jharkhand', 'dest': 'Madhya Pradesh', 'class': 'Premium Economy Class', 'date': '2024-01-02', 'time': '18:05:25', 'price': 752028}
+[2024-09-12 22:32:25,952][__main__][INFO]: Inserted flight: {'name': 'Akasa Air', 'pod': 'Himachal Pradesh', 'dest': 'Tripura', 'class': 'Premium Economy Class', 'date': '2024-04-10', 'time': '12:15:08', 'price': 488285}
+[2024-09-12 22:32:25,967][__main__][INFO]: Inserted flight: {'name': 'Alliance Air', 'pod': 'Telangana', 'dest': 'Bihar', 'class': 'Economy Class', 'date': '2024-03-19', 'time': '20:02:47', 'price': 488891}
+[2024-09-12 22:32:25,967][__main__][INFO]: Inserted flight: {'name': 'GoAir', 'pod': 'Himachal Pradesh', 'dest': 'Sikkim', 'class': 'Business Class', 'date': '2024-03-03', 'time': '10:43:44', 'price': 408311}
+[2024-09-12 22:32:25,983][__main__][INFO]: Inserted flight: {'name': 'Star Air', 'pod': 'Nagaland', 'dest': 'Mizoram', 'class': 'Economy Class', 'date': '2024-08-12', 'time': '03:28:32', 'price': 620236}
+[2024-09-12 22:32:25,983][__main__][INFO]: Inserted flight: {'name': 'Star Air', 'pod': 'West Bengal', 'dest': 'Manipur', 'class': 'Premium Economy Class', 'date': '2024-08-15', 'time': '00:39:14', 'price': 261405}
+[2024-09-12 22:32:25,999][__main__][INFO]: Inserted flight: {'name': 'IndiGo', 'pod': 'Jharkhand', 'dest': 'Uttar Pradesh', 'class': 'Premium Economy Class', 'date': '2024-05-07', 'time': '07:25:13', 'price': 411192}
+[2024-09-12 22:32:26,006][__main__][INFO]: Inserted flight: {'name': 'Star Air', 'pod': 'Manipur', 'dest': 'Tripura', 'class': 'First Class', 'date': '2024-03-30', 'time': '17:43:29', 'price': 465510}
+[2024-09-12 22:32:26,015][__main__][INFO]: Inserted flight: {'name': 'SpiceJet', 'pod': 'Haryana', 'dest': 'Jharkhand', 'class': 'Business Class', 'date': '2024-02-10', 'time': '20:34:27', 'price': 690147}
+[2024-09-12 22:32:26,015][__main__][INFO]: Inserted flight: {'name': 'SpiceJet', 'pod': 'Punjab', 'dest': 'Assam', 'class': 'First Class', 'date': '2024-07-25', 'time': '06:56:58', 'price': 405983}
+[2024-09-12 22:32:26,030][__main__][INFO]: Inserted flight: {'name': 'GoAir', 'pod': 'Andhra Pradesh', 'dest': 'Uttarakhand', 'class': 'First Class', 'date': '2024-09-02', 'time': '14:05:54', 'price': 629597}
+[2024-09-12 22:32:26,046][__main__][INFO]: Inserted flight: {'name': 'Akasa Air', 'pod': 'Tamil Nadu', 'dest': 'Gujarat', 'class': 'First Class', 'date': '2024-03-27', 'time': '05:09:37', 'price': 557212}
+[2024-09-12 22:32:26,046][__main__][INFO]: Inserted flight: {'name': 'Alliance Air', 'pod': 'Goa', 'dest': 'Telangana', 'class': 'Business Class', 'date': '2024-04-24', 'time': '01:41:35', 'price': 343489}
+[2024-09-12 22:32:26,062][__main__][INFO]: Inserted flight: {'name': 'Akasa Air', 'pod': 'Nagaland', 'dest': 'Karnataka', 'class': 'Economy Class', 'date': '2024-01-16', 'time': '09:07:49', 'price': 206902}
+[2024-09-12 22:32:26,062][__main__][INFO]: Inserted flight: {'name': 'Air India Express', 'pod': 'Goa', 'dest': 'Gujarat', 'class': 'Economy Class', 'date': '2024-02-11', 'time': '02:33:52', 'price': 488914}
+[2024-09-12 22:32:26,077][__main__][INFO]: Inserted flight: {'name': 'Air India Express', 'pod': 'Sikkim', 'dest': 'Odisha', 'class': 'Premium Economy Class', 'date': '2024-02-22', 'time': '09:49:13', 'price': 745099}
+[2024-09-12 22:32:26,093][__main__][INFO]: Inserted flight: {'name': 'Air India Express', 'pod': 'Punjab', 'dest': 'Goa', 'class': 'Economy Class', 'date': '2024-01-08', 'time': '00:03:03', 'price': 161025}
+[2024-09-12 22:32:26,093][__main__][INFO]: Inserted flight: {'name': 'IndiGo', 'pod': 'Bihar', 'dest': 'Goa', 'class': 'Premium Economy Class', 'date': '2024-01-18', 'time': '04:00:48', 'price': 427926}
+[2024-09-12 22:32:26,108][__main__][INFO]: Inserted flight: {'name': 'Air India', 'pod': 'Karnataka', 'dest': 'Andhra Pradesh', 'class': 'First Class', 'date': '2024-04-08', 'time': '04:37:44', 'price': 580018}
+[2024-09-12 22:32:26,108][__main__][INFO]: Inserted flight: {'name': 'IndiGo', 'pod': 'Chhattisgarh', 'dest': 'Jharkhand', 'class': 'Business Class', 'date': '2024-06-21', 'time': '13:55:33', 'price': 661098}
+[2024-09-12 22:32:26,124][__main__][INFO]: Inserted flight: {'name': 'AirAsia India', 'pod': 'Mizoram', 'dest': 'Telangana', 'class': 'Economy Class', 'date': '2024-04-29', 'time': '18:50:33', 'price': 242410}
+[2024-09-12 22:32:26,124][__main__][INFO]: Inserted flight: {'name': 'Air India', 'pod': 'Gujarat', 'dest': 'Rajasthan', 'class': 'First Class', 'date': '2024-01-23', 'time': '10:56:00', 'price': 480780}
+[2024-09-12 22:32:26,140][__main__][INFO]: Inserted flight: {'name': 'Air India', 'pod': 'Tripura', 'dest': 'Gujarat', 'class': 'First Class', 'date': '2024-04-07', 'time': '06:39:03', 'price': 304729}
+[2024-09-12 22:32:26,140][__main__][INFO]: Inserted flight: {'name': 'Star Air', 'pod': 'West Bengal', 'dest': 'Himachal Pradesh', 'class': 'Economy Class', 'date': '2024-01-12', 'time': '14:04:19', 'price': 340034}
+[2024-09-12 22:32:26,155][__main__][INFO]: Inserted flight: {'name': 'SpiceJet', 'pod': 'Karnataka', 'dest': 'Gujarat', 'class': 'First Class', 'date': '2024-06-23', 'time': '03:35:12', 'price': 186709}
+[2024-09-12 22:32:26,155][__main__][INFO]: Inserted flight: {'name': 'Air India', 'pod': 'Tripura', 'dest': 'Haryana', 'class': 'Economy Class', 'date': '2024-01-23', 'time': '23:53:15', 'price': 385937}
+[2024-09-12 22:32:26,171][__main__][INFO]: Inserted flight: {'name': 'IndiGo', 'pod': 'Mizoram', 'dest': 'Jharkhand', 'class': 'Business Class', 'date': '2024-05-27', 'time': '23:41:42', 'price': 577949}
+[2024-09-12 22:32:26,171][__main__][INFO]: Inserted flight: {'name': 'Air India', 'pod': 'Goa', 'dest': 'Haryana', 'class': 'Business Class', 'date': '2024-03-22', 'time': '20:21:42', 'price': 28197}
+[2024-09-12 22:32:26,187][__main__][INFO]: Inserted flight: {'name': 'Air India Express', 'pod': 'Jharkhand', 'dest': 'Himachal Pradesh', 'class': 'Premium Economy Class', 'date': '2024-09-11', 'time': '01:57:14', 'price': 32209}
+[2024-09-12 22:32:26,202][__main__][INFO]: Inserted flight: {'name': 'Air India', 'pod': 'Uttar Pradesh', 'dest': 'Karnataka', 'class': 'Premium Economy Class', 'date': '2024-03-19', 'time': '05:08:11', 'price': 344260}
+[2024-09-12 22:32:26,202][__main__][INFO]: Inserted flight: {'name': 'GoAir', 'pod': 'Punjab', 'dest': 'Sikkim', 'class': 'Premium Economy Class', 'date': '2024-04-12', 'time': '15:01:42', 'price': 664742}
+[2024-09-12 22:32:26,218][__main__][INFO]: Inserted flight: {'name': 'GoAir', 'pod': 'Gujarat', 'dest': 'Tripura', 'class': 'First Class', 'date': '2024-01-21', 'time': '10:18:11', 'price': 265128}
+[2024-09-12 22:32:26,218][__main__][INFO]: Inserted flight: {'name': 'Air India Express', 'pod': 'Odisha', 'dest': 'Chhattisgarh', 'class': 'Economy Class', 'date': '2024-08-14', 'time': '03:33:27', 'price': 681641}
+[2024-09-12 22:32:26,233][__main__][INFO]: Inserted flight: {'name': 'Vistara', 'pod': 'Kerala', 'dest': 'West Bengal', 'class': 'Economy Class', 'date': '2024-05-05', 'time': '17:52:08', 'price': 537630}
+[2024-09-12 22:32:26,233][__main__][INFO]: Inserted flight: {'name': 'GoAir', 'pod': 'Uttar Pradesh', 'dest': 'Kerala', 'class': 'Business Class', 'date': '2024-07-17', 'time': '10:52:36', 'price': 708153}
+[2024-09-12 22:32:26,249][__main__][INFO]: Inserted flight: {'name': 'GoAir', 'pod': 'Punjab', 'dest': 'Karnataka', 'class': 'First Class', 'date': '2024-06-16', 'time': '01:55:29', 'price': 249120}
+[2024-09-12 22:32:26,249][__main__][INFO]: Inserted flight: {'name': 'Akasa Air', 'pod': 'Goa', 'dest': 'Tamil Nadu', 'class': 'Premium Economy Class', 'date': '2024-04-08', 'time': '23:26:09', 'price': 293687}
+[2024-09-12 22:32:26,265][__main__][INFO]: Inserted flight: {'name': 'GoAir', 'pod': 'Meghalaya', 'dest': 'Madhya Pradesh', 'class': 'Premium Economy Class', 'date': '2024-04-21', 'time': '16:25:07', 'price': 474083}
+[2024-09-12 22:32:26,275][__main__][INFO]: Inserted flight: {'name': 'Star Air', 'pod': 'Chhattisgarh', 'dest': 'Karnataka', 'class': 'Business Class', 'date': '2024-09-12', 'time': '17:37:17', 'price': 112477}
+[2024-09-12 22:32:26,281][__main__][INFO]: Inserted flight: {'name': 'Vistara', 'pod': 'Maharashtra', 'dest': 'Jharkhand', 'class': 'Economy Class', 'date': '2024-08-24', 'time': '00:02:58', 'price': 45415}
+[2024-09-12 22:32:26,281][__main__][INFO]: Inserted flight: {'name': 'Air India', 'pod': 'Goa', 'dest': 'West Bengal', 'class': 'Economy Class', 'date': '2024-01-23', 'time': '13:03:48', 'price': 291513}
+[2024-09-12 22:32:26,296][__main__][INFO]: Inserted flight: {'name': 'Alliance Air', 'pod': 'Maharashtra', 'dest': 'Madhya Pradesh', 'class': 'Economy Class', 'date': '2024-08-05', 'time': '22:41:30', 'price': 367633}
+[2024-09-12 22:32:26,296][__main__][WARNING]: Failed to auto log Admin: k in
+[2024-09-12 22:32:26,563][ui.Manager][INFO]: Initialized SignUp
+[2024-09-12 22:32:26,625][ui.Manager][INFO]: Initialized Login
+[2024-09-12 22:32:26,688][ui.Manager][INFO]: Initialized FrontPage
+[2024-09-12 22:32:26,688][ui.Manager][INFO]: Showing FrontPage
+[2024-09-12 22:32:28,151][ui.Manager][INFO]: Showing SignUp
+[2024-09-12 22:32:37,530][ui.SignUp][INFO]: Admin: k signed up
+[2024-09-12 22:32:37,561][ui.Manager][INFO]: Deleted Login
+[2024-09-12 22:32:37,577][ui.Manager][INFO]: Deleted FrontPage
+[2024-09-12 22:32:37,592][ui.Manager][INFO]: Deleted SignUp
+[2024-09-12 22:32:37,608][ui.Manager][INFO]: Initialized Home
+[2024-09-12 22:32:37,624][ui.Manager][INFO]: Showing Home
+[2024-09-12 22:32:39,511][ui.Flights][INFO]: Refreshing Flights!
+[2024-09-12 22:32:39,521][ui.Flights][INFO]: Extracted available flights from flights
+[2024-09-12 22:32:39,527][ui.Manager][INFO]: Initialized Flights
+[2024-09-12 22:32:39,527][ui.Manager][INFO]: Showing Flights
+[2024-09-12 22:32:41,563][ui.Flights][INFO]: Refreshing Flights!
+[2024-09-12 22:32:41,563][ui.Flights][INFO]: Extracted expired flights from Flights!
+[2024-09-12 22:32:55,355][__main__][INFO]: Program terminated!
