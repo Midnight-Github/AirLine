@@ -1,6 +1,7 @@
 import customtkinter as ctk
+import tkinter as tk
 from template.BgFrame import BgFrame
-from var.ConfigManager import appdata
+from var.ConfigManager import server_config
 from var.SqlManager import mysql
 from reader.Logger import Logger
 from var.Globals import get_user_role
@@ -36,6 +37,10 @@ class Login(BgFrame):
         self.back_btn = ctk.CTkButton(self.login_frame, text="Back", command=self.backEvent, width=100)
         self.back_btn.grid(row=3, column=0, padx=(30, 0), pady=15)
 
+        self.error_text = tk.StringVar()
+        self.error_label = ctk.CTkLabel(self.login_frame, textvariable=self.error_text, font=ctk.CTkFont(size=15))
+        self.error_label.grid(row=4, column=0, columnspan=2)
+
     def loginEvent(self):
         self.resetFields()
 
@@ -59,9 +64,9 @@ class Login(BgFrame):
             return
 
         if result[1]:
-            appdata.data["user"]["name"] = input_username
-            appdata.data["user"]["permission"] = result[1][0][2] #pyright: ignore
-            appdata.push()
+            server_config.data["user"]["name"] = input_username
+            server_config.data["user"]["permission"] = result[1][0][2] #pyright: ignore
+            server_config.push()
             logger.info(f"{get_user_role[result[1][0][2]]}: {input_username} logged in") #pyright: ignore
             self.root.deleteFrameAll()
             self.root.showFrame("Home")
@@ -69,6 +74,7 @@ class Login(BgFrame):
 
         self.username_entry.configure(border_color="red")
         self.password_entry.configure(border_color="red")
+        self.error_text.set("Invalid username or password")
         logger.warning(f"{input_username} tried to login but failed")
 
     def backEvent(self):
@@ -78,3 +84,4 @@ class Login(BgFrame):
     def resetFields(self):
         self.username_entry.configure(border_color="gray")
         self.password_entry.configure(border_color="gray")
+        self.error_text.set('')

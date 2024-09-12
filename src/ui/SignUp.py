@@ -1,7 +1,7 @@
 import customtkinter as ctk
 import tkinter as tk
 from template.BgFrame import BgFrame
-from var.ConfigManager import appdata
+from var.ConfigManager import server_config
 from var.SqlManager import mysql
 from reader.Logger import Logger
 from var.Globals import get_user_role
@@ -90,12 +90,12 @@ class SignUp(BgFrame):
 
         if input_username == "None":
             self.username_entry.configure(border_color="red")
-            self.error_text.set(f"Username 'None' is not valid")
+            self.error_text.set("Username 'None' is not valid")
             return
 
         permission = 0
         if self.admin_check_box.get() == 1:
-            if input_admin_password == appdata.data["admin"]["password"]:
+            if input_admin_password == server_config.data["admin"]["password"]:
                 permission = 1
             else:
                 self.error_text.set("Incorrect admin password")
@@ -115,9 +115,9 @@ class SignUp(BgFrame):
             logger.exception(result[1])
             return
 
-        appdata.data["user"]["name"] = input_username
-        appdata.data["user"]["permission"] = permission
-        appdata.push()
+        server_config.data["user"]["name"] = input_username
+        server_config.data["user"]["permission"] = permission
+        server_config.push()
         logger.info(f"{get_user_role[permission]}: {input_username} signed up")
 
         self.root.deleteFrameAll()

@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from var.ConfigManager import appdata
+from var.ConfigManager import server_config
 from reader.Logger import Logger
 from var.SqlManager import mysql
 from ui.AddFlightForm import AddFlightForm
@@ -24,7 +24,7 @@ class Flights(TreeView):
         self.back_btn = ctk.CTkButton(self.btn_frame, text="Back", command=lambda : self.root.showFrame("Home"))
         self.back_btn.grid(row=4, column=0, padx=10)
         
-        if appdata.data["user"]["permission"] > 0:
+        if server_config.data["user"]["permission"] > 0:
             self.adminFeatures()
 
         self.refresh()
@@ -49,7 +49,7 @@ class Flights(TreeView):
         self.expired_flights_rb = ctk.CTkRadioButton(self.btn_frame, text="Expired Flights", radiobutton_height=15, radiobutton_width=15, border_width_checked=5, variable=self.radio_var, command=lambda : self.updateRadioBtn("expired"))
         self.expired_flights_rb.grid(row=8, column=0, padx=10, pady=10, sticky='w')
 
-        match(appdata.data["user"]["show_flights_by"]):
+        match(server_config.data["user"]["show_flights_by"]):
             case "all":
                 self.all_flights_rb.select()
             case "available":
@@ -69,7 +69,6 @@ class Flights(TreeView):
 
         if self.isAddFlightFormAlive():
             self.add_flight_form.destroy() # pyright: ignore
-            self.add_flight_form.update() # pyright: ignore
 
     def deleteFlight(self):
         selected = self.getSelectedRow()
@@ -108,22 +107,22 @@ class Flights(TreeView):
             return
         if not result[1]:
             ctkmsgbox(title="Book flight", message="You cannot book expired flight!", icon="warning")
-            logger.warning(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} tried to book expired flight with id: {flight_id}")
+            logger.warning(f"{get_user_role[server_config.data["user"]["permission"]]}: {server_config.data["user"]["name"]} tried to book expired flight with id: {flight_id}")
             return
 
-        result = mysql.execute(f"INSERT INTO Passengers VALUES('{appdata.data["user"]["name"]}', {flight_id});")
+        result = mysql.execute(f"INSERT INTO Passengers VALUES('{server_config.data["user"]["name"]}', {flight_id});")
         
         if result[0] is False:
             if "Duplicate entry" in str(result[1]):
                 ctkmsgbox(title="Book flight", message="You have already booked this flight")
-                logger.warning(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} tried to rebook flight with id: {flight_id}")
+                logger.warning(f"{get_user_role[server_config.data["user"]["permission"]]}: {server_config.data["user"]["name"]} tried to rebook flight with id: {flight_id}")
                 return
             logger.error("Failed to insert data to Passengers!")
             logger.error(result[1])
             return
         
         ctkmsgbox(title="Book flight", message="Successfully booked flight!",icon="check")
-        logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} booked Flight with id: {flight_id}")
+        logger.info(f"{get_user_role[server_config.data["user"]["permission"]]}: {server_config.data["user"]["name"]} booked Flight with id: {flight_id}")
         self.root.reinitFrame("Cart")
         self.root.showFrame("Flights")
 
@@ -140,7 +139,7 @@ class Flights(TreeView):
     # database functions:
     def getRowsFlights(self):
         date, time = str(datetime.now()).split()
-        match(appdata.data["user"]["show_flights_by"]):
+        match(server_config.data["user"]["show_flights_by"]):
             case "all":
                 rows = self.getAllFlights()
             case "available":
@@ -148,7 +147,7 @@ class Flights(TreeView):
             case "expired":
                 rows = self.getExpiredFlights(date, time)
             case _:
-                logger.error("Incorrect appdata.data[\"User\"][\"show_flights_by\"] value")
+                logger.error("Incorrect server_config.data[\"User\"][\"show_flights_by\"] value")
                 return
 
         return rows
@@ -162,7 +161,7 @@ class Flights(TreeView):
             logger.error(result[1])
             return
 
-        logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} inserted flight: {row}")
+        logger.info(f"{get_user_role[server_config.data["user"]["permission"]]}: {server_config.data["user"]["name"]} inserted flight: {row}")
         ctkmsgbox(title="Add flight", message="Successfully added this flight!", icon="check")
 
     def deleteRowFlights(self, flight_id):
@@ -181,7 +180,7 @@ class Flights(TreeView):
             logger.error(result_flights[1])
             return
 
-        logger.info(f"{get_user_role[appdata.data["user"]["permission"]]}: {appdata.data["user"]["name"]} deleted flight with id {flight_id}")
+        logger.info(f"{get_user_role[server_config.data["user"]["permission"]]}: {server_config.data["user"]["name"]} deleted flight with id {flight_id}")
     
     #Sub database functions:
     def getAvailableFlights(self, date, time):
@@ -221,7 +220,7 @@ class Flights(TreeView):
         return result[1]
 
     # radio button functions:
-    def updateRadioBtn(self, btn):
-        appdata.data["user"]["show_flights_by"] = btn
-        appdata.push()
+    def updateRadioBtn(self, value):
+        server_config.data["user"]["show_flights_by"] = value
+        server_config.push()
         self.refresh()

@@ -6,8 +6,14 @@
 "force_create" = true
 
 [random_flight_generator]
-default_available_flights_limit = 100
-default_expired_flights_limit = 100
+available_flights_limit = 100
+expired_flights_limit = 100
 year_bias = 2
 flight_price_lower_limit = 20_000
 flight_price_upper_limit = 8_00_000
+
+[flight_info]
+flight_names = ['Air India', 'IndiGo', 'SpiceJet', 'GoAir', 'Vistara', 'AirAsia India', 'Alliance Air', 'Akasa Air', 'Star Air', 'Air India Express']
+flight_classes = ['Economy Class', 'Premium Economy Class', 'Business Class', 'First Class']
+states = ['Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal']
+
