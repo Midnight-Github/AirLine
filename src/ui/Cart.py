@@ -5,32 +5,43 @@ from var.SqlManager import mysql
 from var.Globals import get_user_role
 from CTkMessagebox import CTkMessagebox as ctkmsgbox
 from datetime import datetime
-from template.TreeView import TreeView
+from widget.TreeView import TreeView
 
 logger = Logger(__name__).logger
 
-class Cart(TreeView):
+class Cart(ctk.CTkFrame):
     def __init__(self, root):
-        super().__init__(root, columns=('ID', 'Airline', 'Place of Departure', 'Destination', 'Class', 'Date', 'Time', 'Price'), heading="Booked Flights")
+        super().__init__(root)
 
-        self.btn_frame = ctk.CTkFrame(self,fg_color='transparent')
-        self.btn_frame.grid(row=1, column=0, sticky='n')
+        self.root = root
+
+        self.grid_rowconfigure(1, weight=1)
+        self.grid_columnconfigure(1, weight=1)
+
+        self.heading_label = ctk.CTkLabel(self, text="Booked Flights", font=ctk.CTkFont(size=30, weight="bold"))
+        self.heading_label.grid(row=0, column=0, columnspan=2, pady=5)
+
+        self.tree_view = TreeView(self, columns=('ID', 'Airline', 'Place of Departure', 'Destination', 'Class', 'Date', 'Time', 'Price'))
+        self.tree_view.grid(row=1, column=1, sticky="nesw")
+
+        self.btn_frame = ctk.CTkFrame(self)
+        self.btn_frame.grid(row=1, column=0, sticky='n', padx=10)
 
         self.refresh_btn = ctk.CTkButton(self.btn_frame, text="Refresh", command=self.refresh)
-        self.refresh_btn.grid(row=0, column=0, padx=10, pady=(0, 20))
+        self.refresh_btn.grid(row=0, column=0, padx=10, pady=(10, 20))
         self.cancel_flight_btn = ctk.CTkButton(self.btn_frame, text="Cancel Flight", command=self.cancelFlight)
         self.cancel_flight_btn.grid(row=1, column=0, padx=10, pady=(0, 20))
         self.back_btn = ctk.CTkButton(self.btn_frame, text="Back", command=lambda : self.root.showFrame("Home"))
-        self.back_btn.grid(row=2, column=0, padx=10)
+        self.back_btn.grid(row=2, column=0, padx=10, pady=(0, 10))
 
         self.refresh()
     
     def refresh(self):
         logger.info("Refreshing Cart!")
-        self.reloadTable(self.getRowsBookedFlights())
+        self.tree_view.reloadTable(self.getRowsBookedFlights())
 
     def cancelFlight(self):
-        selected = self.getSelectedRow()
+        selected = self.tree_view.getSelectedRow()
         if selected is None:
             ctkmsgbox(title="Cancel flight", message="No flight selected!")
             return
@@ -41,7 +52,7 @@ class Cart(TreeView):
 
         self.deleteRowPassengers(selected[0]) # passing flight id
             
-        self.deleteRow()
+        self.tree_view.deleteRow()
         self.refresh()
 
         ctkmsgbox(title="Cancel flight", message="Successfully canceled this flight", icon="check")

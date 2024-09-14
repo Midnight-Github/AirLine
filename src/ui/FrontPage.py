@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from template.BgFrame import BgFrame
+from widget.BgFrame import BgFrame
 
 class FrontPage(BgFrame):
     def __init__(self, root):
