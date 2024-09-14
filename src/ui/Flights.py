@@ -7,6 +7,7 @@ from var.Globals import get_user_role
 from CTkMessagebox import CTkMessagebox as ctkmsgbox
 from datetime import datetime
 from template.TreeView import TreeView
+from ui.ShowPassengers import ShowPassengers
 
 logger = Logger(__name__).logger
 
@@ -22,7 +23,7 @@ class Flights(TreeView):
         self.book_btn = ctk.CTkButton(self.btn_frame, text="Book Flight", command=self.BookFlight)
         self.book_btn.grid(row=1, column=0, padx=10, pady=(0, 20))    
         self.back_btn = ctk.CTkButton(self.btn_frame, text="Back", command=lambda : self.root.showFrame("Home"))
-        self.back_btn.grid(row=4, column=0, padx=10)
+        self.back_btn.grid(row=6, column=0, padx=10)
         
         if server_config.data["user"]["permission"] > 0:
             self.adminFeatures()
@@ -30,13 +31,17 @@ class Flights(TreeView):
         self.refresh()
 
     def adminFeatures(self):
-        self.add_flight_form = None
+        self.add_flight_form_toplevel = None
+        self.show_passengers_toplevel = None
 
         self.add_btn = ctk.CTkButton(self.btn_frame, text="Add Flight", command=self.launchFlightForm)
         self.add_btn.grid(row=2, column=0, padx=10, pady=(0, 20))
 
         self.delete_btn = ctk.CTkButton(self.btn_frame, text="Delete Flight", command=self.deleteFlight)
         self.delete_btn.grid(row=3, column=0, padx=10, pady=(0, 20))
+        
+        self.show_passengers_btn = ctk.CTkButton(self.btn_frame, text="Show Passengers", command=self.launchShowPassengers)
+        self.show_passengers_btn.grid(row=4, column=0, padx=10, pady=(0, 20))
 
         self.rb_label = ctk.CTkLabel(self.btn_frame, text = "Search By", font=ctk.CTkFont(size=20, weight="bold"))
         self.rb_label.grid(row=5, column=0, pady=(40, 10))
@@ -68,7 +73,7 @@ class Flights(TreeView):
         self.refresh()
 
         if self.isAddFlightFormAlive():
-            self.add_flight_form.destroy() # pyright: ignore
+            self.add_flight_form_toplevel.destroy() # pyright: ignore
 
     def deleteFlight(self):
         selected = self.getSelectedRow()
@@ -89,8 +94,8 @@ class Flights(TreeView):
         self.root.showFrame("Flights")
 
     def BookFlight(self):
-        flight_id = self.getSelectedRow()
-        if flight_id is None:
+        selected = self.getSelectedRow()
+        if selected is None:
             ctkmsgbox(title="Book flight", message="No flight selected!")
             return
 
@@ -98,7 +103,7 @@ class Flights(TreeView):
         if msg.get() != "Yes":
             return
 
-        flight_id = flight_id[0]
+        flight_id = selected[0]
         date, time = str(datetime.now()).split()
         result = mysql.execute(f"SELECT * FROM Flights WHERE Flight_ID = {flight_id} AND (Date > DATE('{date}') OR (Date = DATE('{date}') AND Time >= TIME('{time}')));", buffered=True)
         if result[0] is False:
@@ -128,13 +133,30 @@ class Flights(TreeView):
 
     # add flight form functions:
     def isAddFlightFormAlive(self):
-        return not (self.add_flight_form is None or not self.add_flight_form.winfo_exists())
+        return not (self.add_flight_form_toplevel is None or not self.add_flight_form_toplevel.winfo_exists())
 
     def launchFlightForm(self):
         if not self.isAddFlightFormAlive():
-            self.add_flight_form = AddFlightForm(self.addFlight)
+            self.add_flight_form_toplevel = AddFlightForm(self.addFlight)
         
-        self.add_flight_form.after(100, self.add_flight_form.lift) #pyright: ignore # work around to fix bug: toplevel hiding behind root
+        self.add_flight_form_toplevel.after(100, self.add_flight_form_toplevel.lift) #pyright: ignore # work around to fix bug: toplevel hiding behind root
+        
+    # show passengers functions:
+    def launchShowPassengers(self):
+        selected = self.getSelectedRow()
+        if selected is None:
+            ctkmsgbox(title="Passengers", message="No flights selected")
+            return
+        
+        if self.isShowPassengersAlive():
+            self.show_passengers_toplevel.destroy() # pyright: ignore
+        
+        flight_id = selected[0]
+        self.show_passengers_toplevel = ShowPassengers(flight_id)
+        self.show_passengers_toplevel.after(100, self.show_passengers_toplevel.lift) #pyright: ignore # work around to fix bug: toplevel hiding behind root
+        
+    def isShowPassengersAlive(self):
+        return not (self.show_passengers_toplevel is None or not self.show_passengers_toplevel.winfo_exists())
 
     # database functions:
     def getRowsFlights(self):
