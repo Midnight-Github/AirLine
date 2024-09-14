@@ -3,7 +3,7 @@ from var.ConfigManager import server_config
 from reader.Logger import Logger
 from var.SqlManager import mysql
 from var.Globals import get_user_role
-from template.BgFrame import BgFrame
+from widget.BgFrame import BgFrame
 from CTkMessagebox import CTkMessagebox as ctkmsgbox
 
 logger = Logger(__name__).logger

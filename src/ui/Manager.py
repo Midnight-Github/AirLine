@@ -14,7 +14,7 @@ class Manager(ctk.CTk):
     def __init__(self):
         super().__init__()
 
-        self.geometry("700x500")
+        self.geometry("700x530")
         self.title("Airline")
 
         self.grid_rowconfigure(0, weight=1)
