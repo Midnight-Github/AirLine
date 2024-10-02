@@ -175,6 +175,10 @@ class Flights(ctk.CTkFrame):
     # database functions:
     def getRowsFlights(self):
         date, time = str(datetime.now()).split()
+
+        if server_config.data["user"]["permission"] == 0:
+            return self.getAvailableFlights(date, time)
+            
         match(server_config.data["user"]["show_flights_by"]):
             case "all":
                 rows = self.getAllFlights()
@@ -183,7 +187,7 @@ class Flights(ctk.CTkFrame):
             case "expired":
                 rows = self.getExpiredFlights(date, time)
             case _:
-                logger.error("Incorrect server_config.data[\"User\"][\"show_flights_by\"] value")
+                logger.error(f"Incorrect server_config.data[\"User\"][\"show_flights_by\"] value: {server_config.data["User"]["show_flights_by"]}")
                 return
 
         return rows
